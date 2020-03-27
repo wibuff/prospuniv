@@ -1,0 +1,17 @@
+{
+    "description": "water plus some farming",
+    "productionLines": [
+        { "lineId": "RIG.1", 
+            "queue": [
+                { "recipe": "H2O.1", "count": 5 }
+            ]
+        },
+        { "lineId": "FRM.1", 
+            "queue": [
+                { "recipe": "VEG.1", "count": 1 },
+                { "recipe": "GRN.2", "count": 1 },
+                { "recipe": "BEA.2", "count": 1 }
+            ]
+        }
+    ]
+}

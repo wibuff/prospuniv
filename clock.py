@@ -49,8 +49,16 @@ class Duration(object):
 
     def apply_efficiency(self, efficiency):
         mins = float(self.to_minutes()) / efficiency
-        self.vals[HOURS] = int(mins) // 60
-        self.vals[MINUTES] = int(mins) % 60
+        self.vals[DAYS] = 0
+        self.vals[HOURS] = 0
+        self.vals[MINUTES] = int(mins)
+        self._normalize()
+
+    def apply_multiplier(self, multiplier):
+        mins = self.to_minutes() * multiplier
+        self.vals[DAYS] = 0
+        self.vals[HOURS] = 0
+        self.vals[MINUTES] = int(mins)
         self._normalize()
 
 class IncrClock(object):

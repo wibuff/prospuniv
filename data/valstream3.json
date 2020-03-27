@@ -1,0 +1,6 @@
+{
+    "description": "just water",
+    "productionLines": [
+        { "lineId": "RIG.1", "queue": [{ "recipe": "H2O.1", "count": 5}]}
+    ]
+}
