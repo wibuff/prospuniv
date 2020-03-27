@@ -1,0 +1,8 @@
+{
+  "H2O.1": { "output": "H2O", "count": 8, "time": "5:17:00", "building": "RIG", 
+	  "inputs": [] },
+  "DW.1": { "output": "DW", "count": 7, "time": "2:24:00", "buildingType": "FP", 
+	  "inputs": [{ "id": "H2O", "count": 10}] },
+  "DW.2": { "output": "DW", "count": 10, "time": "2:24:00", "buildingType": "FP", 
+	  "inputs": [{ "id": "H2O", "count": 10}, { "id": "PG", "count": 1 }] }
+}

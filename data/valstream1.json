@@ -1,0 +1,6 @@
+{
+    "description": "just water",
+    "productionLines": [
+        { "lineId": "RIG.1", "queue": ["H2O.1"] }
+    ]
+}
