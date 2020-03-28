@@ -12,35 +12,51 @@ class ProductionLine(object):
 
     def __init__(self, line_id, queue, inventory):
         self.line_id = line_id
-        self.line_spec = ProductionLines[line_id]
-        self.queue = []
-        for item in queue:
-            if item['recipe'] not in Recipes: 
-                raise Exception('recipe {} not found'.format(item['recipe']))
-            queuedRecipe = {
-                'id': item['recipe'],
-                'count': item['count'],
-                'recipe': Recipes[item['recipe']]
-            }
-            self.queue.append(queuedRecipe)
+        self.linetype = ProductionLines[line_id]
+        self.efficiency = self._calc_efficiency()
+        self.queue = self._init_production_queue(queue)
         self.inventory = inventory
         
         self.producing = False
         self.recipe_clock = DecrClock(Duration("0"))
         self._start_next_recipe()
 
-        print('  line initialized: {}'.format(self))
+        print('  line {} initialized: {}'.format(line_id, self))
  
 
     def __str__(self):
-        return json.dumps({ 'lineId': self.line_id, 'recipeClock': str(self.recipe_clock), 'lineSpec': self.line_spec, 'queue': self.queue })
+        return json.dumps({ 
+            'lineId': self.line_id, 
+            'efficiency': self.efficiency,
+            'producing': self.producing,
+            'recipeClock': str(self.recipe_clock), 
+            'linetype': self.linetype, 
+            'queue': self.queue 
+            })
 
-    def _set_recipe_clock(self, active, efficiency):
+    def _calc_efficiency(self):
+        return self.linetype['worksat'] * self.linetype['condition'] +\
+            self.linetype['experts'] + self.linetype['soil'] + self.linetype['cogc']
+
+    def _init_production_queue(self, queue):
+        prodqueue = []
+        for item in queue:
+            if item['recipe'] not in Recipes: 
+                raise Exception('recipe {} not found'.format(item['recipe']))
+            production = {
+                'id': item['recipe'],
+                'count': item['count'],
+                'recipe': Recipes[item['recipe']]
+            }
+            prodqueue.append(production)
+        return prodqueue
+
+    def _set_recipe_clock(self, active):
         recipe = active['recipe']
         count = active['count']
         duration = Duration(recipe['time'])
         duration.apply_multiplier(count)
-        duration.apply_efficiency(efficiency)
+        duration.apply_efficiency(self.efficiency)
         return DecrClock(duration)
 
     def _produce(self, master_clock):
@@ -101,7 +117,7 @@ class ProductionLine(object):
             # TODO capture cost of goods and production fees (10.00 ICA per 24 baseline production hours)
             self.producing = True
             self._consume_inputs(recipe['inputs'], active['count'])
-            self.recipe_clock = self._set_recipe_clock(active, self.line_spec['efficiency'])
+            self.recipe_clock = self._set_recipe_clock(active)
 
     def step(self, master_clock):
         self.recipe_clock.step()
@@ -120,5 +136,5 @@ class ProductionLine(object):
             self._produce(master_clock)
             self._set_next_recipe_active()
             self._start_next_recipe()
-            # self.output_prod_status(master_clock)
+            self.output_prod_status(master_clock)
        

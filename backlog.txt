@@ -2,6 +2,7 @@
 - Production line utilization metrics (cycles producing / total cycles)
 - Tracking of expense and income for production lines - ledger?
 - Calculation and addition of manufacturing fees
+- Add run specific logging instead of using stdout and routing to file
 - Daily Reporting - resource consumption/production
 - Autogenerate value streams based on inputs/outputs
 - Acquire resources from the market

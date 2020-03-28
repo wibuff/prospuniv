@@ -3,6 +3,7 @@
 """
 import sys
 import json
+from datetime import datetime
 from inventory import Inventory
 from clock import Duration
 from valuestream import ValueStream
@@ -18,10 +19,12 @@ def main(argv):
     """ runtime entrypoint """
     try:
         args = extract_args(argv)
-        print("  valstream-file: {}".format(args[0]))
-        print("  inventory-init-file: {}".format(args[1]))
-        print("  market-file: {}".format(args[2]))
-        print("  run-time: {}".format(args[3]))
+        timestamp = datetime.now()
+        print('model value stream started {}'.format(timestamp))
+        print('  valstream-file: {}'.format(args[0]))
+        print('  inventory-init-file: {}'.format(args[1]))
+        print('  market-file: {}'.format(args[2]))
+        print('  run-time: {}'.format(args[3]))
 
         valstream = load_datafile(args[0])
         inventory = Inventory(load_datafile(args[1]))

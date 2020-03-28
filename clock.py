@@ -19,30 +19,35 @@ class Duration(object):
         self._normalize()
 
     def __str__(self):
-        return '{:02d} {:02d}:{:02d}:{:02d}'.format(self.vals[DAYS], self.vals[HOURS], self.vals[MINUTES], self.vals[SECONDS])
+        return '{:02d}:{:02d}:{:02d}:{:02d}'.format(self.vals[DAYS], self.vals[HOURS], self.vals[MINUTES], self.vals[SECONDS])
 
     def __repl__(self):
-        return '{:02d} {:02d}:{:02d}:{:02d}'.format(self.vals[DAYS], self.vals[HOURS], self.vals[MINUTES], self.vals[SECONDS])
+        return '{:02d}:{:02d}:{:02d}:{:02d}'.format(self.vals[DAYS], self.vals[HOURS], self.vals[MINUTES], self.vals[SECONDS])
 
     def _normalize(self):
         while len(self.vals) < 4:
             self.vals.insert(0,0)
+        
+        # move excess (>=60) seconds to minutes, round remainder to nearest min
         if self.vals[SECONDS] >= 60:
             mins = self.vals[SECONDS] // 60
             secs = self.vals[SECONDS] % 60
+            if secs >= 30:
+                mins = mins + 1
             self.vals[MINUTES] = self.vals[MINUTES] + mins
-            self.vals[SECONDS] = secs
+            self.vals[SECONDS] = 0
+        # move excess (>=60) minutes to hours
         if self.vals[MINUTES] >= 60:
             hrs = self.vals[MINUTES] // 60
             mins = self.vals[MINUTES] % 60
             self.vals[HOURS] = self.vals[HOURS] + hrs
             self.vals[MINUTES] = mins
+        # move excess (>=24) hours to days
         if self.vals[HOURS] >= 24:
             days = self.vals[HOURS] // 24
             hrs = self.vals[HOURS] % 24
             self.vals[DAYS] = self.vals[DAYS] + days
             self.vals[HOURS] = hrs
-        self.vals[SECONDS] = 0
 
     def to_minutes(self):
         return self.vals[DAYS] * 24 * 60 + self.vals[HOURS] * 60 + self.vals[MINUTES]
@@ -71,10 +76,10 @@ class IncrClock(object):
         self.duration = duration
 
     def __str__(self):
-        return '{:02d} {:02d}:{:02d}:{:02d}'.format(self.vals[DAYS], self.vals[HOURS], self.vals[MINUTES], self.vals[SECONDS])
+        return '{:02d}:{:02d}:{:02d}:{:02d}'.format(self.vals[DAYS], self.vals[HOURS], self.vals[MINUTES], self.vals[SECONDS])
 
     def __repl__(self):
-        return '{:02d} {:02d}:{:02d}:{:02d}'.format(self.vals[DAYS], self.vals[HOURS], self.vals[MINUTES], self.vals[SECONDS])
+        return '{:02d}:{:02d}:{:02d}:{:02d}'.format(self.vals[DAYS], self.vals[HOURS], self.vals[MINUTES], self.vals[SECONDS])
 
     def to_minutes(self):
         return self.vals[DAYS] * 24 * 60 + self.vals[HOURS] * 60 + self.vals[MINUTES]
@@ -101,10 +106,10 @@ class DecrClock(object):
         self.duration = duration
 
     def __str__(self):
-        return '{:02d} {:02d}:{:02d}:{:02d}'.format(self.vals[DAYS], self.vals[HOURS], self.vals[MINUTES], self.vals[SECONDS])
+        return '{:02d}:{:02d}:{:02d}:{:02d}'.format(self.vals[DAYS], self.vals[HOURS], self.vals[MINUTES], self.vals[SECONDS])
 
     def __repl__(self):
-        return '{:02d} {:02d}:{:02d}:{:02d}'.format(self.vals[DAYS], self.vals[HOURS], self.vals[MINUTES], self.vals[SECONDS])
+        return '{:02d}:{:02d}:{:02d}:{:02d}'.format(self.vals[DAYS], self.vals[HOURS], self.vals[MINUTES], self.vals[SECONDS])
 
     def to_minutes(self):
         return self.vals[DAYS] * 24 * 60 + self.vals[HOURS] * 60 + self.vals[MINUTES]

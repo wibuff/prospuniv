@@ -3,6 +3,7 @@
 
 import sys
 import json
+from datetime import datetime
 from clock import IncrClock, Duration
 from configuration import Buildings, ProductionLines, Workers, Recipes
 from productionline import ProductionLine
@@ -10,8 +11,10 @@ from productionline import ProductionLine
 class ValueStream(object):
     """ ValueStream class
     """
-
     def __init__(self, streamconfig, inventory, market, duration):
+        self.stream_id = '{:%Y%m%d.%H%M%S.%f}'.format(datetime.now())
+        print("")
+        print('value stream {} initializing'.format(self.stream_id))
         self.inventory = inventory
         self.market = market
         self.duration = duration
@@ -39,6 +42,9 @@ class ValueStream(object):
 
     def run(self):
         start_inv = json.loads(str(self.inventory))
+
+        print("")
+        print('value stream {} started'.format(self.stream_id))
         print('{}: running value stream "{}"'.format(self.clock, self.streamconfig['description']))
         print('{}: starting inventory {}'.format(self.clock, self.inventory))
 
@@ -58,7 +64,7 @@ class ValueStream(object):
         
     def summarize_run(self, start_inv, end_inv):
         print("")
-        print("*** RUN SUMMARY ***")
+        print("*** RUN SUMMARY {} ***".format(self.stream_id))
         print("")
         print("Inventories:")
         output = self.calc_output(start_inv, end_inv)

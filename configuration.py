@@ -13,8 +13,3 @@ Buildings = load_datafile('buildings.json')
 ProductionLines = load_datafile('prodlines.json')
 Recipes = load_datafile('recipes.json')
 Workers = load_datafile('workers.json')
-
-for key in ProductionLines:
-    prodline = ProductionLines[key]
-    prodline['efficiency'] = prodline['worksat'] * prodline['condition'] +\
-        prodline['experts'] + prodline['soil'] + prodline['cogc']
