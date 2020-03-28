@@ -6,10 +6,16 @@
 	  "inputs": [
       { "id": "H2O", "count": 10}
     ]},
-  "DW.2": { "output": "DW", "count": 10, "time": "2:24:00", "buildingType": "FP", 
+  "DW.2": { "output": "DW", "count": 10, "time": "4:48:00", "buildingType": "FP", 
 	  "inputs": [
       { "id": "H2O", "count": 10}, 
       { "id": "PG", "count": 1 }
+    ]},
+  "RAT.1": { "output": "RAT", "count": 10, "time": "6:00:00", "buildingType": "FP", 
+	  "inputs": [
+      { "id": "VEG", "count": 1 },
+      { "id": "GRN", "count": 1 },
+      { "id": "BEA", "count": 1 }
     ]},
   "VEG.1": { "output": "VEG", "count": 4, "time": "10:48:00", "buildingType": "FRM", 
 	  "inputs": [

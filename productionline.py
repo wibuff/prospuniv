@@ -24,7 +24,11 @@ class ProductionLine(object):
             }
             self.queue.append(queuedRecipe)
         self.inventory = inventory
-        self.recipe_clock = self._set_recipe_clock(self.queue[0], self.line_spec['efficiency'])
+        
+        self.producing = False
+        self.recipe_clock = DecrClock(Duration("0"))
+        self._start_next_recipe()
+
         print('  line initialized: {}'.format(self))
  
 
@@ -44,8 +48,12 @@ class ProductionLine(object):
         recipe = active['recipe']
         product = recipe['output']
         count = active['count'] * recipe['count']
-        print('{}: {} produced {} {}'.format(master_clock, self.line_id, count, product))
+
+        # TODO capture value of produced goods
         self.inventory.add(product, count)
+        self.producing = False
+
+        print('{}: {} produced {} {}'.format(master_clock, self.line_id, count, product))
         print('{}: inventory updated {}'.format(master_clock, self.inventory))
     
     def output_prod_status(self, master_clock):
@@ -54,20 +62,62 @@ class ProductionLine(object):
         recipe = active['recipe']
         outputcount = recipe['count']
         product = recipe['output']
-        print('{}: {} producing {}x{} {} in {}'.format(master_clock, self.line_id, runcount, outputcount, product, self.recipe_clock))
+        if self.producing: 
+            print('{}: {} producing {}x{} {} in {}'.format(master_clock, self.line_id, runcount, outputcount, product, self.recipe_clock))
+        else:
+            print('{}: {} !! WARNING !! {} production starved'.format(master_clock, self.line_id, product) )
     
-    def _next_recipe(self, master_clock):
+    def _set_next_recipe_active(self):
         last = self.queue.pop(0)
         self.queue.append(last)
-        self.recipe_clock = self._set_recipe_clock(self.queue[0], self.line_spec['efficiency'])
-        self.output_prod_status(master_clock)
+
+    def _inputs_available(self, recipe, inputs, num_runs):
+        available = True
+        missing = {}
+        for input in inputs: 
+            id = input['id']
+            count = input['count'] * num_runs
+            available = self.inventory.count(id)
+            if available - count < 0:
+                needed = count - available
+                missing[id] = needed
+                available = False
+        if not available:
+            #print('{} production missing {}'.format(recipe, missing))
+            pass
+        return available
+
+    def _consume_inputs(self, inputs, num_runs):
+        for input in inputs: 
+            id = input['id']
+            count = input['count'] * num_runs
+            if not self.inventory.remove(id, count):
+                raise Exception('removing {} {} from inventory failed'.format(count, id))
+
+    def _start_next_recipe(self):
+        active = self.queue[0]
+        recipe = active['recipe']
+        if self._inputs_available(recipe['output'], recipe['inputs'], active['count']):
+            # TODO capture cost of goods and production fees (10.00 ICA per 24 baseline production hours)
+            self.producing = True
+            self._consume_inputs(recipe['inputs'], active['count'])
+            self.recipe_clock = self._set_recipe_clock(active, self.line_spec['efficiency'])
 
     def step(self, master_clock):
         self.recipe_clock.step()
-        if self.recipe_clock.to_minutes() > 0:
+        if not self.producing:
+            # not currently producing, attempt to start next item in queue
+            self._start_next_recipe()
+            if self.producing:
+                self.output_prod_status(master_clock)
+        elif self.recipe_clock.to_minutes() > 0:
+            # producing, time remaining 
             # self.output_prod_status(master_clock)
             pass
         else: 
+            # production done, produce output and attempt to start next item in queue
             self._produce(master_clock)
-            self._next_recipe(master_clock)
-        
+            self._set_next_recipe_active()
+            self._start_next_recipe()
+            self.output_prod_status(master_clock)
+       

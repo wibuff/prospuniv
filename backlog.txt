@@ -1,0 +1,5 @@
+- Production line efficiency driven by worker satisfaction
+- Tracking of expense and income for production lines - ledger?
+- Calculation and addition of manufacturing fees
+- Autogenerate value streams based on inputs/outputs
+- Acquire resources from the market

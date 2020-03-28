@@ -1,5 +1,5 @@
 {
-    "description": "water plus some farming",
+    "description": "current live value stream",
     "productionLines": [
         { "lineId": "RIG.1", 
             "queue": [
@@ -11,6 +11,12 @@
                 { "recipe": "VEG.1", "count": 1 },
                 { "recipe": "GRN.2", "count": 1 },
                 { "recipe": "BEA.2", "count": 1 }
+            ]
+        },
+        { "lineId": "FP.1", 
+            "queue": [
+                { "recipe": "RAT.1", "count": 4 },
+                { "recipe": "DW.1", "count": 2 }
             ]
         }
     ]
