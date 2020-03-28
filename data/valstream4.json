@@ -1,0 +1,35 @@
+{
+    "description": "current live value stream, longer FRM options",
+    "productionLines": [
+        { "lineId": "RIG.1", 
+            "queue": [
+                { "recipe": "H2O.1", "count": 5 }
+            ]
+        },
+        { "lineId": "RIG.2", 
+            "queue": [
+                { "recipe": "H2O.1", "count": 5 }
+            ]
+        },
+        { "lineId": "FRM.1", 
+            "queue": [
+                { "recipe": "VEG.1", "count": 1 }
+            ]
+        },
+        { "lineId": "FRM.2", 
+            "queue": [
+                { "recipe": "BEA.2", "count": 1 }
+            ]
+        },
+        { "lineId": "FRM.3", 
+            "queue": [
+                { "recipe": "GRN.2", "count": 1 }
+            ]
+        },
+        { "lineId": "FP.1", 
+            "queue": [
+                { "recipe": "RAT.1", "count": 4 }
+            ]
+        }
+    ]
+}

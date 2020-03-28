@@ -53,8 +53,8 @@ class ProductionLine(object):
         self.inventory.add(product, count)
         self.producing = False
 
-        print('{}: {} produced {} {}'.format(master_clock, self.line_id, count, product))
-        print('{}: inventory updated {}'.format(master_clock, self.inventory))
+        # print('{}: {} produced {} {}'.format(master_clock, self.line_id, count, product))
+        # print('{}: inventory updated {}'.format(master_clock, self.inventory))
     
     def output_prod_status(self, master_clock):
         active = self.queue[0]
@@ -109,7 +109,8 @@ class ProductionLine(object):
             # not currently producing, attempt to start next item in queue
             self._start_next_recipe()
             if self.producing:
-                self.output_prod_status(master_clock)
+                # self.output_prod_status(master_clock)
+                pass
         elif self.recipe_clock.to_minutes() > 0:
             # producing, time remaining 
             # self.output_prod_status(master_clock)
@@ -119,5 +120,5 @@ class ProductionLine(object):
             self._produce(master_clock)
             self._set_next_recipe_active()
             self._start_next_recipe()
-            self.output_prod_status(master_clock)
+            # self.output_prod_status(master_clock)
        
