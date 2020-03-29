@@ -5,6 +5,7 @@ import sys
 import json
 from datetime import datetime
 from inventory import Inventory
+from market import Market
 from clock import Duration
 from valuestream import ValueStream
 from configuration import load_datafile
@@ -28,7 +29,7 @@ def main(argv):
 
         valstream = load_datafile(args[0])
         inventory = Inventory(load_datafile(args[1]))
-        market = load_datafile(args[2])
+        market = Market(load_datafile(args[2]))
         duration = Duration(args[3])
         valuestream = ValueStream(valstream, inventory, market, duration)
         valuestream.run()

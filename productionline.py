@@ -11,12 +11,12 @@ class ProductionLine(object):
     """ ProductionLine class
     """
 
-    def __init__(self, stream_id, line_id, queue, inventory, master_clock):
+    def __init__(self, stream_id, line_id, queue, inventory, market, master_clock):
         self.line_id = line_id
         self.linetype = ProductionLines[line_id]
         self.efficiency = self._calc_efficiency()
         self.queue = self._init_production_queue(queue)
-        self.ledger = Ledger(stream_id, line_id)
+        self.ledger = Ledger(stream_id, line_id, market)
         self.inventory = inventory
         
         self.producing = False

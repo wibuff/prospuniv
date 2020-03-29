@@ -17,9 +17,10 @@ class Ledger(object):
     ACTIVE = 1
     INACTIVE = 0
 
-    def __init__(self, stream_id, line_id):
+    def __init__(self, stream_id, line_id, market):
         self.stream_id = stream_id
         self.line_id = line_id
+        self.market = market
         self.entries = []
 
     def __str__(self):

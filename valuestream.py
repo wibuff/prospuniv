@@ -7,6 +7,7 @@ from datetime import datetime
 from clock import IncrClock, Duration
 from configuration import Buildings, ProductionLines, Workers, Recipes
 from productionline import ProductionLine
+from market import Price
 from ledger import Ledger
 
 class ValueStream(object):
@@ -26,7 +27,7 @@ class ValueStream(object):
         lines = []
         for line in streamconfig['productionLines']:
             print('{} configuring production line {}'.format(self.clock, line['lineId']))
-            pline = ProductionLine(self.stream_id, line['lineId'], line['queue'], self.inventory, self.clock)
+            pline = ProductionLine(self.stream_id, line['lineId'], line['queue'], self.inventory, self.market, self.clock)
             lines.append(pline)
         return lines
 
@@ -63,19 +64,19 @@ class ValueStream(object):
         print("")
         print("Market Values:")
         mkt_values = self.calc_mkt_values(output)
-        fmt = '{label:>5s}\t{prices[last]:>10.2f}\t{prices[ask]:>10.2f}\t{prices[bid]:>10.2f}\t{prices[avg]:>10.2f}'
         sfmt = '{label:<5s}\t{prices[last]:>10s}\t{prices[ask]:>10s}\t{prices[bid]:>10s}\t{prices[avg]:>10s}'
+        fmt = '{label:>5s}\t{price.last:>10.2f}\t{price.ask:>10.2f}\t{price.bid:>10.2f}\t{price.avg:>10.2f}'
         print(sfmt.format(label='Item', prices={ 'last': 'Last', 'ask': 'Ask', 'bid': 'Bid', 'avg': 'Avg'}))
-        print(fmt.format(label='Total', prices=mkt_values['totals']))
+        print(fmt.format(label='Total', price=mkt_values['totals']))
         for key in mkt_values['subtotals']: 
             label = key
             if len(label) < 3: 
                 label = label + " "
-            print(fmt.format(label=label, prices=mkt_values['subtotals'][key]))
+            print(fmt.format(label=label, price=mkt_values['subtotals'][key]))
 
         print("")
         print("Product Line Summaries:")
-        stream_ledger = Ledger(self.stream_id, "RUN.TOTALS")
+        stream_ledger = Ledger(self.stream_id, "RUN.TOTALS", self.market)
         for line in lines:
             stream_ledger.add_ledger(line.ledger)
             line.ledger.output_summary()
@@ -94,26 +95,14 @@ class ValueStream(object):
         return net
 
     def calc_mkt_values(self, net_prod):
-        totals = { 'last': 0.0, 'ask': 0.0, 'bid': 0.0, 'avg': 0.0 }
+        total = Price([0.0,0.0,0.0,0.0])
         subtotals = {}
-        for key in net_prod: 
-            if key not in self.market['prices']: 
-                raise Exception('missing market value for {}'.format(key))
-
-            prod = net_prod[key]            
-            if prod > 0:
-                prices = self.market['prices'][key]
-
-                subtotals[key] = {}
-                subtotals[key]['last'] = prod * prices[0]
-                subtotals[key]['ask'] = prod * prices[1]
-                subtotals[key]['bid'] = prod * prices[2]
-                subtotals[key]['avg'] = prod * prices[3]
-
-                totals['last'] = totals['last'] + prod * prices[0]
-                totals['ask'] = totals['ask'] + prod * prices[1]
-                totals['bid'] = totals['bid'] + prod * prices[2]
-                totals['avg'] = totals['avg'] + prod * prices[3]
-
-        return { "totals": totals, "subtotals": subtotals }
+        for product in net_prod: 
+            num_produced = net_prod[product]            
+            if num_produced > 0:
+                price = self.market.price(product)
+                subtotal = price.multiply(num_produced)
+                subtotals[product] = subtotal
+                total = total.add(subtotal)
+        return { "totals": total, "subtotals": subtotals }
    
