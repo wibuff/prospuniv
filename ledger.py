@@ -4,6 +4,7 @@
 import sys
 import json
 from market import Price
+from reportgen import Report
 
 class Ledger(object):
     """ Ledger Class
@@ -40,52 +41,23 @@ class Ledger(object):
     def add_ledger(self, ledger):
         self.entries.extend(ledger.entries)
     
-    ## Table formating strings ## 
-    HEADFMT = '\u2551 {:<5} {:>8} {:>12s} {:>12s} {:>12s} {:>12s} \u2551'
-    HEAD = HEADFMT.format('Item', 'Count', 'Last', 'Ask', 'Bid', 'Avg')
-    HEADBREAK = u'\u2554' + u'\u2550' * (len(HEAD) - 2) + u'\u2557'
-    MAJBREAK = u'\u2560' + u'\u2550' * (len(HEAD) - 2) + u'\u2563'
-    MINBREAK = u'\u255F' + u'\u2500' * (len(HEAD) - 2) + u'\u2562'
-    FOOTBREAK = u'\u255A' + u'\u2550' * (len(HEAD) - 2) + u'\u255D'
-    GENFMT = '\u2551 {{:<{}s}} \u2551'.format(str(len(HEAD) - 4))
-    BODYFMT = '\u2551   {product:<3} {count:>8} {price.last:>12.2f} {price.ask:>12.2f} {price.bid:>12.2f} {price.avg:>12.2f} \u2551'
-    TOTFMT = '\u2551 {product:<5} {count:>8} {price.last:>12.2f} {price.ask:>12.2f} {price.bid:>12.2f} {price.avg:>12.2f} \u2551'
-
-    def _output_table(self, summary, name): 
-        total_count = 0
-        total_prices = Price([0.0,0.0,0.0,0.0])
-        header = "{}:".format(name)
-
-        print(self.GENFMT.format(header))
-        print(self.MAJBREAK)
-        print(self.HEAD)
-        for key in summary.keys():
-            total_count = total_count + summary[key]['count']
-            total_prices = total_prices.add(summary[key]['value'])
-            print(self.BODYFMT.format(
-                product=key, 
-                count = summary[key]['count'], 
-                price = summary[key]['value']))
-        print(self.MINBREAK)
-        print(self.TOTFMT.format(product='TOTAL', count = total_count, price = total_prices))
-
-    def output_summary(self, output_net=True):
+    def output_summary(self):
         summary = self.summarize_ledger()
 
         line = "{}.{}".format(self.stream_id, self.line_id)
         uptime = 'Uptime: {active_cycles}/{total_cycles} cycles ({uptime_percent:.2%})'.format(**summary)
 
-        print(self.HEADBREAK)
-        print(self.GENFMT.format(line));
-        print(self.GENFMT.format(uptime))
-        print(self.MAJBREAK)
-        self._output_table(summary['consumption'], "Consumed Materials")
-        print(self.MAJBREAK)
-        self._output_table(summary['production'], "Produced Materials")
-        if output_net:
-            print(self.MAJBREAK)
-            self._output_table(summary['net_production'], "Net Materials")
-        print(self.FOOTBREAK)
+        report = Report()
+        report.start()
+        report.output_general(line)
+        report.output_general(uptime)
+        report.major_break() 
+        report.output_value_table(summary['consumption'], "Consumed Materials")
+        report.major_break() 
+        report.output_value_table(summary['production'], "Produced Materials")
+        report.major_break() 
+        report.output_value_table(summary['net_production'], "Net Materials")
+        report.end()
 
         """
         print("")

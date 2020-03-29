@@ -6,6 +6,7 @@ import json
 from datetime import datetime
 from clock import IncrClock, Duration
 from configuration import Buildings, ProductionLines, Workers, Recipes
+from inventory import Inventory
 from productionline import ProductionLine
 from market import Price
 from ledger import Ledger
@@ -32,7 +33,8 @@ class ValueStream(object):
         return lines
 
     def run(self):
-        start_inv = json.loads(str(self.inventory))
+        #start_inv = self.inventory.copy()
+        start_inv = Inventory(json.loads(str(self.inventory)))
         lines = self._init_lines(self.streamconfig)
 
         print("")
@@ -48,43 +50,31 @@ class ValueStream(object):
 
         print('{} ending inventory {}'.format(self.clock, self.inventory))
 
-        end_inv = json.loads(str(self.inventory))
+        #end_inv = self.inventory.copy()
+        end_inv = Inventory(json.loads(str(self.inventory)))
         self.summarize_run(lines, start_inv, end_inv)
         
     def summarize_run(self, lines, start_inv, end_inv):
-        print("")
-        print("*** RUN SUMMARY {} ***".format(self.stream_id))
-        print("")
-        print("Inventories:")
-        output = self.calc_output(start_inv, end_inv)
-        print('starting inventory {}'.format(start_inv))
-        print('ending inventory   {}'.format(end_inv))
-        print('total output       {}'.format(json.dumps(output)))
-
-        print("")
-        print("Inventory-based Output Value Calculation:")
-        mkt_values = self.calc_mkt_values(output)
-        sfmt = '{label:<5s}\t{prices[last]:>10s}\t{prices[ask]:>10s}\t{prices[bid]:>10s}\t{prices[avg]:>10s}'
-        fmt = '{label:>5s}\t{price.last:>10.2f}\t{price.ask:>10.2f}\t{price.bid:>10.2f}\t{price.avg:>10.2f}'
-        print(sfmt.format(label='Item', prices={ 'last': 'Last', 'ask': 'Ask', 'bid': 'Bid', 'avg': 'Avg'}))
-        print(fmt.format(label='Total', price=mkt_values['totals']))
-        for key in mkt_values['subtotals']: 
-            label = key
-            if len(label) < 3: 
-                label = label + " "
-            print(fmt.format(label=label, price=mkt_values['subtotals'][key]))
-
-        print("")
-        print("Production Line Summaries:")
-        stream_ledger = Ledger(self.stream_id, "RUN.TOTALS", self.market)
+        print('')
+        print('*** RUN SUMMARY {} ***'.format(self.stream_id))
+        print('')
+        print('Production Line Summaries:')
+        stream_ledger = Ledger(self.stream_id, 'RUN.TOTALS', self.market)
         for line in lines:
             stream_ledger.add_ledger(line.ledger)
             line.ledger.output_summary()
             print("")
 
-        print("Value Stream Run Summary:")
-        stream_ledger.output_summary(True)
+        print('Value Stream Run Summary:')
+        stream_ledger.output_summary()
 
+        print('')
+        print('Inventory Summaries:')
+        start_inv.output_summary('Starting Assets', self.market)
+        end_inv.output_summary('Ending Assets', self.market)
+        net_inv = end_inv.diff(start_inv)
+        net_inv.output_summary('Asset Changes', self.market)
+        
     def calc_output(self, starting, ending):
         net = {}
         for key in ending.keys(): 

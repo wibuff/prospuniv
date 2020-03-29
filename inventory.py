@@ -2,6 +2,7 @@
 
 import sys
 import json
+from reportgen import Report
 
 class Inventory(object):
     """ Inventory Class 
@@ -37,6 +38,38 @@ class Inventory(object):
             return True
         return False
 
+    def diff(self, other):
+        net = {}
+        for key in self.items.keys(): 
+            start_val = other.count(key)
+            net[key] = self.items[key] - start_val
+        return Inventory(net)
 
+    def output_summary(self, label, market):
+        summary = self.summarize_inventory(market)
+
+        report = Report()
+        report.start()
+        report.output_value_table(summary['inventory'], label) 
+        report.end()
+
+    def summarize_inventory(self, market):
+        inventory = {}
+        for product in self.items.keys(): 
+            count = self.items[product]
+            price = market.price(product)
+            value = price.multiply(count)
+
+            if product in inventory:
+                inventory[product]['count'] = inventory[product]['count'] + count
+                inventory[product]['value'] = inventory[product]['value'].add(value)
+            else:
+                inventory[product] = {}
+                inventory[product]['count'] = count
+                inventory[product]['value'] = value
+
+        return {
+            'inventory': inventory
+        }
             
         
