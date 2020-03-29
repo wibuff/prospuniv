@@ -7,6 +7,7 @@ from datetime import datetime
 from clock import IncrClock, Duration
 from configuration import Buildings, ProductionLines, Workers, Recipes
 from productionline import ProductionLine
+from ledger import Ledger
 
 class ValueStream(object):
     """ ValueStream class
@@ -20,49 +21,36 @@ class ValueStream(object):
         self.duration = duration
         self.clock = IncrClock(duration)
         self.streamconfig = streamconfig
-        self.lines = self._init_lines(self.streamconfig)
         
     def _init_lines(self, streamconfig):
         lines = []
         for line in streamconfig['productionLines']:
-            print('configuring line {}'.format(line['lineId']))
-            pline = ProductionLine(line['lineId'], line['queue'], self.inventory)
+            print('{} configuring production line {}'.format(self.clock, line['lineId']))
+            pline = ProductionLine(self.stream_id, line['lineId'], line['queue'], self.inventory, self.clock)
             lines.append(pline)
         return lines
-        
-    def calc_output(self, starting, ending):
-        net = {}
-        for key in ending.keys(): 
-            start_val = 0
-            if key in starting:
-                start_val = starting[key]
-            net[key] = ending[key] - start_val
-        return net
-
 
     def run(self):
         start_inv = json.loads(str(self.inventory))
+        lines = self._init_lines(self.streamconfig)
 
         print("")
         print('value stream {} started'.format(self.stream_id))
-        print('{}: running value stream "{}"'.format(self.clock, self.streamconfig['description']))
-        print('{}: starting inventory {}'.format(self.clock, self.inventory))
-
-        for line in self.lines:
-            line.output_prod_status(self.clock)
+        print('{} running value stream "{}"'.format(self.clock, self.streamconfig['description']))
+        print('{} starting inventory {}'.format(self.clock, start_inv))
 
         while self.clock.step():
-            for line in self.lines:
+            for line in lines:
                 line.step(self.clock)
-        for line in self.lines:
+        for line in lines:
             line.step(self.clock)
 
-        print('{}: ending inventory {}'.format(self.clock, self.inventory))
+        print('{} ending inventory {}'.format(self.clock, self.inventory))
 
         end_inv = json.loads(str(self.inventory))
-        self.summarize_run(start_inv, end_inv)
+        self.summarize_run(lines, start_inv, end_inv)
         
-    def summarize_run(self, start_inv, end_inv):
+    def summarize_run(self, lines, start_inv, end_inv):
         print("")
         print("*** RUN SUMMARY {} ***".format(self.stream_id))
         print("")
@@ -84,6 +72,26 @@ class ValueStream(object):
             if len(label) < 3: 
                 label = label + " "
             print(fmt.format(label=label, prices=mkt_values['subtotals'][key]))
+
+        print("")
+        print("Product Line Summaries:")
+        stream_ledger = Ledger(self.stream_id, "RUN.TOTALS")
+        for line in lines:
+            stream_ledger.add_ledger(line.ledger)
+            line.ledger.output_summary()
+            print("")
+
+        print("Value Stream Run Summary:")
+        stream_ledger.output_summary(True)
+
+    def calc_output(self, starting, ending):
+        net = {}
+        for key in ending.keys(): 
+            start_val = 0
+            if key in starting:
+                start_val = starting[key]
+            net[key] = ending[key] - start_val
+        return net
 
     def calc_mkt_values(self, net_prod):
         totals = { 'last': 0.0, 'ask': 0.0, 'bid': 0.0, 'avg': 0.0 }
