@@ -40,22 +40,24 @@ class Ledger(object):
     def add_ledger(self, ledger):
         self.entries.extend(ledger.entries)
     
-    HEADFMT = '{:<5} {:>8} {:>12s} {:>12s} {:>12s} {:>12s}'
+    ## Table formating strings ## 
+    HEADFMT = '\u2551 {:<5} {:>8} {:>12s} {:>12s} {:>12s} {:>12s} \u2551'
     HEAD = HEADFMT.format('Item', 'Count', 'Last', 'Ask', 'Bid', 'Avg')
-    BREAK = u'\u2550' * len(HEAD)
-    MBREAK = u'\u2500' * len(HEAD)
-    #BREAKFMT = '{:<5}\u2550{:>8}\u2550{:>12s}\u2550{:>12s}\u2550{:>12s}\u2550{:>12s}'
-    #BREAK = BREAKFMT.format(u'\u2550'*5, u'\u2550'*8, u'\u2550'*12, u'\u2550'*12, u'\u2550'*12, u'\u2550'*12)
-    # MBREAK = BREAKFMT.format(u'\u2500'*5, u'\u2500'*8, u'\u2500'*12, u'\u2500'*12, u'\u2500'*12, u'\u2500'*12)
-    BODYFMT = '  {product:<3} {count:>8} {price.last:>12.2f} {price.ask:>12.2f} {price.bid:>12.2f} {price.avg:>12.2f}'
-    TOTFMT = '{product:<5} {count:>8} {price.last:>12.2f} {price.ask:>12.2f} {price.bid:>12.2f} {price.avg:>12.2f}'
+    HEADBREAK = u'\u2554' + u'\u2550' * (len(HEAD) - 2) + u'\u2557'
+    MAJBREAK = u'\u2560' + u'\u2550' * (len(HEAD) - 2) + u'\u2563'
+    MINBREAK = u'\u255F' + u'\u2500' * (len(HEAD) - 2) + u'\u2562'
+    FOOTBREAK = u'\u255A' + u'\u2550' * (len(HEAD) - 2) + u'\u255D'
+    GENFMT = '\u2551 {{:<{}s}} \u2551'.format(str(len(HEAD) - 4))
+    BODYFMT = '\u2551   {product:<3} {count:>8} {price.last:>12.2f} {price.ask:>12.2f} {price.bid:>12.2f} {price.avg:>12.2f} \u2551'
+    TOTFMT = '\u2551 {product:<5} {count:>8} {price.last:>12.2f} {price.ask:>12.2f} {price.bid:>12.2f} {price.avg:>12.2f} \u2551'
 
     def _output_table(self, summary, name): 
         total_count = 0
         total_prices = Price([0.0,0.0,0.0,0.0])
-        
-        print("{}:".format(name))
-        print(self.BREAK)
+        header = "{}:".format(name)
+
+        print(self.GENFMT.format(header))
+        print(self.MAJBREAK)
         print(self.HEAD)
         for key in summary.keys():
             total_count = total_count + summary[key]['count']
@@ -64,18 +66,26 @@ class Ledger(object):
                 product=key, 
                 count = summary[key]['count'], 
                 price = summary[key]['value']))
-        print(self.MBREAK)
+        print(self.MINBREAK)
         print(self.TOTFMT.format(product='TOTAL', count = total_count, price = total_prices))
-        print(self.BREAK)
 
-    def output_summary(self, output_net=False):
-        print("{}.{}".format(self.stream_id, self.line_id))
+    def output_summary(self, output_net=True):
         summary = self.summarize_ledger()
-        print('Uptime: {active_cycles}/{total_cycles} cycles ({uptime_percent:.2%})'.format(**summary))
+
+        line = "{}.{}".format(self.stream_id, self.line_id)
+        uptime = 'Uptime: {active_cycles}/{total_cycles} cycles ({uptime_percent:.2%})'.format(**summary)
+
+        print(self.HEADBREAK)
+        print(self.GENFMT.format(line));
+        print(self.GENFMT.format(uptime))
+        print(self.MAJBREAK)
         self._output_table(summary['consumption'], "Consumed Materials")
+        print(self.MAJBREAK)
         self._output_table(summary['production'], "Produced Materials")
         if output_net:
+            print(self.MAJBREAK)
             self._output_table(summary['net_production'], "Net Materials")
+        print(self.FOOTBREAK)
 
         """
         print("")

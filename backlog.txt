@@ -1,5 +1,5 @@
+- Pretty up production reports with box characters
 - Production line efficiency driven by worker satisfaction
-- Tracking of expense and income for production lines - ledger?
 - Calculation and addition of manufacturing fees
 - Add run specific logging instead of using stdout and routing to file
 - Daily Reporting - resource consumption/production

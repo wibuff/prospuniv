@@ -62,7 +62,7 @@ class ValueStream(object):
         print('total output       {}'.format(json.dumps(output)))
 
         print("")
-        print("Market Values:")
+        print("Inventory-based Output Value Calculation:")
         mkt_values = self.calc_mkt_values(output)
         sfmt = '{label:<5s}\t{prices[last]:>10s}\t{prices[ask]:>10s}\t{prices[bid]:>10s}\t{prices[avg]:>10s}'
         fmt = '{label:>5s}\t{price.last:>10.2f}\t{price.ask:>10.2f}\t{price.bid:>10.2f}\t{price.avg:>10.2f}'
@@ -75,7 +75,7 @@ class ValueStream(object):
             print(fmt.format(label=label, price=mkt_values['subtotals'][key]))
 
         print("")
-        print("Product Line Summaries:")
+        print("Production Line Summaries:")
         stream_ledger = Ledger(self.stream_id, "RUN.TOTALS", self.market)
         for line in lines:
             stream_ledger.add_ledger(line.ledger)
