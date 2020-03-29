@@ -68,7 +68,7 @@ class ProductionLine(object):
 
         self.inventory.add(product, count)
         self.producing = False
-        self.ledger.add(master_clock, Ledger.OUTPUT, 'output produced', count, product=product)
+        self.ledger.add(master_clock, Ledger.OUTPUT, 'output produced', count=count, product=product)
         # TODO capture value of produced goods
     
     def _set_next_recipe_active(self):
@@ -90,7 +90,7 @@ class ProductionLine(object):
             count = input['count'] * num_runs
             if not self.inventory.remove(product, count):
                 raise Exception('removing {} {} from inventory failed'.format(count, product))
-            self.ledger.add(master_clock, Ledger.INPUT, 'input consumed', count, product=product)
+            self.ledger.add(master_clock, Ledger.INPUT, 'input consumed', count=count, product=product)
 
     def _start_next_recipe(self, master_clock):
         active = self.queue[0]
@@ -116,8 +116,8 @@ class ProductionLine(object):
             self._set_next_recipe_active()
             self._start_next_recipe(master_clock)
         if self.producing:
-            self.ledger.add(master_clock, Ledger.STATUS, 'producing', Ledger.ACTIVE) 
+            self.ledger.add(master_clock, Ledger.STATUS, 'producing', state=Ledger.ACTIVE) 
         else:
-            self.ledger.add(master_clock, Ledger.STATUS, 'starved', Ledger.INACTIVE) 
+            self.ledger.add(master_clock, Ledger.STATUS, 'starved', state=Ledger.INACTIVE) 
 
        

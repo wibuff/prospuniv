@@ -3,6 +3,7 @@
 
 import sys
 import json
+from market import Price
 
 class Ledger(object):
     """ Ledger Class
@@ -26,12 +27,11 @@ class Ledger(object):
     def __str__(self):
         return json.dumps({ 'line_id': self.line_id, 'entries': self.entries })
 
-    def add(self, clock, type, description, value=0.0, **kwargs):
+    def add(self, clock, type, description, **kwargs):
         entry = {
             'clock': str(clock),
             'type': type,
             'description': description,
-            'value': value
         }
         for key, value in kwargs.items():
             entry[key] = value
@@ -40,20 +40,43 @@ class Ledger(object):
     def add_ledger(self, ledger):
         self.entries.extend(ledger.entries)
     
+    HEADFMT = '{:<5} {:>8} {:>12s} {:>12s} {:>12s} {:>12s}'
+    HEAD = HEADFMT.format('Item', 'Count', 'Last', 'Ask', 'Bid', 'Avg')
+    BREAK = u'\u2550' * len(HEAD)
+    MBREAK = u'\u2500' * len(HEAD)
+    #BREAKFMT = '{:<5}\u2550{:>8}\u2550{:>12s}\u2550{:>12s}\u2550{:>12s}\u2550{:>12s}'
+    #BREAK = BREAKFMT.format(u'\u2550'*5, u'\u2550'*8, u'\u2550'*12, u'\u2550'*12, u'\u2550'*12, u'\u2550'*12)
+    # MBREAK = BREAKFMT.format(u'\u2500'*5, u'\u2500'*8, u'\u2500'*12, u'\u2500'*12, u'\u2500'*12, u'\u2500'*12)
+    BODYFMT = '  {product:<3} {count:>8} {price.last:>12.2f} {price.ask:>12.2f} {price.bid:>12.2f} {price.avg:>12.2f}'
+    TOTFMT = '{product:<5} {count:>8} {price.last:>12.2f} {price.ask:>12.2f} {price.bid:>12.2f} {price.avg:>12.2f}'
+
+    def _output_table(self, summary, name): 
+        total_count = 0
+        total_prices = Price([0.0,0.0,0.0,0.0])
+        
+        print("{}:".format(name))
+        print(self.BREAK)
+        print(self.HEAD)
+        for key in summary.keys():
+            total_count = total_count + summary[key]['count']
+            total_prices = total_prices.add(summary[key]['value'])
+            print(self.BODYFMT.format(
+                product=key, 
+                count = summary[key]['count'], 
+                price = summary[key]['value']))
+        print(self.MBREAK)
+        print(self.TOTFMT.format(product='TOTAL', count = total_count, price = total_prices))
+        print(self.BREAK)
+
     def output_summary(self, output_net=False):
         print("{}.{}".format(self.stream_id, self.line_id))
         summary = self.summarize_ledger()
         print('Uptime: {active_cycles}/{total_cycles} cycles ({uptime_percent:.2%})'.format(**summary))
-        print("Consumed Materials:")
-        for key in summary['consumption'].keys():
-            print('  {:<3} {:>8}'.format(key, summary['consumption'][key]))
-        print("Produced Materials:")
-        for key in summary['production'].keys():
-            print('  {:<3} {:>8}'.format(key, summary['production'][key]))
+        self._output_table(summary['consumption'], "Consumed Materials")
+        self._output_table(summary['production'], "Produced Materials")
         if output_net:
-            print("Net Materials:")
-            for key in summary['net_production'].keys():
-                print('  {:<3} {:>8}'.format(key, summary['net_production'][key]))
+            self._output_table(summary['net_production'], "Net Materials")
+
         """
         print("")
         for entry in self.entries: 
@@ -76,31 +99,51 @@ class Ledger(object):
         for entry in self.entries: 
             if entry['type'] == Ledger.STATUS:
                 total_cycles = total_cycles + 1
-                active_cycles = active_cycles + entry['value']
+                active_cycles = active_cycles + entry['state']
                 
             elif entry['type'] == Ledger.OUTPUT:
                 product = entry['product']
-                count = entry['value']
+                count = entry['count']
+                price = self.market.price(product)
+                value = price.multiply(count)
+
                 if product in production:
-                    production[product] = production[product] + count
+                    production[product]['count'] = production[product]['count'] + count
+                    production[product]['value'] = production[product]['value'].add(value)
                 else:
-                    production[product] = count
+                    production[product] = {}
+                    production[product]['count'] = count
+                    production[product]['value'] = value
+                    
                 if product in net_production:
-                    net_production[product] = net_production[product] + count
+                    net_production[product]['count'] = net_production[product]['count'] + count
+                    net_production[product]['value'] = net_production[product]['value'].add(value)
                 else:
-                    net_production[product] = count
+                    net_production[product] = {}
+                    net_production[product]['count'] = count
+                    net_production[product]['value'] = value
 
             elif entry['type'] == Ledger.INPUT:
                 product = entry['product']
-                count = entry['value']
+                count = entry['count']
+                price = self.market.price(product)
+                value = price.multiply(-count)
+
                 if product in consumption:
-                    consumption[product] = consumption[product] + count
+                    consumption[product]['count'] = consumption[product]['count'] + count
+                    consumption[product]['value'] = consumption[product]['value'].add(value)
                 else:
-                    consumption[product] = count
+                    consumption[product] = {}
+                    consumption[product]['count'] = count
+                    consumption[product]['value'] = value
+
                 if product in net_production:
-                    net_production[product] = net_production[product] - count
+                    net_production[product]['count'] = net_production[product]['count'] - count
+                    net_production[product]['value'] = net_production[product]['value'].add(value)
                 else:
-                    net_production[product] = -count
+                    net_production[product] = {}
+                    net_production[product]['count'] = -count
+                    net_production[product]['value'] = value
 
         return {
             'total_cycles': total_cycles,
