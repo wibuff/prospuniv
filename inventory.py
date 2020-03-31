@@ -18,7 +18,7 @@ class Inventory(object):
     def count(self, item):
         if item in self.items:
             return self.items[item]
-        return 0
+        return 0.0
 
     def has(self, item, count):
         if item in self.items and self.items[item] >= count:
@@ -27,9 +27,9 @@ class Inventory(object):
 
     def add(self, item, count):
         if item not in self.items:
-            self.items[item] = count
+            self.items[item] = float(count)
         else:
-            self.items[item] = self.items[item] + count
+            self.items[item] = self.items[item] + float(count)
         return True
 
     def remove(self, item, count):

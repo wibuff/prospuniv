@@ -1,14 +1,14 @@
 {
   "PIONEER": {  
     "efficiency": 0.79,
-    "baseInputs": [
-      {"id": "DW", "rate": 4.0, "basis": 100}, 
-      {"id": "RAT", "rate": 4.0, "basis": 100},
-      {"id": "OVE", "rate": 0.5, "basis": 100}
+    "essentials": [
+      {"id": "DW", "rate": 4.0, "basis": 100.0}, 
+      {"id": "RAT", "rate": 4.0, "basis": 100.0},
+      {"id": "OVE", "rate": 0.5, "basis": 100.0}
     ], 
-    "bonusInputs": [
-      {"id": "COF", "rate": 0.5, "basis": 100, "efficiency": 0.13 }, 
-      {"id": "PWO", "rate": 0.2, "basis": 100, "efficiency": 0.08 }
+    "nonEssentials": [
+      {"id": "COF", "rate": 0.5, "basis": 100.0, "efficiency": 0.13 }, 
+      {"id": "PWO", "rate": 0.2, "basis": 100.0, "efficiency": 0.08 }
     ]
   }
 }

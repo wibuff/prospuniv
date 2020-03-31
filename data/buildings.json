@@ -1,5 +1,5 @@
 {
-  "RIG": { "id": "RIG", "name": "RIG", "workerType": "PIONEER", "workerCount": 30, "expertType": "RE" },
-  "FRM": { "id": "FRM", "name": "FARMSTEAD", "workerType": "PIONEER", "workerCount": 50, "expertType": "AG" },
-  "FP":  { "id": "FP", "name": "FOOD PROCESSOR", "workerType": "PIONEER", "workerCount": 40, "expertType": "FI" }
+  "RIG": { "id": "RIG", "name": "RIG", "workers": [{"type": "PIONEER", "count": 30}], "expertType": "RE" },
+  "FRM": { "id": "FRM", "name": "FARMSTEAD", "workers": [{"type": "PIONEER", "count": 50}], "expertType": "AG" },
+  "FP":  { "id": "FP", "name": "FOOD PROCESSOR","workers": [{"type": "PIONEER", "count": 40}], "expertType": "FI" }
 }

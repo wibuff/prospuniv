@@ -27,20 +27,17 @@ class ValueStream(object):
     def _init_lines(self, streamconfig):
         lines = []
         for line in streamconfig['productionLines']:
-            print('{} configuring production line {}'.format(self.clock, line['lineId']))
             pline = ProductionLine(self.stream_id, line['lineId'], line['queue'], self.inventory, self.market, self.clock)
             lines.append(pline)
         return lines
 
     def run(self):
-        #start_inv = self.inventory.copy()
         start_inv = Inventory(json.loads(str(self.inventory)))
         lines = self._init_lines(self.streamconfig)
 
         print("")
-        print('value stream {} started'.format(self.stream_id))
-        print('{} running value stream "{}"'.format(self.clock, self.streamconfig['description']))
-        print('{} starting inventory {}'.format(self.clock, start_inv))
+        print('{} value stream {} run started'.format(self.clock, self.stream_id))
+        print('{} description "{}"'.format(self.clock, self.streamconfig['description']))
 
         while self.clock.step():
             for line in lines:
@@ -48,9 +45,7 @@ class ValueStream(object):
         for line in lines:
             line.step(self.clock)
 
-        print('{} ending inventory {}'.format(self.clock, self.inventory))
-
-        #end_inv = self.inventory.copy()
+        print('{} value stream {} run complete'.format(self.clock, self.stream_id))
         end_inv = Inventory(json.loads(str(self.inventory)))
         self.summarize_run(lines, start_inv, end_inv)
         

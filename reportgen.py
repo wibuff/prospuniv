@@ -9,11 +9,11 @@ class Report(object):
     """ Report class
     """
     ## Table formating strings ## 
-    TABLE_WIDTH = 70
-    VTABLEHEADFMT = '{:<5} {:>8} {:>12s} {:>12s} {:>12s} {:>12s}'
+    TABLE_WIDTH = 74
+    VTABLEHEADFMT = '{:<5} {:>12} {:>12s} {:>12s} {:>12s} {:>12s}'
     VTABLEHEAD = VTABLEHEADFMT.format('Item', 'Count', 'Last', 'Ask', 'Bid', 'Avg')
-    VTABLEBODFMT = '  {product:<3} {count:>8} {price.last:>12.2f} {price.ask:>12.2f} {price.bid:>12.2f} {price.avg:>12.2f}'
-    VTABLETOTFMT = '{product:<5} {count:>8} {price.last:>12.2f} {price.ask:>12.2f} {price.bid:>12.2f} {price.avg:>12.2f}'
+    VTABLEBODFMT = '  {product:<3} {count:>12.2f} {price.last:>12.2f} {price.ask:>12.2f} {price.bid:>12.2f} {price.avg:>12.2f}'
+    VTABLETOTFMT = '{product:<5} {count:>12.2f} {price.last:>12.2f} {price.ask:>12.2f} {price.bid:>12.2f} {price.avg:>12.2f}'
 
     GENERAL = '\u2551 {{:<{}s}} \u2551'.format(str(len(VTABLEHEAD)))
     
