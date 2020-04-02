@@ -8,21 +8,22 @@
         },
         { "lineId": "FRM.1", 
             "queue": [
-                { "recipe": "VEG.1", "count": 1 },
-                { "recipe": "BEA.1", "count": 2 },
-                { "recipe": "GRN.1", "count": 1 }
+                { "recipe": "VEG.1", "count": 3 },
+                { "recipe": "BEA.1", "count": 6 },
+                { "recipe": "GRN.1", "count": 3 }
             ]
         },
         { "lineId": "FRM.2", 
             "queue": [
-                { "recipe": "GRN.1", "count": 1 },
-                { "recipe": "VEG.1", "count": 1 },
-                { "recipe": "BEA.1", "count": 2 }
+                { "recipe": "GRN.1", "count": 3 },
+                { "recipe": "VEG.1", "count": 3 },
+                { "recipe": "BEA.1", "count": 6 }
             ]
         },
         { "lineId": "FP.1", 
             "queue": [
-                { "recipe": "RAT.1", "count": 4 }
+                { "recipe": "RAT.1", "count": 4 },
+                { "recipe": "DW.1", "count": 2 }
             ]
         }
     ]

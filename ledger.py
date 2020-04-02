@@ -5,15 +5,17 @@ import sys
 import json
 from market import Price
 from reportgen import Report
+from configuration import Buildings, ProductionLines
 
 class Ledger(object):
     """ Ledger Class
     """
-    CREDIT = "credit"
-    DEBIT = "debit"
+    REVENUE = "revenue"
+    EXPENSE = "expense"
     INPUT = "input"
     OUTPUT = "output"
     STATUS = "status"
+    EFFICIENCY = "efficiency"
     NOTE = "note"
 
     ACTIVE = 1
@@ -43,14 +45,19 @@ class Ledger(object):
     
     def output_summary(self):
         summary = self.summarize_ledger()
+        building = 'Summarization'
+        if self.line_id in ProductionLines:
+            building = Buildings[ProductionLines[self.line_id]['building']]['name']
 
-        line = "{}.{}".format(self.stream_id, self.line_id)
-        uptime = 'Uptime: {active_cycles}/{total_cycles} cycles ({uptime_percent:.2%})'.format(**summary)
+        line = "{}.{} ({})".format(self.stream_id, self.line_id, building)
+        uptime =     'Uptime: {active_cycles}/{total_cycles} cycles ({uptime_percent:.2%})'.format(**summary)
+        efficiency = 'Efficiency: {min:5.2%} / {mean:5.2%} / {max:5.2%} [min/mean/max]'.format(**summary['efficiencies'])
 
         report = Report()
         report.start()
         report.output_general(line)
         report.output_general(uptime)
+        report.output_general(efficiency)
         report.major_break() 
         report.output_value_table(summary['consumption'], "Consumed Materials")
         report.major_break() 
@@ -74,6 +81,7 @@ class Ledger(object):
     def summarize_ledger(self):
         total_cycles = 0
         active_cycles = 0
+        efficiencies = []
         production = {}
         consumption = {}
         net_production = {}
@@ -82,6 +90,9 @@ class Ledger(object):
             if entry['type'] == Ledger.STATUS:
                 total_cycles = total_cycles + 1
                 active_cycles = active_cycles + entry['state']
+                
+            if entry['type'] == Ledger.EFFICIENCY:
+                efficiencies.append(entry['value'])
                 
             elif entry['type'] == Ledger.OUTPUT:
                 product = entry['product']
@@ -131,9 +142,19 @@ class Ledger(object):
             'total_cycles': total_cycles,
             'active_cycles': active_cycles,
             'uptime_percent': float(active_cycles)/float(total_cycles),
+            'efficiencies': self._summarize_efficiencies(efficiencies),
             'production': production,
             'consumption': consumption,
             'net_production': net_production
         }
 
-    
+    def _summarize_efficiencies(self, efficiencies):
+        result = {}
+        if len(efficiencies) > 0:
+            result['mean'] = sum(efficiencies)/len(efficiencies)
+            result['min'] = min(efficiencies)
+            result['max'] = max(efficiencies)
+            result['start'] = efficiencies[0]
+            result['end'] = efficiencies[len(efficiencies)-1]
+        return result
+            

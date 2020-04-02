@@ -151,6 +151,7 @@ class ProductionLine(object):
         if self.worker_clock.to_minutes() <= 0:
             self._reset_workers(master_clock)
             self.efficiency = self._calc_line_efficiency()
+        self.ledger.add(master_clock, Ledger.EFFICIENCY, 'efficiency', value=self.efficiency) 
 
     def _reset_workers(self, master_clock):
         """

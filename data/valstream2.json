@@ -1,5 +1,5 @@
 {
-    "description": "current in-game config - no coffee",
+    "description": "current plus: doubled FRM batches, halved DW prod",
     "productionLines": [
         { "lineId": "RIG.1", 
             "queue": [
@@ -8,22 +8,22 @@
         },
         { "lineId": "FRM.1", 
             "queue": [
-                { "recipe": "VEG.1", "count": 1 },
-                { "recipe": "BEA.1", "count": 1 },
-                { "recipe": "GRN.1", "count": 1 }
+                { "recipe": "VEG.1", "count": 2 },
+                { "recipe": "BEA.1", "count": 4 },
+                { "recipe": "GRN.1", "count": 2 }
             ]
         },
         { "lineId": "FRM.2", 
             "queue": [
-                { "recipe": "GRN.1", "count": 1 },
-                { "recipe": "VEG.1", "count": 1 },
-                { "recipe": "BEA.1", "count": 1 }
+                { "recipe": "GRN.1", "count": 2 },
+                { "recipe": "VEG.1", "count": 2 },
+                { "recipe": "BEA.1", "count": 4 }
             ]
         },
         { "lineId": "FP.1", 
             "queue": [
                 { "recipe": "RAT.1", "count": 4 },
-                { "recipe": "DW.1", "count": 2 }
+                { "recipe": "DW.1", "count": 1 }
             ]
         }
     ]

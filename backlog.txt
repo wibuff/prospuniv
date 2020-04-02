@@ -1,5 +1,3 @@
-- Log efficiency to ledger
-- Add production line efficiency to output report
 - Shared queue between buildings of the same type (actual game function)
     - as opposed to current impl - separate queues for each building
 - Calculation and addition of manufacturing fees
