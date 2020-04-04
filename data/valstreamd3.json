@@ -1,21 +1,21 @@
 {
-    "description": "current in-game configuration",
-    "productionLines": [{ 
-            "lineId": "RIG.1", 
+    "description": "feature dev in-game configuration",
+    "productionLines": [
+        { "lineId": "RIG.1", 
             "buildingCount": 1,
             "queue": [
                 { "recipe": "H2O.1", "count": 5 }
             ]
-        }, { 
-            "lineId": "FRM.1", 
+        },
+        { "lineId": "FRM.1", 
             "buildingCount": 2,
             "queue": [
                 { "recipe": "VEG.1", "count": 1 },
-                { "recipe": "BEA.1", "count": 2 },
-                { "recipe": "GRN.1", "count": 1 }
+                { "recipe": "BEA.2", "count": 1 },
+                { "recipe": "GRN.2", "count": 1 }
             ]
-        }, { 
-            "lineId": "FP.1", 
+        },
+        { "lineId": "FP.1", 
             "buildingCount": 1,
             "queue": [
                 { "recipe": "RAT.1", "count": 4 },

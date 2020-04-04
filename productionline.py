@@ -12,12 +12,14 @@ class ProductionLine(object):
     """ ProductionLine class
     """
 
-    def __init__(self, stream_id, line_id, queue, inventory, market, master_clock):
-        self.line_id = line_id
-        self.linetype = ProductionLines[line_id]
+    def __init__(self, stream_id, line_spec, inventory, market, master_clock):
+        self.line_id = line_spec['lineId']
+        self.linetype = ProductionLines[self.line_id]
         self.building = Buildings[self.linetype['building']]
-        self.queue = self._init_production_queue(queue)
-        self.ledger = Ledger(stream_id, line_id, market)
+        self.buildingCount = line_spec['buildingCount']
+        self.production = self._init_production(self.buildingCount)
+        self.queue = self._init_production_queue(line_spec['queue'])
+        self.ledger = Ledger(stream_id, self.line_id, market)
         self.inventory = inventory
         
         # initialize workers and efficiency before initializing production
@@ -27,19 +29,17 @@ class ProductionLine(object):
         self._reset_workers(master_clock)
         self.efficiency = self._calc_line_efficiency()
 
-        self.producing = False
-        self.recipe_clock = DecrClock(Duration("0"))
-        self._start_next_recipe(master_clock)
+        for bnum in range(0, self.buildingCount):
+            self._set_next_recipe_active(master_clock, bnum)
+            self.production[bnum]['producing'] = self._start_next_recipe(master_clock, bnum)
 
-        print('{} {} initialized'.format(master_clock, line_id))
-        #print('{} {} {}'.format(master_clock, line_id, self))
+        print('{} {} initialized - {} buildings'.format(master_clock, self.line_id, self.buildingCount))
 
     def __str__(self):
         return json.dumps({ 
             'lineId': self.line_id, 
             'efficiency': self.efficiency,
-            'producing': self.producing,
-            'recipeClock': str(self.recipe_clock), 
+            'production': self.production,
             'workerClock': str(self.recipe_clock), 
             'linetype': self.linetype, 
             'queue': self.queue 
@@ -49,19 +49,6 @@ class ProductionLine(object):
         efficency = self.worker_efficiency * self.linetype['condition'] +\
             self.linetype['experts'] + self.linetype['soil'] + self.linetype['cogc']
         return efficency
-
-    def _init_production_queue(self, queue):
-        prodqueue = []
-        for item in queue:
-            if item['recipe'] not in Recipes: 
-                raise Exception('recipe {} not found'.format(item['recipe']))
-            production = {
-                'id': item['recipe'],
-                'count': item['count'],
-                'recipe': Recipes[item['recipe']]
-            }
-            prodqueue.append(production)
-        return prodqueue
 
     def _init_workers(self):
         workers = []
@@ -75,28 +62,15 @@ class ProductionLine(object):
             workers.append({'type': workerType, 'count': workerCount, 'worker': worker})
         return workers   
         
-    def _set_recipe_clock(self, active):
-        recipe = active['recipe']
-        count = active['count']
-        duration = Duration(recipe['time'])
-        duration.apply_multiplier(count)
-        duration.apply_efficiency(self.efficiency)
-        return DecrClock(duration)
-
-    def _produce(self, master_clock):
-        active = self.queue[0]
+    def _produce(self, master_clock, buildingNum):
+        active = self.production[buildingNum]
         recipe = active['recipe']
         product = recipe['output']
         count = active['count'] * recipe['count']
 
         self.inventory.add(product, count)
-        self.producing = False
         self.ledger.add(master_clock, Ledger.OUTPUT, 'output produced', count=count, product=product)
     
-    def _set_next_recipe_active(self):
-        last = self.queue.pop(0)
-        self.queue.append(last)
-
     def _inputs_available(self, recipe, inputs, num_runs):
         for input in inputs: 
             product = input['id']
@@ -114,37 +88,84 @@ class ProductionLine(object):
                 raise Exception('removing {} {} from inventory failed'.format(count, product))
             self.ledger.add(master_clock, Ledger.INPUT, 'input consumed', count=count, product=product)
 
-    def _start_next_recipe(self, master_clock):
-        active = self.queue[0]
+    def _init_production_queue(self, queue):
+        prodqueue = []
+        for item in queue:
+            if item['recipe'] not in Recipes: 
+                raise Exception('recipe {} not found'.format(item['recipe']))
+            product = {
+                'id': item['recipe'],
+                'count': item['count'],
+                'recipe': Recipes[item['recipe']]
+            }
+            prodqueue.append(product)
+        return prodqueue
+
+    def _init_production(self, buildCount):
+        return [{
+            "recipe": None,
+            "count": 0,
+            "clock": DecrClock(Duration("0")),
+            "producing": False
+        }] * buildCount 
+
+    def _set_recipe_clock(self, recipe, count):
+        duration = Duration(recipe['time'])
+        duration.apply_multiplier(count)
+        duration.apply_efficiency(self.efficiency)
+        return DecrClock(duration)
+
+    def _set_next_recipe_active(self, master_clock, buildingNum):
+        prod = self.queue.pop(0)
+        active = self.production[buildingNum]
+        active['recipe'] = prod['recipe']
+        active['count'] = prod['count'] 
+        active['clock']= self._set_recipe_clock(prod['recipe'], prod['count'])
+        active['producing'] = False
+        self.queue.append(prod)
+
+    def _start_next_recipe(self, master_clock, buildingNum):
+        active = self.production[buildingNum]
         recipe = active['recipe']
-        output = recipe['output']
-        if self._inputs_available(output, recipe['inputs'], active['count']):
+        producing = False
+        if self._inputs_available(recipe['output'], recipe['inputs'], active['count']):
             # TODO capture production fees (10.00 ICA per 24 baseline production hours)
-            self.producing = True
+            producing = True
             self._consume_inputs(master_clock, recipe['inputs'], active['count'])
-            self.recipe_clock = self._set_recipe_clock(active)
+        return producing
+
+    def _log_production_activity(self, master_clock):
+        producing = True
+        for prod in self.production:
+            if not prod['producing']:
+                producing = False
+        if producing:
+            self.ledger.add(master_clock, Ledger.STATUS, 'producing', state=Ledger.ACTIVE) 
+        else:
+            self.ledger.add(master_clock, Ledger.STATUS, 'starved', state=Ledger.INACTIVE) 
 
     def step(self, master_clock):
-        self._recipe_step(master_clock)
+        for buildingNum in range(0, self.buildingCount):
+            self._recipe_step(master_clock, buildingNum)
         self._worker_step(master_clock)
+        self._log_production_activity(master_clock)
 
-    def _recipe_step(self, master_clock):
-        self.recipe_clock.step()
-        if not self.producing:
+    def _recipe_step(self, master_clock, buildingNum):
+        active = self.production[buildingNum]
+        active['clock'].step()
+
+        if not active['producing']:
             # not currently producing, attempt to start next item in queue
-            self._start_next_recipe(master_clock)
-        elif self.recipe_clock.to_minutes() > 0:
+            active['producing'] = self._start_next_recipe(master_clock, buildingNum)
+        elif active['clock'].to_minutes() > 0:
             # producing, time remaining 
             pass
         else: 
             # production done, produce output and attempt to start next item in queue
-            self._produce(master_clock)
-            self._set_next_recipe_active()
-            self._start_next_recipe(master_clock)
-        if self.producing:
-            self.ledger.add(master_clock, Ledger.STATUS, 'producing', state=Ledger.ACTIVE) 
-        else:
-            self.ledger.add(master_clock, Ledger.STATUS, 'starved', state=Ledger.INACTIVE) 
+            active['producing'] = False
+            self._produce(master_clock, buildingNum)
+            self._set_next_recipe_active(master_clock, buildingNum)
+            active['producing'] = self._start_next_recipe(master_clock, buildingNum)
 
     def _worker_step(self, master_clock):
         self.worker_clock.step()
@@ -155,7 +176,7 @@ class ProductionLine(object):
 
     def _reset_workers(self, master_clock):
         """
-        Can operated with not enough workers
+        Can operate with not enough workers
             actual efficiency = efficiency * (num avail workers / num required workers)
         Workforce will continue working if at least one essential resource is available
         Workforce will stop working if no essential resources are available
@@ -166,12 +187,6 @@ class ProductionLine(object):
         self.worker_clock = DecrClock(Duration("24:00:00"))
         worker_efficiencies = []
         for staff in self.workers:
-            """
-            1. identify needed supplies
-            2. check availability of supplies
-            3. consume supplies
-            4. recalculate efficency
-            """ 
             needs = self._calc_worker_needs(staff)
             supplies = self._determine_available_supplies(staff, needs)
             efficiency = self._consume_supplies(master_clock, staff, supplies)

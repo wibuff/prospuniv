@@ -21,7 +21,7 @@ class Duration(object):
     def __str__(self):
         return '{:02d}:{:02d}:{:02d}:{:02d}'.format(self.vals[DAYS], self.vals[HOURS], self.vals[MINUTES], self.vals[SECONDS])
 
-    def __repl__(self):
+    def __repr__(self):
         return '{:02d}:{:02d}:{:02d}:{:02d}'.format(self.vals[DAYS], self.vals[HOURS], self.vals[MINUTES], self.vals[SECONDS])
 
     def _normalize(self):
@@ -78,7 +78,7 @@ class IncrClock(object):
     def __str__(self):
         return '{:02d}:{:02d}:{:02d}:{:02d}'.format(self.vals[DAYS], self.vals[HOURS], self.vals[MINUTES], self.vals[SECONDS])
 
-    def __repl__(self):
+    def __repr__(self):
         return '{:02d}:{:02d}:{:02d}:{:02d}'.format(self.vals[DAYS], self.vals[HOURS], self.vals[MINUTES], self.vals[SECONDS])
 
     def to_minutes(self):
@@ -108,7 +108,7 @@ class DecrClock(object):
     def __str__(self):
         return '{:02d}:{:02d}:{:02d}:{:02d}'.format(self.vals[DAYS], self.vals[HOURS], self.vals[MINUTES], self.vals[SECONDS])
 
-    def __repl__(self):
+    def __repr__(self):
         return '{:02d}:{:02d}:{:02d}:{:02d}'.format(self.vals[DAYS], self.vals[HOURS], self.vals[MINUTES], self.vals[SECONDS])
 
     def to_minutes(self):

@@ -2,6 +2,6 @@
 
 from os.path import expanduser
 
-ROOT_DIR = expanduser("~") + "/projects/prospuniv"
+ROOT_DIR = "."
 DATA_DIR = ROOT_DIR + "/data"
 OUTPUT_DIR = ROOT_DIR + "/output"

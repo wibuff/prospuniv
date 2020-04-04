@@ -26,8 +26,8 @@ class ValueStream(object):
         
     def _init_lines(self, streamconfig):
         lines = []
-        for line in streamconfig['productionLines']:
-            pline = ProductionLine(self.stream_id, line['lineId'], line['queue'], self.inventory, self.market, self.clock)
+        for line_spec in streamconfig['productionLines']:
+            pline = ProductionLine(self.stream_id, line_spec, self.inventory, self.market, self.clock)
             lines.append(pline)
         return lines
 
