@@ -6,6 +6,9 @@ import json
 class Price(object):
     """ Price Class
     """
+    HEADER_FMT = '{:>12s} {:>12s} {:>12s} {:>12s}'.format('Last', 'Ask', 'Bid', 'Avg')
+
+
     def __init__(self, pricedata):
         self.last = pricedata[0]
         self.ask = pricedata[1]
@@ -13,13 +16,15 @@ class Price(object):
         self.avg = pricedata[3]
 
     def __str__(self):
+        return '{0.last:12.2f} {0.ask:12.2f} {0.bid:12.2f} {0.avg:12.2f}'.format(self)
+
+    def __repr__(self):
         return json.dumps({
             'last': self.last,
             'ask': self.ask,
             'bid': self.bid,
             'avg': self.avg
         })
-
     def multiply(self, factor):
         newprice = [self.last, self.ask, self.bid, self.avg]
         multprice = list(map(lambda x: x*factor, newprice))

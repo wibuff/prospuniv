@@ -11,9 +11,12 @@
     - per production line files
     - single overall run file
     - probably in new sub directory
+- Add Income Statement - overall  
+- Add Income Statement - for each production line
 - Daily Reporting - resource consumption/production
 - Autogenerate value streams based on inputs/outputs
 - Acquire resources from the market
+- Sell resources to the market
 - Worker efficiency edge cases (running below 100% of required essential supply)
 - model worker barracks and pool of available workers
 - change building spec to handle multiple types of workers

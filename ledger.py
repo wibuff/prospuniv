@@ -50,33 +50,30 @@ class Ledger(object):
             building = Buildings[ProductionLines[self.line_id]['building']]['name']
 
         line = "{}.{} ({})".format(self.stream_id, self.line_id, building)
-        uptime =     'Uptime: {active_cycles}/{total_cycles} cycles ({uptime_percent:.2%})'.format(**summary)
-        efficiency = 'Efficiency: {min:5.2%} / {mean:5.2%} / {max:5.2%} [min/mean/max]'.format(**summary['efficiencies'])
+        uptime =      'Uptime: {active_cycles}/{total_cycles} cycles ({uptime_percent:.2%})'.format(**summary)
+        efficiency =  'Efficiency : {min:5.2%} / {mean:5.2%} / {max:5.2%} [min/mean/max]'.format(**summary['efficiencies'])
+        price_head =  '                   {}'.format(Price.HEADER_FMT)
+        total_value = 'Production Value : {total_production_value}'.format(**summary)
+        total_cost =  'Production Cost  : {total_production_cost}'.format(**summary)
+        gain_loss =   'Net Gain/Loss    : {total_gain_loss}'.format(**summary)
 
         report = Report()
         report.start()
         report.output_general(line)
         report.output_general(uptime)
         report.output_general(efficiency)
-        report.major_break() 
-        report.output_value_table(summary['consumption'], "Consumed Materials")
+        report.output_general("")
+        report.output_general(price_head)
+        report.output_general(total_value)
+        report.output_general(total_cost)
+        report.output_general(gain_loss)
         report.major_break() 
         report.output_value_table(summary['production'], "Produced Materials")
         report.major_break() 
+        report.output_value_table(summary['consumption'], "Consumed Materials")
+        report.major_break() 
         report.output_value_table(summary['net_production'], "Net Materials")
         report.end()
-
-        """
-        print("")
-        for entry in self.entries: 
-            if entry['type'] == Ledger.OUTPUT or entry['type'] == Ledger.INPUT:
-                print('{0[clock]} {0[type]:<10s} {0[description]:<20s} {0[value]:8d} {0[product]:<3s}'.format(entry))
-            elif entry['type'] == Ledger.STATUS:
-                # print('{0[clock]} {0[type]:<10s} {0[description]:<20s} {0[value]:8d}'.format(entry))
-                pass
-            else:
-                print('{0[clock]} {0[type]:<10s} {0[description]:<20s} {0[value]:8.2}'.format(entry))
-        """
 
     def summarize_ledger(self):
         total_cycles = 0
@@ -85,6 +82,8 @@ class Ledger(object):
         production = {}
         consumption = {}
         net_production = {}
+        total_production_value = Price([0.0,0.0,0.0,0.0])
+        total_production_cost = Price([0.0,0.0,0.0,0.0])
 
         for entry in self.entries: 
             if entry['type'] == Ledger.STATUS:
@@ -99,7 +98,8 @@ class Ledger(object):
                 count = entry['count']
                 price = self.market.price(product)
                 value = price.multiply(count)
-
+                total_production_value = total_production_value.add(value)
+                
                 if product in production:
                     production[product]['count'] = production[product]['count'] + count
                     production[product]['value'] = production[product]['value'].add(value)
@@ -121,6 +121,7 @@ class Ledger(object):
                 count = entry['count']
                 price = self.market.price(product)
                 value = price.multiply(-count)
+                total_production_cost = total_production_cost.add(value)
 
                 if product in consumption:
                     consumption[product]['count'] = consumption[product]['count'] + count
@@ -138,6 +139,7 @@ class Ledger(object):
                     net_production[product]['count'] = -count
                     net_production[product]['value'] = value
 
+        total_gain_loss = total_production_value.add(total_production_cost)
         return {
             'total_cycles': total_cycles,
             'active_cycles': active_cycles,
@@ -145,7 +147,10 @@ class Ledger(object):
             'efficiencies': self._summarize_efficiencies(efficiencies),
             'production': production,
             'consumption': consumption,
-            'net_production': net_production
+            'net_production': net_production,
+            'total_production_value': total_production_value,
+            'total_production_cost': total_production_cost,
+            'total_gain_loss': total_gain_loss
         }
 
     def _summarize_efficiencies(self, efficiencies):

@@ -53,17 +53,19 @@ class ValueStream(object):
         print('')
         print('*** RUN SUMMARY {} ***'.format(self.stream_id))
         print('')
-        print('Production Line Summaries:')
+
+        print('Value Stream Summary:')
         stream_ledger = Ledger(self.stream_id, 'RUN.TOTALS', self.market)
         for line in lines:
             stream_ledger.add_ledger(line.ledger)
-            line.ledger.output_summary()
-            print("")
-
-        print('Value Stream Run Summary:')
         stream_ledger.output_summary()
 
         print('')
+        print('Production Line Summaries:')
+        for line in lines:
+            line.ledger.output_summary()
+            print("")
+
         print('Inventory Summaries:')
         start_inv.output_summary('Starting Assets', self.market)
         end_inv.output_summary('Ending Assets', self.market)
