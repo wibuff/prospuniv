@@ -55,7 +55,7 @@ class ProductionLine(object):
         needed = self.building['workers']
         for need in needed:
             workerType = need['type']
-            workerCount = need['count']
+            workerCount = need['count'] * self.buildingCount
             if workerType not in Workers:
                 raise Exception("worker {} not defined".format(workertype))
             worker = Workers[workerType]

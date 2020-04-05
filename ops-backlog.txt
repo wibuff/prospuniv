@@ -1,0 +1,20 @@
+- next goal: add Food Processor 
+    - Need space for 40 more pioneers
+    - Need to determine next habitation
+        - Pioneer habitation: 100 pioneers
+            40 MCG
+            2 BSE
+            4 BBH
+            2 BDE
+            1 BTA
+        - Barracks: 75 pioneers, 75 settlers
+            60 MCG
+            4 BBH
+            4 BDE
+            2 LTA
+            2 LSW
+    - Food Processor
+        48 MCG
+        3 BSE
+        3 BDH
+        3 BDE

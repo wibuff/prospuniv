@@ -1,3 +1,4 @@
+- Building Cost Calculation
 - Calculation and addition of manufacturing fees
 - Add building condition to line efficiency - 
     - dropped 100.0% to 99.9% after period 1 (1 week?)
