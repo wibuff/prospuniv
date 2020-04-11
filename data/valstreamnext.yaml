@@ -1,0 +1,28 @@
+---
+  description: >-
+    next goal configuration,
+    adds 1 FP to make 2 RIG, 2 FRM, 2 FP
+  productionLines: 
+    - lineId: RIG.1
+      buildingCount: 2
+      queue: 
+      - recipe: H2O.1
+        count: 5
+
+    - lineId: FRM.1
+      buildingCount: 2
+      queue: 
+      - recipe: VEG.1
+        count: 2
+      - recipe: BEA.2
+        count: 2
+      - recipe: GRN.2
+        count: 2
+
+    - lineId: FP.1
+      buildingCount: 2
+      queue: 
+      - recipe: RAT.1
+        count: 4
+      - recipe: DW.1
+        count: 1

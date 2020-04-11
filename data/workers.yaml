@@ -1,5 +1,5 @@
 ---
-  PIONEER:
+  pioneer:
     efficiency: 0.79
     essentials:
       - id: DW
@@ -15,6 +15,33 @@
       - id: COF
         rate: 0.5
         basis: 100.0
+        efficiency: 0.13
       - id: PWO
         rate: 0.2
         basis: 100.0
+        efficiency: 0.08
+
+  settler:
+    efficiency: 0.79
+    essentials:
+      - id: DW
+        rate: 5.0
+        basis: 100.0
+      - id: RAT
+        rate: 5.0
+        basis: 100.0
+      - id: EXO
+        rate: 0.5
+        basis: 100.0
+      - id: PT
+        rate: 0.5
+        basis: 100.0
+    non-essentials:
+      - id: KOM
+        rate: 1.0
+        basis: 100.0
+        efficiency: 0.13
+      - id: REP
+        rate: 0.2
+        basis: 100.0
+        efficiency: 0.08

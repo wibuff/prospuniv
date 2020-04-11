@@ -4,7 +4,7 @@
     type: habitation
     area: 10  
     workers: 
-      - type: PIONEER
+      - type: pioneer
         count: 100
     materials:
       BSE: 2
@@ -17,7 +17,7 @@
     type: habitation
     area: 12  
     workers: 
-      - type: SETTLER
+      - type: settler
         count: 100
     materials:
       BBH: 2
@@ -31,9 +31,9 @@
     type: habitation
     area: 15
     workers: 
-      - type: PIONEER
+      - type: pioneer
         count: 75
-      - type: SETTLER
+      - type: settler
         count: 75
     materials:
       BBH: 4
@@ -46,7 +46,7 @@
     type: production
     area: 10
     workers:
-      - type: PIONEER
+      - type: pioneer
         count: 30
     materials:
       BSE: 12
@@ -56,7 +56,7 @@
     type: production
     area: 30
     workers: 
-      - type: PIONEER
+      - type: pioneer
         count: 50
     materials:
       BSE: 4
@@ -67,7 +67,7 @@
     type: production
     area: 12
     workers: 
-      - type: PIONEER
+      - type: pioneer
         count: 40
     materials:
       BSE: 3
@@ -79,9 +79,9 @@
     type: production
     area: 18
     workers: 
-      - type: PIONEER
+      - type: pioneer
         count: 20
-      - type: SETTLER
+      - type: settler
         count: 60
     materials:
       BBH: 3
@@ -94,9 +94,9 @@
     type: production
     area: 15
     workers:
-      - type: PIONEER
+      - type: pioneer
         count: 40
-      - type: SETTLER
+      - type: settler
         count: 20
     materials:
       BSE: 2

@@ -1,0 +1,27 @@
+---
+  description: >-
+    current live configuration
+  productionLines: 
+    - lineId: RIG.1
+      buildingCount: 2
+      queue: 
+      - recipe: H2O.1
+        count: 10
+
+    - lineId: FRM.1
+      buildingCount: 2
+      queue: 
+      - recipe: VEG.1
+        count: 3
+      - recipe: BEA.2
+        count: 3
+      - recipe: GRN.2
+        count: 3
+
+    - lineId: FP.1
+      buildingCount: 1
+      queue: 
+      - recipe: RAT.1
+        count: 4
+      - recipe: DW.1
+        count: 1

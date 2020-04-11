@@ -1,4 +1,3 @@
-- Convert some or all configs to YAML from JSON
 - Calculate material needs for current goal
 - Building Cost Calculation
 - Calculation and addition of manufacturing fees

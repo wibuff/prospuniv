@@ -8,7 +8,7 @@ from inventory import Inventory
 from market import Market
 from clock import Duration
 from valuestream import ValueStream
-from configuration import load_datafile
+from configuration import load_datafile, load_yamlfile
 
 def extract_args(argv):
     if len(argv) < 5:
@@ -27,9 +27,9 @@ def main(argv):
         print('  market-file: {}'.format(args[2]))
         print('  run-time: {}'.format(args[3]))
 
-        valstream = load_datafile(args[0])
-        inventory = Inventory(load_datafile(args[1]))
-        market = Market(load_datafile(args[2]))
+        valstream = load_yamlfile(args[0])
+        inventory = Inventory(load_yamlfile(args[1]))
+        market = Market(load_yamlfile(args[2]))
         duration = Duration(args[3])
         valuestream = ValueStream(valstream, inventory, market, duration)
         valuestream.run()
