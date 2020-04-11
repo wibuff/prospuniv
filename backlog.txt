@@ -1,7 +1,10 @@
+- Convert some or all configs to YAML from JSON
+- Calculate material needs for current goal
 - Building Cost Calculation
 - Calculation and addition of manufacturing fees
 - Add building condition to line efficiency - 
-    - dropped 100.0% to 99.9% after period 1 (1 week?)
+    - dropped 100.0% to 99.9% after period 1 (1 week)
+    - dropped 99.9% to 99.8% after period 2
 - Addition of building depreciation... 
     - dropped 1/26 of value after period 1 (1 week?)
     - appears to depreciate over a 26 week period 

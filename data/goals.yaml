@@ -1,0 +1,41 @@
+---
+  current-goal: 
+    description: add an additional FP
+    notes: |
+      At max worker capacity
+      Need space for 40 more pioneers
+      Need to determine next habitation
+      Pioneer Habitation or Barracks
+    start: 
+      buildings: 
+        - id: HB1
+          count: 2
+        - id: RIG
+          count: 2
+        - id: FRM
+          count: 2
+        - id: FP
+          count: 1
+    actions: 
+      - action: build
+        id: HB1
+      - action: build
+        id: FP
+
+  next-goals: 
+    notes: |
+      NS Nutrient Solution production
+      CAF Caffeinated Beans production
+      COF Caffeinated Infusion production
+      CHP (Chemical Plant) to enable NS production
+      RIG (Additional Rig) to support H2P needs for HYF
+      HYF (Hydroponics Farm) to enable CAF production
+      FP (Additional Food Processor) to enable COF production
+
+  space-planning:
+    used: 137 
+    available: 363 
+    total: 500
+
+  worker-planning:
+    current: 200

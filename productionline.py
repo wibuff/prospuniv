@@ -208,7 +208,7 @@ class ProductionLine(object):
             amount = numworkers * rate/basis
             needs.append({ 'id': resource['id'], 'amount': amount, 'essential': True })
 
-        for resource in worker['nonEssentials']:
+        for resource in worker['non-essentials']:
             rate = resource['rate']
             basis = resource['basis']
             amount = numworkers * rate/basis
