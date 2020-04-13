@@ -29,3 +29,4 @@
 - Sell resources to the market
 - Worker efficiency edge cases (running below 100% of required essential supply)
 - model worker barracks and pool of available workers
+- Worker file generation efficiency value is hardcoded - is there a better source?
