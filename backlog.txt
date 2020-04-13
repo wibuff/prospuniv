@@ -1,3 +1,4 @@
+- Extract buildings from state object
 - Add construction materials to market prices
 - Analyze needs for current goal
     - Building materials needed

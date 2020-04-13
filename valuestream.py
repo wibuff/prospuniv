@@ -82,7 +82,7 @@ class ValueStream(object):
         return net
 
     def calc_mkt_values(self, net_prod):
-        total = Price([0.0,0.0,0.0,0.0])
+        total = Price()
         subtotals = {}
         for product in net_prod: 
             num_produced = net_prod[product]            

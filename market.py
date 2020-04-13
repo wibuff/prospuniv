@@ -9,40 +9,77 @@ class Price(object):
     HEADER_FMT = '{:>12s} {:>12s} {:>12s} {:>12s}'.format('Last', 'Avg', 'Ask', 'Bid')
 
 
-    def __init__(self, pricedata):
-        self.last = pricedata[0]
-        self.avg = pricedata[1]
-        self.ask = pricedata[2]
-        self.bid = pricedata[3]
+    def __init__(self, pricedata=None):
+        self.last = 0
+        self.avg = 0
+        self.ask = 0
+        self.bid = 0
+        self.supply = 0
+        self.demand = 0
+        if pricedata:
+            self.last = pricedata['last']
+            self.avg = pricedata['avg']
+            self.ask = pricedata['ask']
+            self.bid = pricedata['bid']
+            self.supply = pricedata['supply']
+            self.demand = pricedata['demand']
+
+    def _format_value(self, value):
+        if value:
+            return '{:>12.2f}'.format(value)
+        return '{:>12s}'.format("---")
 
     def __str__(self):
-        return '{0.last:12.2f} {0.avg:12.2f} {0.ask:12.2f} {0.bid:12.2f}'.format(self)
+        last = self._format_value(self.last)
+        avg = self._format_value(self.avg)
+        ask = self._format_value(self.ask)
+        bid = self._format_value(self.bid)
+        return '{} {} {} {}'.format(last, avg, ask, bid)
 
     def __repr__(self):
         return json.dumps({
             'last': self.last,
             'avg': self.avg,
             'ask': self.ask,
-            'bid': self.bid
+            'bid': self.bid,
+            'supply': self.supply,
+            'demand': self.demand
         })
+
+    def _handle_none(self, val):
+        if (val): 
+            return val
+        return 0.0
+
     def multiply(self, factor):
-        newprice = [self.last, self.avg, self.ask, self.bid]
-        multprice = list(map(lambda x: x*factor, newprice))
-        return Price(multprice)
+        newprice = {
+            'last': self._handle_none(self.last) * factor,
+            'avg': self._handle_none(self.avg) * factor,
+            'ask': self._handle_none(self.ask) * factor,
+            'bid': self._handle_none(self.bid) * factor,
+            'supply': self.supply,
+            'demand': self.demand
+        }
+        return Price(newprice)
 
     def add(self, price):
-        origprice = [self.last, self.avg, self.ask, self.bid]
-        addprice = [price.last, price.avg, price.ask, price.bid]
-        newprice = list(map(sum, zip(origprice, addprice)))
+        newprice = {
+            'last': self._handle_none(self.last) + self._handle_none(price.last),
+            'avg': self._handle_none(self.avg) + self._handle_none(price.avg),
+            'ask': self._handle_none(self.ask) + self._handle_none(price.ask),
+            'bid': self._handle_none(self.bid) + self._handle_none(price.bid),
+            'supply': self.supply,
+            'demand': self.demand
+        }
         return Price(newprice)
 
 class Market(object):
     """ Market Class 
     """
-    def __init__(self, marketdata):
+    def __init__(self, marketdata, exchange):
         self.prices = {}
-        for product in marketdata['prices'].keys():
-            pricedata = marketdata['prices'][product]    
+        for product in marketdata[exchange]['prices'].keys():
+            pricedata = marketdata[exchange]['prices'][product]    
             self.prices[product] = Price(pricedata)
 
     def __str__(self):

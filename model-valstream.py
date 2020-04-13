@@ -11,8 +11,8 @@ from valuestream import ValueStream
 from configuration import load_datafile, load_yamlfile
 
 def extract_args(argv):
-    if len(argv) < 5:
-        print('usage: %s <valstream-file> <inventory-init-file> <market-file> <run-time>' % argv[0])
+    if len(argv) < 6:
+        print('usage: %s <valstream-file> <inventory-init-file> <market-file> <exchange> <run-time>' % argv[0])
         raise Exception("missing parms")
     return argv[1:]
     
@@ -25,12 +25,13 @@ def main(argv):
         print('  valstream-file: {}'.format(args[0]))
         print('  inventory-init-file: {}'.format(args[1]))
         print('  market-file: {}'.format(args[2]))
-        print('  run-time: {}'.format(args[3]))
+        print('  exchange: {}'.format(args[3]))
+        print('  run-time: {}'.format(args[4]))
 
         valstream = load_yamlfile(args[0])
         inventory = Inventory(load_yamlfile(args[1]))
-        market = Market(load_yamlfile(args[2]))
-        duration = Duration(args[3])
+        market = Market(load_yamlfile(args[2]), args[3])
+        duration = Duration(args[4])
         valuestream = ValueStream(valstream, inventory, market, duration)
         valuestream.run()
 

@@ -37,7 +37,7 @@ class Report(object):
 
     def output_value_table(self, inventory, name):
         total_count = 0
-        total_prices = Price([0.0,0.0,0.0,0.0])
+        total_prices = Price()
         header = "{}:".format(name)
 
         self.output_general(header)

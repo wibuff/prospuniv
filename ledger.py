@@ -82,8 +82,8 @@ class Ledger(object):
         production = {}
         consumption = {}
         net_production = {}
-        total_production_value = Price([0.0,0.0,0.0,0.0])
-        total_production_cost = Price([0.0,0.0,0.0,0.0])
+        total_production_value = Price()
+        total_production_cost = Price()
 
         for entry in self.entries: 
             if entry['type'] == Ledger.STATUS:
