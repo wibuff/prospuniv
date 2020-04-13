@@ -1,10 +1,9 @@
-- Extract buildings from state object
-- Add construction materials to market prices
 - Analyze needs for current goal
     - Building materials needed
     - Building materials costs
     - Worker impacts - available hab vs. required prod
     - Space impacts
+- Set input files in a single config file
 - Calculation and addition of manufacturing fees
 - Add building condition to line efficiency - 
     - dropped 100.0% to 99.9% after period 1 (1 week)
@@ -19,12 +18,14 @@
     - per production line files
     - single overall run file
     - probably in new sub directory
+- Handle multiple sites in extract building data 
+    - generated building config is only accurate for single sites
+    - different sites will have different material costs and possibly availability
 - Add Income Statement - overall  
 - Add Income Statement - for each production line
 - Daily Reporting - resource consumption/production
-- Autogenerate value streams based on inputs/outputs
+- Auto-generate value streams based on inputs/outputs
 - Acquire resources from the market
 - Sell resources to the market
 - Worker efficiency edge cases (running below 100% of required essential supply)
 - model worker barracks and pool of available workers
-- change building spec to handle multiple types of workers

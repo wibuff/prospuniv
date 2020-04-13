@@ -57,7 +57,7 @@ class ProductionLine(object):
             workerType = need['type']
             workerCount = need['count'] * self.buildingCount
             if workerType not in Workers:
-                raise Exception("worker {} not defined".format(workertype))
+                raise Exception("worker {} not defined".format(workerType))
             worker = Workers[workerType]
             workers.append({'type': workerType, 'count': workerCount, 'worker': worker})
         return workers   

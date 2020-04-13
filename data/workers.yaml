@@ -1,5 +1,5 @@
 ---
-  pioneer:
+  PIONEER:
     efficiency: 0.79
     essentials:
       - id: DW
@@ -21,7 +21,7 @@
         basis: 100.0
         efficiency: 0.08
 
-  settler:
+  SETTLER:
     efficiency: 0.79
     essentials:
       - id: DW
