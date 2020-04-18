@@ -10,7 +10,9 @@ class Inventory(object):
     """
 
     def __init__(self, inventory):
-        self.items = inventory
+        self.items = {}
+        for key in inventory.keys():
+            self.items[key] = inventory[key]
 
     def __str__(self):
         return json.dumps(self.items)
@@ -44,6 +46,10 @@ class Inventory(object):
             start_val = other.count(key)
             net[key] = self.items[key] - start_val
         return Inventory(net)
+
+    def add_all(self, materials):
+        for key in materials.keys():
+            self.add(key, materials[key])
 
     def output_summary(self, label, market):
         summary = self.summarize_inventory(market)

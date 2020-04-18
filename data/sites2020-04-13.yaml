@@ -1,0 +1,117 @@
+---
+Promitor:
+  address:
+    planet-id: CR-409e
+    planet-name: Promitor
+    system-id: CR-409
+    system-name: Hortus
+  area:
+    available: 363
+    consumed: 137
+    total: 500
+  buildings:
+  - area: 10
+    book-value:
+      amount: 11113.47
+      currency: ICA
+    condition: 0.9976756213202951
+    created: 2020-03-22
+    name: rig
+    reclaimable-materials:
+      BSE: 10
+      MCG: 35
+    ticker: RIG
+    type: RESOURCES
+  - area: 10
+    book-value:
+      amount: 14421.15
+      currency: ICA
+    condition: 0.9991245287919408
+    created: 2020-04-05
+    name: rig
+    reclaimable-materials:
+      BSE: 11
+      MCG: 38
+    ticker: RIG
+    type: RESOURCES
+  - area: 12
+    book-value:
+      amount: 11852.46
+      currency: ICA
+    condition: 0.9976756924114658
+    created: 2020-03-22
+    name: foodProcessor
+    reclaimable-materials:
+      BBH: 2
+      BDE: 2
+      BSE: 2
+      MCG: 42
+    ticker: FP
+    type: PRODUCTION
+  - area: 10
+    book-value:
+      amount: 11550.68
+      currency: ICA
+    condition: 0.9976757724905609
+    created: 2020-03-22
+    name: habitationPioneer
+    reclaimable-materials:
+      BBH: 3
+      BDE: 1
+      BSE: 1
+      MCG: 35
+    ticker: HB1
+    type: HABITATION
+  - area: 25
+    book-value:
+      amount: 66966.31
+      currency: ICA
+    condition: 0.9976752378865812
+    created: 2020-03-22
+    name: coreModule
+    reclaimable-materials: {}
+    ticker: CM
+    type: CORE
+  - area: 10
+    book-value:
+      amount: 11550.71
+      currency: ICA
+    condition: 0.9976757523504103
+    created: 2020-03-22
+    name: habitationPioneer
+    reclaimable-materials:
+      BBH: 3
+      BDE: 1
+      BSE: 1
+      MCG: 35
+    ticker: HB1
+    type: HABITATION
+  - area: 30
+    book-value:
+      amount: 10516.03
+      currency: ICA
+    condition: 0.9976756728431788
+    created: 2020-03-22
+    name: farm
+    reclaimable-materials:
+      BBH: 3
+      BSE: 3
+      MCG: 106
+    ticker: FRM
+    type: PRODUCTION
+  - area: 30
+    book-value:
+      amount: 13255.38
+      currency: ICA
+    condition: 0.9986588887019383
+    created: 2020-03-30
+    name: farm
+    reclaimable-materials:
+      BBH: 3
+      BSE: 3
+      MCG: 111
+    ticker: FRM
+    type: PRODUCTION
+  id: 39de87156e2f75cf63dbebf2d2ad7419
+  timestamp: 2020-04-13 22:56:09.639766
+

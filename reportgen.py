@@ -38,9 +38,11 @@ class Report(object):
     def output_value_table(self, inventory, name):
         total_count = 0
         total_prices = Price()
-        header = "{}:".format(name)
 
-        self.output_general(header)
+        if name:
+            header = "{}:".format(name)
+            self.output_general(header)
+
         self.major_break()
         self.output_general(self.VTABLEHEAD)
 

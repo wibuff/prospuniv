@@ -1,13 +1,11 @@
-- Analyze needs for current goal
-    - Building materials needed
-    - Building materials costs
-    - Worker impacts - available hab vs. required prod
-    - Space impacts
 - Set input files in a single config file
 - Calculation and addition of manufacturing fees
 - Add building condition to line efficiency - 
     - dropped 100.0% to 99.9% after period 1 (1 week)
     - dropped 99.9% to 99.8% after period 2
+    - after looking at game state data
+        - after 1 period -> 0.9986588887019383 -> displayed as 99.9
+        - after 2 periods -> 0.9976757724905609 -> displayed as 99.8
 - Addition of building depreciation... 
     - dropped 1/26 of value after period 1 (1 week?)
     - appears to depreciate over a 26 week period 

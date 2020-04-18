@@ -91,6 +91,7 @@ def main(argv):
 
         output = yaml.dump(exchanges, Dumper=Dumper, explicit_start=True)
         print(output)
+        return 0
 
     except Exception as err:
         print(err)

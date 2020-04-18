@@ -1,0 +1,46 @@
+---
+goals: 
+  - description: add an additional FP
+    notes: |
+      At max worker capacity
+      Need space for 40 more pioneers
+      Need to determine next habitation
+      Pioneer Habitation or Barracks
+      Then build the FP 
+    actions: 
+      - action: build
+        id: HB1
+        site: Promitor
+      - action: build
+        id: FP
+        site: Promitor
+  - description: add a hydroponics farm
+    notes: |
+      Produce CAF
+      Need HYF
+      Need RIG for additional H2O
+      Need Habitat for Settlers and addl Pioneers
+      Model HB1 and HB2
+    actions:
+      - action: build
+        id: RIG
+        site: Promitor
+      - action: build
+        id: HB1
+        site: Promitor
+      - action: build
+        id: HB2
+        site: Promitor
+      - action: build
+        id: HYF
+        site: Promitor
+
+future-goals: 
+  notes: |
+    NS Nutrient Solution production
+    CAF Caffeinated Beans production
+    COF Caffeinated Infusion production
+    CHP (Chemical Plant) to enable NS production
+    RIG (Additional Rig) to support H2P needs for HYF
+    HYF (Hydroponics Farm) to enable CAF production
+    FP (Additional Food Processor) to enable COF production

@@ -85,6 +85,9 @@ class Market(object):
     def __str__(self):
         return json.dumps(self.prices)
 
+    def __repr__(self): 
+        return str(self.prices)
+
     def price(self, product): 
         if product in self.prices: 
             return self.prices[product]
