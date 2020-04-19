@@ -29,10 +29,11 @@ goals:
         site: Promitor
 future-goals: 
   notes: |
+    Going 3 wide on RIG->FRM->FP +1 RIG
+    Investigating setup needed for CAF / COF production
     NS Nutrient Solution production
     CAF Caffeinated Beans production
     COF Caffeinated Infusion production
     CHP (Chemical Plant) to enable NS production
-    RIG (Additional Rig) to support H2P needs for HYF
     HYF (Hydroponics Farm) to enable CAF production
     FP (Additional Food Processor) to enable COF production

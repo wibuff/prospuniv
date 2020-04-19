@@ -1,5 +1,24 @@
-- Generate inventory file from game state snapshot
+- Generate sites exchange inventory files from single script 
+    - common key is date YYYY-MM-DD
+- Take date YYYY-MM-DD as input and use to read standard files
+- Log key metrics from runs to a single location
+    - format should allow for easy comparison of key metrics between runs
+    - identify source value stream, inventory, market files
+- Log run details to run-specific logging instead of using stdout and routing to file
+    - per production line files
+    - single overall run file
+    - probably in new sub directory
 - Set input files in a single config file
+- Acquire resources from the market
+- Sell resources to the market
+- Add Income Statement - overall  
+- Add Income Statement - for each production line
+- Daily Reporting - resource consumption/production
+- Auto-generate value streams based on inputs/outputs
+- Worker file generation efficiency value is hardcoded - is there a better source?
+- Handle multiple sites in extract building data 
+    - generated building config is only accurate for single sites
+    - different sites will have different material costs and possibly availability
 - Calculation and addition of manufacturing fees
 - Add building condition to line efficiency - 
     - dropped 100.0% to 99.9% after period 1 (1 week)
@@ -10,22 +29,5 @@
 - Addition of building depreciation... 
     - dropped 1/26 of value after period 1 (1 week?)
     - appears to depreciate over a 26 week period 
-- Log key metrics from runs to a single location
-    - format should allow for easy comparison of key metrics between runs
-    - identify source value stream, inventory, market files
-- Log run details to run-specific logging instead of using stdout and routing to file
-    - per production line files
-    - single overall run file
-    - probably in new sub directory
-- Handle multiple sites in extract building data 
-    - generated building config is only accurate for single sites
-    - different sites will have different material costs and possibly availability
-- Add Income Statement - overall  
-- Add Income Statement - for each production line
-- Daily Reporting - resource consumption/production
-- Auto-generate value streams based on inputs/outputs
-- Acquire resources from the market
-- Sell resources to the market
 - Worker efficiency edge cases (running below 100% of required essential supply)
 - model worker barracks and pool of available workers
-- Worker file generation efficiency value is hardcoded - is there a better source?

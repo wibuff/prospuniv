@@ -1,22 +1,22 @@
 ---
   description: >-
-    variant 1 configuration
+    go three wide
   productionLines: 
     - lineId: RIG.1
-      buildingCount: 2
+      buildingCount: 4
       queue: 
       - recipe: H2O.1
-        count: 5
+        count: 10
 
     - lineId: FRM.1
       buildingCount: 2
       queue: 
       - recipe: VEG.1
-        count: 2
+        count: 3
       - recipe: BEA.2
-        count: 2
+        count: 3
       - recipe: GRN.2
-        count: 2
+        count: 3
 
     - lineId: FP.1
       buildingCount: 2

@@ -55,7 +55,7 @@ class ValueStream(object):
         print('')
 
         print('Value Stream Summary:')
-        stream_ledger = Ledger(self.stream_id, 'RUN.TOTALS', self.market)
+        stream_ledger = Ledger(self.stream_id, 'RUN.TOTALS', None, self.market)
         for line in lines:
             stream_ledger.add_ledger(line.ledger)
         stream_ledger.output_summary()

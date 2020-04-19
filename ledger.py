@@ -21,9 +21,10 @@ class Ledger(object):
     ACTIVE = 1
     INACTIVE = 0
 
-    def __init__(self, stream_id, line_id, market):
+    def __init__(self, stream_id, line_id, buildingCount, market):
         self.stream_id = stream_id
         self.line_id = line_id
+        self.buildingCount = buildingCount
         self.market = market
         self.entries = []
 
@@ -49,7 +50,11 @@ class Ledger(object):
         if self.line_id in ProductionLines:
             building = Buildings[ProductionLines[self.line_id]['building']]['name']
 
-        line = "{}.{} ({})".format(self.stream_id, self.line_id, building)
+        if self.buildingCount: 
+            line = "{}.{} ({} x {})".format(self.stream_id, self.line_id, self.buildingCount, building)
+        else: 
+            line = "{}.{} ({})".format(self.stream_id, self.line_id, building)
+
         uptime =      'Uptime: {active_cycles}/{total_cycles} cycles ({uptime_percent:.2%})'.format(**summary)
         efficiency =  'Efficiency : {min:5.2%} / {mean:5.2%} / {max:5.2%} [min/mean/max]'.format(**summary['efficiencies'])
         price_head =  '                   {}'.format(Price.HEADER_FMT)

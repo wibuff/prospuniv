@@ -6,7 +6,7 @@ import json
 class Price(object):
     """ Price Class
     """
-    HEADER_FMT = '{:>12s} {:>12s} {:>12s} {:>12s}'.format('Last', 'Avg', 'Ask', 'Bid')
+    HEADER_FMT = '{:>12s} {:>12s} {:>12s} {:>12s}'.format('Last', 'Ask', 'Bid', 'Avg')
 
 
     def __init__(self, pricedata=None):
@@ -31,17 +31,17 @@ class Price(object):
 
     def __str__(self):
         last = self._format_value(self.last)
-        avg = self._format_value(self.avg)
         ask = self._format_value(self.ask)
         bid = self._format_value(self.bid)
-        return '{} {} {} {}'.format(last, avg, ask, bid)
+        avg = self._format_value(self.avg)
+        return '{} {} {} {}'.format(last, ask, bid, avg)
 
     def __repr__(self):
         return json.dumps({
             'last': self.last,
-            'avg': self.avg,
             'ask': self.ask,
             'bid': self.bid,
+            'avg': self.avg,
             'supply': self.supply,
             'demand': self.demand
         })
@@ -54,9 +54,9 @@ class Price(object):
     def multiply(self, factor):
         newprice = {
             'last': self._handle_none(self.last) * factor,
-            'avg': self._handle_none(self.avg) * factor,
             'ask': self._handle_none(self.ask) * factor,
             'bid': self._handle_none(self.bid) * factor,
+            'avg': self._handle_none(self.avg) * factor,
             'supply': self.supply,
             'demand': self.demand
         }
@@ -65,9 +65,9 @@ class Price(object):
     def add(self, price):
         newprice = {
             'last': self._handle_none(self.last) + self._handle_none(price.last),
-            'avg': self._handle_none(self.avg) + self._handle_none(price.avg),
             'ask': self._handle_none(self.ask) + self._handle_none(price.ask),
             'bid': self._handle_none(self.bid) + self._handle_none(price.bid),
+            'avg': self._handle_none(self.avg) + self._handle_none(price.avg),
             'supply': self.supply,
             'demand': self.demand
         }

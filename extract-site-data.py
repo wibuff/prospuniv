@@ -12,7 +12,7 @@ from environment import DATA_DIR
 
 def extract_args(argv):
     if len(argv) < 2:
-        print('usage: {} <state-file>',format(argv[0]))
+        print('usage: {} <state-file>'.format(argv[0]))
         raise Exception("missing parms")
     return argv[1:]
     

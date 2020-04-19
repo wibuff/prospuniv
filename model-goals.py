@@ -143,6 +143,7 @@ def execute_actions(goal, sites, exchange):
 def execute_goals(goals, sites, exchange):
     total_consumption = Inventory({})
     for goal in goals['goals']: 
+        print("")
         report.start()
         report.output_general('Goal: {}'.format(goal['description']))
         report.major_break()
@@ -160,6 +161,13 @@ def execute_goals(goals, sites, exchange):
         report.major_break()
         report.output_value_table(summary['inventory'], "Goal Consumption Summary") 
         report.end()
+
+        print("")
+        report.start()
+        report.output_general('Next State')
+        print_state(sites, exchange)
+        report.end()
+
     return total_consumption
 
 def main(argv):
@@ -183,7 +191,6 @@ def main(argv):
         print_state(sites, exchange)
         report.end()
 
-        print("")
         consumption = execute_goals(goals, sites, exchange)
         print("")
         report.start()
@@ -191,11 +198,6 @@ def main(argv):
         report.output_value_table(summary['inventory'], "Consumption for all Goals") 
         report.end()
         print("")
-
-        report.start()
-        report.output_general('Ending State')
-        print_state(sites, exchange)
-        report.end()
 
         return 0
 

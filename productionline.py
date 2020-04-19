@@ -19,7 +19,7 @@ class ProductionLine(object):
         self.buildingCount = line_spec['buildingCount']
         self.production = self._init_production(self.buildingCount)
         self.queue = self._init_production_queue(line_spec['queue'])
-        self.ledger = Ledger(stream_id, self.line_id, market)
+        self.ledger = Ledger(stream_id, self.line_id, self.buildingCount, market)
         self.inventory = inventory
         
         # initialize workers and efficiency before initializing production
