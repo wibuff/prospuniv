@@ -23,3 +23,10 @@
     soil: 0.0
     cogc: 0.1
 
+  HYF.1:
+    building: HYF
+    worksat: 1.0
+    condition: 1.0
+    experts: 0.0696
+    soil: 0.17
+    cogc: 0.1

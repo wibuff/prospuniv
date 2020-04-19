@@ -26,6 +26,9 @@ goals:
         id: RIG
         site: Promitor
       - action: build
+        id: RIG
+        site: Promitor
+      - action: build
         id: HB1
         site: Promitor
       - action: build

@@ -1,3 +1,4 @@
+- Generate inventory file from game state snapshot
 - Set input files in a single config file
 - Calculation and addition of manufacturing fees
 - Add building condition to line efficiency - 

@@ -83,3 +83,15 @@
     inputs: 
       - id: H2O
         count: 4
+
+  CAF.1:
+    output: CAF
+    count: 2 
+    time: "6:00:00"
+    building: HYF
+    inputs: 
+      - id: H2O
+        count: 22
+      - id: NS
+        count: 3
+

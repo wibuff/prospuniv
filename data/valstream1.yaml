@@ -19,7 +19,7 @@
         count: 3
 
     - lineId: FP.1
-      buildingCount: 1
+      buildingCount: 2
       queue: 
       - recipe: RAT.1
         count: 4
