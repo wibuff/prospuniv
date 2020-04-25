@@ -1,3 +1,6 @@
+- Report on missing inputs
+- Generate recipe file from extract 
+- Generate product lines from extract
 - Generate sites exchange inventory files from single script 
     - common key is date YYYY-MM-DD
 - Take date YYYY-MM-DD as input and use to read standard files

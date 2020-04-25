@@ -95,3 +95,22 @@
       - id: NS
         count: 3
 
+  RCO.1:
+    output: RCO
+    count: 1
+    time: "14:24:00"
+    building: FRM
+    inputs: 
+      - id: H2O
+        count: 2
+
+  RCO.2:
+    output: RCO
+    count: 1
+    time: "9:36:00"
+    building: FRM
+    inputs: 
+      - id: H2O
+        count: 2
+      - id: NS
+        count: 4

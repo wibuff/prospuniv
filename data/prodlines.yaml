@@ -5,7 +5,7 @@
     condition: 1.0
     experts: 0.0696
     soil: 0.0
-    cogc: 0.1
+    cogc: 0.0
 
   FRM.1:
     building: FRM
@@ -13,7 +13,7 @@
     condition: 1.0
     experts: 0.0696
     soil: 0.17
-    cogc: 0.1
+    cogc: 0.25
 
   FP.1:
     building: FP
@@ -21,7 +21,7 @@
     condition: 1.0
     experts: 0.0696
     soil: 0.0
-    cogc: 0.1
+    cogc: 0.0
 
   HYF.1:
     building: HYF
@@ -29,4 +29,4 @@
     condition: 1.0
     experts: 0.0696
     soil: 0.17
-    cogc: 0.1
+    cogc: 0.0

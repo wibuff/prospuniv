@@ -1,29 +1,14 @@
 ---
 goals: 
-  - description: go three wide RIG FRM FP step 1
-    notes: | 
-      Start with what can be built w/o more habs
-    actions:
-      - action: build
-        id: RIG
-        site: Promitor
-      - action: build
-        id: RIG
-        site: Promitor
-  - description: go three wide RIG FRM FP step 2
-    notes: |
-      finish up remaining buildings
+  - description: add habitation to support more FRM
+    notes: ""
     actions: 
       - action: build
         id: HB1
         site: Promitor
-  - description: go three wide RIG FRM FP step 3
-    notes: |
-      finish up remaining buildings
+  - description: add FRM
+    notes: ""
     actions: 
-      - action: build
-        id: FP
-        site: Promitor
       - action: build
         id: FRM
         site: Promitor
