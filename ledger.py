@@ -16,6 +16,7 @@ class Ledger(object):
     OUTPUT = "output"
     STATUS = "status"
     EFFICIENCY = "efficiency"
+    MISSING_INPUT = "missing_input"
     NOTE = "note"
 
     ACTIVE = 1
@@ -78,6 +79,14 @@ class Ledger(object):
         report.output_value_table(summary['consumption'], "Consumed Materials")
         report.major_break() 
         report.output_value_table(summary['net_production'], "Net Materials")
+
+        if len(summary['missing']) > 0:
+            report.major_break() 
+            report.output_general('Missing Inputs:')
+            report.major_break()
+            for missing in summary['missing']:
+                report.output_general(missing)
+
         report.end()
 
     def summarize_ledger(self):
@@ -89,6 +98,7 @@ class Ledger(object):
         net_production = {}
         total_production_value = Price()
         total_production_cost = Price()
+        missing = []
 
         for entry in self.entries: 
             if entry['type'] == Ledger.STATUS:
@@ -144,6 +154,11 @@ class Ledger(object):
                     net_production[product]['count'] = -count
                     net_production[product]['value'] = value
 
+            elif entry['type'] == Ledger.MISSING_INPUT:
+                msg = '{0[clock]} {0[line]} needs {0[count]} {0[ticker]} ({0[available]} available)'.format(entry)
+                missing.append(msg)
+                
+
         total_gain_loss = total_production_value.add(total_production_cost)
         return {
             'total_cycles': total_cycles,
@@ -155,7 +170,8 @@ class Ledger(object):
             'net_production': net_production,
             'total_production_value': total_production_value,
             'total_production_cost': total_production_cost,
-            'total_gain_loss': total_gain_loss
+            'total_gain_loss': total_gain_loss,
+            'missing': missing
         }
 
     def _summarize_efficiencies(self, efficiencies):

@@ -31,7 +31,8 @@ class ProductionLine(object):
 
         for bnum in range(0, self.buildingCount):
             self._set_next_recipe_active(master_clock, bnum)
-            self.production[bnum]['producing'] = self._start_next_recipe(master_clock, bnum)
+            self.production[bnum]['producing'] = \
+                self._start_next_recipe(master_clock, bnum, last_round_producing=False)
 
         print('{} {} initialized - {} buildings'.format(master_clock, self.line_id, self.buildingCount))
 
@@ -73,13 +74,18 @@ class ProductionLine(object):
         self.ledger.add(master_clock, Ledger.OUTPUT, 'output produced', count=count, product=product)
     
     def _inputs_available(self, recipe, inputs, num_runs):
+        status = {
+            'available': True,
+            'missing': []
+        }
         for input in inputs: 
             product = input['id']
             count = input['count'] * num_runs
             available = self.inventory.count(product)
             if available - count < 0:
-                return False
-        return True
+                status['available'] = False
+                status['missing'].append({ "ticker": product, "count": count, "available": available})
+        return status
 
     def _consume_inputs(self, master_clock, inputs, num_runs):
         for input in inputs: 
@@ -125,14 +131,21 @@ class ProductionLine(object):
         active['producing'] = False
         self.queue.append(prod)
 
-    def _start_next_recipe(self, master_clock, buildingNum):
+    def _start_next_recipe(self, master_clock, buildingNum, last_round_producing=False):
         active = self.production[buildingNum]
         recipe = active['recipe']
         producing = False
-        if self._inputs_available(recipe['output'], recipe['inputs'], active['count']):
+        input_status = self._inputs_available(recipe['output'], recipe['inputs'], active['count'])
+        if input_status['available']:
             # TODO capture production fees (10.00 ICA per 24 baseline production hours)
             producing = True
             self._consume_inputs(master_clock, recipe['inputs'], active['count'])
+        elif last_round_producing:
+            # capture missing input if we are now not producing and were producing last step
+            for missing in input_status['missing']:
+                self.ledger.add(master_clock, Ledger.MISSING_INPUT, 'missing', 
+                    line=self.line_id, ticker=missing['ticker'], count=missing['count'], available=missing['available'])
+
         return producing
 
     def _log_production_activity(self, master_clock):
@@ -157,7 +170,7 @@ class ProductionLine(object):
 
         if not active['producing']:
             # not currently producing, attempt to start next item in queue
-            active['producing'] = self._start_next_recipe(master_clock, buildingNum)
+            active['producing'] = self._start_next_recipe(master_clock, buildingNum, last_round_producing=False)
         elif active['clock'].to_minutes() > 0:
             # producing, time remaining 
             pass
@@ -166,7 +179,7 @@ class ProductionLine(object):
             active['producing'] = False
             self._produce(master_clock, buildingNum)
             self._set_next_recipe_active(master_clock, buildingNum)
-            active['producing'] = self._start_next_recipe(master_clock, buildingNum)
+            active['producing'] = self._start_next_recipe(master_clock, buildingNum, last_round_producing=True)
 
     def _worker_step(self, master_clock):
         self.worker_clock.step()
