@@ -1,0 +1,249 @@
+---
+Promitor:
+  address:
+    planet-id: CR-409e
+    planet-name: Promitor
+    system-id: CR-409
+    system-name: Hortus
+  area:
+    available: 219
+    consumed: 281
+    total: 500
+  buildings:
+  - area: 30
+    book-value:
+      amount: 16504.58
+      currency: ICA
+    condition: 0.9991446390579302
+    created: 2020-04-24
+    name: farm
+    reclaimable-materials:
+      BBH: 3
+      BSE: 3
+      MCG: 115
+    ticker: FRM
+    type: PRODUCTION
+  - area: 10
+    book-value:
+      amount: 10147.07
+      currency: ICA
+    condition: 0.9910590986084558
+    created: 2020-03-22
+    name: rig
+    reclaimable-materials:
+      BSE: 9
+      MCG: 31
+    ticker: RIG
+    type: RESOURCES
+  - area: 10
+    book-value:
+      amount: 13267.45
+      currency: ICA
+    condition: 0.9966115009088492
+    created: 2020-04-05
+    name: rig
+    reclaimable-materials:
+      BSE: 10
+      MCG: 34
+    ticker: RIG
+    type: RESOURCES
+  - area: 10
+    book-value:
+      amount: 14907.08
+      currency: ICA
+    condition: 0.9986314785519315
+    created: 2020-04-18
+    name: habitationPioneer
+    reclaimable-materials:
+      BBH: 3
+      BDE: 1
+      BSE: 1
+      MCG: 37
+    ticker: HB1
+    type: HABITATION
+  - area: 10
+    book-value:
+      amount: 17279.56
+      currency: ICA
+    condition: 0.9994401829485244
+    created: 2020-04-30
+    name: rig
+    reclaimable-materials:
+      BSE: 11
+      MCG: 39
+    ticker: RIG
+    type: RESOURCES
+  - area: 10
+    book-value:
+      amount: 13183
+      currency: ICA
+    condition: 0.9993462818017937
+    created: 2020-04-28
+    name: habitationPioneer
+    reclaimable-materials:
+      BBH: 3
+      BDE: 1
+      BSE: 1
+      MCG: 39
+    ticker: HB1
+    type: HABITATION
+  - area: 10
+    book-value:
+      amount: 10546.31
+      currency: ICA
+    condition: 0.9910595976314471
+    created: 2020-03-22
+    name: habitationPioneer
+    reclaimable-materials:
+      BBH: 3
+      BDE: 1
+      BSE: 1
+      MCG: 31
+    ticker: HB1
+    type: HABITATION
+  - area: 30
+    book-value:
+      amount: 12150.76
+      currency: ICA
+    condition: 0.9948195955851036
+    created: 2020-03-30
+    name: farm
+    reclaimable-materials:
+      BBH: 3
+      BSE: 3
+      MCG: 98
+    ticker: FRM
+    type: PRODUCTION
+  - area: 10
+    book-value:
+      amount: 17029.04
+      currency: ICA
+    condition: 0.9987638915525121
+    created: 2020-04-19
+    name: rig
+    reclaimable-materials:
+      BSE: 11
+      MCG: 37
+    ticker: RIG
+    type: RESOURCES
+  - area: 30
+    book-value:
+      amount: 16287
+      currency: ICA
+    condition: 0.9992513757048072
+    created: 2020-04-26
+    name: farm
+    reclaimable-materials:
+      BBH: 3
+      BSE: 3
+      MCG: 116
+    ticker: FRM
+    type: PRODUCTION
+  - area: 12
+    book-value:
+      amount: 12168.12
+      currency: ICA
+    condition: 0.9993462887185995
+    created: 2020-04-28
+    name: foodProcessor
+    reclaimable-materials:
+      BBH: 2
+      BDE: 2
+      BSE: 2
+      MCG: 47
+    ticker: FP
+    type: PRODUCTION
+  - area: 12
+    book-value:
+      amount: 10821.8
+      currency: ICA
+    condition: 0.9910593693562872
+    created: 2020-03-22
+    name: foodProcessor
+    reclaimable-materials:
+      BBH: 2
+      BDE: 2
+      BSE: 2
+      MCG: 37
+    ticker: FP
+    type: PRODUCTION
+  - area: 10
+    book-value:
+      amount: 17307.69
+      currency: ICA
+    condition: 0.9987276047412623
+    created: 2020-04-19
+    name: rig
+    reclaimable-materials:
+      BSE: 11
+      MCG: 37
+    ticker: RIG
+    type: RESOURCES
+  - area: 10
+    book-value:
+      amount: 10546.28
+      currency: ICA
+    condition: 0.9910596743344606
+    created: 2020-03-22
+    name: habitationPioneer
+    reclaimable-materials:
+      BBH: 3
+      BDE: 1
+      BSE: 1
+      MCG: 31
+    ticker: HB1
+    type: HABITATION
+  - area: 10
+    book-value:
+      amount: 14801.51
+      currency: ICA
+    condition: 0.9991446253023666
+    created: 2020-04-24
+    name: habitationPioneer
+    reclaimable-materials:
+      BBH: 3
+      BDE: 1
+      BSE: 1
+      MCG: 38
+    ticker: HB1
+    type: HABITATION
+  - area: 25
+    book-value:
+      amount: 61143.15
+      currency: ICA
+    condition: 0.9910576383195833
+    created: 2020-03-22
+    name: coreModule
+    reclaimable-materials: {}
+    ticker: CM
+    type: CORE
+  - area: 12
+    book-value:
+      amount: 14767.81
+      currency: ICA
+    condition: 0.9986314882574048
+    created: 2020-04-18
+    name: foodProcessor
+    reclaimable-materials:
+      BBH: 2
+      BDE: 2
+      BSE: 2
+      MCG: 44
+    ticker: FP
+    type: PRODUCTION
+  - area: 30
+    book-value:
+      amount: 9601.59
+      currency: ICA
+    condition: 0.9910592948312464
+    created: 2020-03-22
+    name: farm
+    reclaimable-materials:
+      BBH: 3
+      BSE: 3
+      MCG: 93
+    ticker: FRM
+    type: PRODUCTION
+  id: 39de87156e2f75cf63dbebf2d2ad7419
+  timestamp: 2020-05-02 09:36:42.053978
+

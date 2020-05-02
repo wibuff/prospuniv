@@ -3,6 +3,7 @@
 """
 import sys
 import json
+import traceback
 from datetime import datetime
 from inventory import Inventory
 from market import Market
@@ -36,7 +37,7 @@ def main(argv):
         valuestream.run()
 
     except Exception as err:
-        print(err)
+        traceback.print_exc()
         return 100
 
 if __name__ == '__main__':

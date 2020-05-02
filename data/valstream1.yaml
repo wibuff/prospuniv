@@ -6,10 +6,10 @@
       buildingCount: 4
       queue: 
       - recipe: H2O.1
-        count: 15
+        count: 5
 
     - lineId: FRM.1
-      buildingCount: 3
+      buildingCount: 4
       queue: 
       - recipe: VEG.1
         count: 3
@@ -19,9 +19,13 @@
         count: 3
 
     - lineId: FP.1
-      buildingCount: 2
+      buildingCount: 3
       queue: 
+      - recipe: DW.2
+        count: 2
+      - recipe: DW.2
+        count: 2
       - recipe: RAT.1
         count: 5
-      - recipe: DW.1
-        count: 2
+      - recipe: RAT.1
+        count: 5

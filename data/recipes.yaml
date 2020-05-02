@@ -39,6 +39,19 @@
       - id: BEA
         count: 1
 
+  RAT.2:
+    output: RAT
+    count: 10
+    time: "6:00:00"
+    building: FP
+    inputs: 
+      - id: NUT
+        count: 1
+      - id: GRN
+        count: 1
+      - id: BEA
+        count: 1
+
   VEG.1:
     output: VEG
     count: 4
@@ -47,6 +60,15 @@
     inputs: 
       - id: H2O
         count: 3
+
+  NUT.1:
+    output: NUT
+    count: 12
+    time: "1:12:00:00"
+    building: FRM
+    inputs: 
+      - id: H2O
+        count: 1
 
   BEA.1:
     output: BEA

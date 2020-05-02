@@ -2,6 +2,7 @@
 """ extract broker data from the prospu state object
 """
 import sys
+import traceback
 from datetime import datetime
 import yaml
 try:
@@ -12,7 +13,7 @@ from environment import DATA_DIR
 
 def extract_args(argv):
     if len(argv) < 2:
-        print('usage: {} <state-file>',format(argv[0]))
+        print('usage: {} <state-file>'.format(argv[0]))
         raise Exception("missing parms")
     return argv[1:]
     
@@ -64,8 +65,11 @@ def build_price(broker_data):
     
 def load_prices(brokers): 
     exchange_prices = {}
-    for broker in brokers.keys():
-        data = brokers[broker]['data']
+    for key in brokers.keys():
+        broker = brokers[key] 
+        if 'data' not in broker or not broker['data']:
+            continue
+        data = broker['data']
         ticker = data['material']['ticker']
         price = build_price(data)
 
@@ -94,7 +98,7 @@ def main(argv):
         return 0
 
     except Exception as err:
-        print(err)
+        traceback.print_exc()
         return 100
 
 if __name__ == '__main__':

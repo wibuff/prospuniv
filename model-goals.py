@@ -2,6 +2,7 @@
 """ model goals, analyzing resource, worker and space needs
 """
 import sys
+import traceback
 from datetime import datetime, date
 import yaml
 try:
@@ -81,6 +82,20 @@ def calc_area(site):
         "total": total
     }
 
+def create_building_summary(site): 
+    buildings = {}
+    for building in site['buildings']:
+        ticker = building['ticker']
+        if ticker in buildings:
+            buildings[ticker] = buildings[ticker] + 1
+        else:
+            buildings[ticker] = 1
+
+    fmt = "{}: {}"
+    summary = []
+    for ticker in buildings.keys():
+        summary.append(fmt.format(ticker, buildings[ticker]))
+    return ', '.join(summary)
 
 def print_state(sites, exchange):
     for site_name in sites:
@@ -88,26 +103,28 @@ def print_state(sites, exchange):
         workforce = identify_worker_state(site)
         area = calc_area(site)
 
-        site_desc = "Address : Planet {0[planet-name]} ({0[planet-id]}) {0[system-name]} System ({0[system-id]})".format(site['address'])
-        site_id =   "Site    : {}".format(site['id'][:8])
-        area_desc = "Area    : {0[consumed]} / {0[available]} / {0[total]} (dev/avail/total)".format(area)
-        wf_hdr    = "                   {0[0]:>6s}  {0[1]:>6s}  {0[2]:>6s}  {0[3]:>6s} {0[4]:>6s}".format(WORKFORCE_HDR)
-        demand    = "Worker Demand   :  {0[0]:>6d}  {0[1]:>6d}  {0[2]:>6d}  {0[3]:>6d} {0[4]:>6d}".format(workforce['demand'])
-        capacity  = "Worker Capacity :  {0[0]:>6d}  {0[1]:>6d}  {0[2]:>6d}  {0[3]:>6d} {0[4]:>6d}".format(workforce['capacity'])
-        surplus   = "Worker Surplus  :  {0[0]:>6d}  {0[1]:>6d}  {0[2]:>6d}  {0[3]:>6d} {0[4]:>6d}".format(workforce['surplus'])
+        site_desc = "Address   : Planet {0[planet-name]} ({0[planet-id]}) {0[system-name]} System ({0[system-id]})".format(site['address'])
+        site_id =   "Site      : {}".format(site['id'][:8])
+        area_desc = "Area      : {0[consumed]} / {0[available]} / {0[total]} (dev/avail/total)".format(area)
+        bldg_desc = "Buildings : {}".format(create_building_summary(site))
+        wf_hdr    = "Workers   : {0[0]:>6s}  {0[1]:>6s}  {0[2]:>6s}  {0[3]:>6s} {0[4]:>6s}".format(WORKFORCE_HDR)
+        demand    = " Demand   :  {0[0]:>6d}  {0[1]:>6d}  {0[2]:>6d}  {0[3]:>6d} {0[4]:>6d}".format(workforce['demand'])
+        capacity  = " Capacity :  {0[0]:>6d}  {0[1]:>6d}  {0[2]:>6d}  {0[3]:>6d} {0[4]:>6d}".format(workforce['capacity'])
+        surplus   = " Surplus  :  {0[0]:>6d}  {0[1]:>6d}  {0[2]:>6d}  {0[3]:>6d} {0[4]:>6d}".format(workforce['surplus'])
         consumption = workforce['consumption'].summarize_inventory(exchange)
 
         report.major_break()
         report.output_general(site_desc)
         report.output_general(site_id)
         report.output_general(area_desc)
-        report.output_general("")
+        report.output_general(bldg_desc)
+        report.major_break()
         report.output_general(wf_hdr)
         report.output_general(demand)
         report.output_general(capacity)
         report.output_general(surplus)
-        report.output_general("")
-        report.output_value_table(consumption['inventory'], "Worker Consumption/Day") 
+        report.minor_break()
+        report.output_value_table(consumption['inventory'], "Consumption/Day") 
 
 def build(site, ticker, exchange):
     building_type = Buildings[ticker]
@@ -202,7 +219,7 @@ def main(argv):
         return 0
 
     except Exception as err:
-        print(err)
+        traceback.print_exc()
         return 100
 
 if __name__ == '__main__':

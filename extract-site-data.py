@@ -2,6 +2,7 @@
 """ extract site data from the prospu state object
 """
 import sys
+import traceback
 from datetime import datetime, date
 import yaml
 try:
@@ -103,7 +104,7 @@ def main(argv):
         return 0
 
     except Exception as err:
-        print(err)
+        traceback.print_exc()
         return 100
 
 if __name__ == '__main__':

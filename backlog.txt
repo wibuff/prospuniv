@@ -1,8 +1,20 @@
-- Report on missing inputs
 - Generate recipe file from extract 
+    - basic extract done
+    - next refactor production lines to use new format - some recipes have multiple outputs
 - Generate product lines from extract
-- Generate sites exchange inventory files from single script 
-    - common key is date YYYY-MM-DD
+- Track cash liquid assets
+- Provide Net Gain/Loss in multiple currencies
+- Acquire resources from the market
+    - simple scheduled buys
+    - conditional buys (e.g. purchase when below threshold)
+- Sell resources to the market 
+- Track sales as revenue
+- Track resource consumption as expense
+- Value flow analysis / resource valuation
+    - model recipes
+    - value inputs
+    - calc value of outputs
+    - simple (single node) and complex (multi-node)
 - Take date YYYY-MM-DD as input and use to read standard files
 - Log key metrics from runs to a single location
     - format should allow for easy comparison of key metrics between runs
@@ -12,8 +24,6 @@
     - single overall run file
     - probably in new sub directory
 - Set input files in a single config file
-- Acquire resources from the market
-- Sell resources to the market
 - Add Income Statement - overall  
 - Add Income Statement - for each production line
 - Daily Reporting - resource consumption/production

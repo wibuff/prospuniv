@@ -1,0 +1,44 @@
+#!/usr/bin/python3
+""" run all extracts from a game extract file
+"""
+import os
+import sys
+
+def extract_args(argv):
+    if len(argv) < 2:
+        print('usage: {} <YYYY-MM-DD>'.format(argv[0]))
+        raise Exception("missing parms")
+    return argv[1:]
+
+def main(argv):
+    """ runtime entrypoint """
+    try:
+        args = extract_args(argv)
+        dt_tag = args[0]
+        source = 'extracts/extract{}.json'.format(dt_tag)
+        exchange = 'data/exchange{}.yaml'.format(dt_tag)
+        inventory = 'data/inventory{}.yaml'.format(dt_tag)
+        sites = 'data/sites{}.yaml'.format(dt_tag)
+
+        print('extracting all data for {}'.format(dt_tag))
+        print('source file is {}'.format(source))
+        if not os.path.isfile(source):
+            raise Exception('ERROR {} not found'.format(source))
+
+        status = os.system('./extract-broker-data.py {} > {}'.format(source, exchange))
+        print('extract exchange data, exit code={}'.format(status))
+
+        status = os.system('./extract-inventory-data.py {} > {}'.format(source, inventory))
+        print('extract inventory data, exit code={}'.format(status))
+
+        status = os.system('./extract-site-data.py {} > {}'.format(source, sites))
+        print('extract site data, exit code={}'.format(status))
+
+        return 0
+
+    except Exception as err:
+        print(err)
+        return 100
+
+if __name__ == '__main__':
+    sys.exit(main(sys.argv))

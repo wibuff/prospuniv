@@ -1,0 +1,31 @@
+---
+  description: >-
+    end state for goal 1 - food processor focus
+  productionLines: 
+    - lineId: FRM.1
+      buildingCount: 7
+      queue: 
+      - recipe: VEG.1
+        count: 3
+      - recipe: BEA.2
+        count: 3
+      - recipe: GRN.2
+        count: 3
+
+    - lineId: RIG.1
+      buildingCount: 7
+      queue: 
+      - recipe: H2O.1
+        count: 5
+
+    - lineId: FP.1
+      buildingCount: 8
+      queue: 
+      - recipe: DW.2
+        count: 1
+      - recipe: DW.2
+        count: 1
+      - recipe: RAT.1
+        count: 5
+      - recipe: RAT.1
+        count: 5

@@ -43,7 +43,8 @@ class Report(object):
             header = "{}:".format(name)
             self.output_general(header)
 
-        self.major_break()
+        # self.major_break()
+        self.minor_break()
         self.output_general(self.VTABLEHEAD)
 
         for key in inventory.keys():

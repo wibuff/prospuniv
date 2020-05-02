@@ -18,7 +18,15 @@
             "request": "launch",
             "program": "${file}",
             "console": "integratedTerminal",
-            "args": ["extracts/extract2020-04-18.json"]
+            "args": ["extracts/extract2020-04-28.json"]
+        },
+        {
+            "name": "Python: Goal Execution",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "args": ["data/goals2.yaml", "data/sites2020-04-27.yaml", "data/exchange2020-04-27.yaml", "IC1"]
         }
     ]
 }

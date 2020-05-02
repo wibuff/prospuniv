@@ -1,38 +1,69 @@
 ---
 goals: 
-  - description: go three wide RIG FRM FP step 1
-    notes: | 
-      Start with what can be built w/o more habs
-    actions:
-      - action: build
-        id: RIG
-        site: Promitor
-      - action: build
-        id: RIG
-        site: Promitor
-  - description: go three wide RIG FRM FP step 2
-    notes: |
-      finish up remaining buildings
+  - description: Industrial Farming
+    notes: all agriculture
     actions: 
       - action: build
         id: HB1
         site: Promitor
-  - description: go three wide RIG FRM FP step 3
-    notes: |
-      finish up remaining buildings
-    actions: 
       - action: build
-        id: FP
+        id: FRM
         site: Promitor
       - action: build
         id: FRM
         site: Promitor
+      - action: build
+        id: HB1
+        site: Promitor
+      - action: build
+        id: FRM
+        site: Promitor
+      - action: build
+        id: HB1
+        site: Promitor
+      - action: build
+        id: FRM
+        site: Promitor
+      - action: build
+        id: HB1
+        site: Promitor
+      - action: build
+        id: RIG
+        site: Promitor
+      - action: build
+        id: RIG
+        site: Promitor
+      - action: build
+        id: RIG
+        site: Promitor
+      - action: build
+        id: RIG
+        site: Promitor
+      - action: build
+        id: RIG
+        site: Promitor
+      - action: build
+        id: RIG
+        site: Promitor
+      - action: build
+        id: HB1
+        site: Promitor
+      - action: build
+        id: FP
+        site: Promitor
+
 future-goals: 
   notes: |
+    Build out Promitor into an industrial farm to generate cash flow
+    Maintain FP to provide RAT and DW - sell off excess stock
+    Figure out where to expand next and what to provide
+      - LST (limestone)
+      - A colony where PTU is trying to gain influence
+    Other ideas...
+    Investigating setup needed for CAF / COF production
     NS Nutrient Solution production
     CAF Caffeinated Beans production
     COF Caffeinated Infusion production
     CHP (Chemical Plant) to enable NS production
-    RIG (Additional Rig) to support H2P needs for HYF
     HYF (Hydroponics Farm) to enable CAF production
     FP (Additional Food Processor) to enable COF production

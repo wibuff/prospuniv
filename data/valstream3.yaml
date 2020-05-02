@@ -1,15 +1,15 @@
 ---
   description: >-
-    go three wide
+    current live configuration
   productionLines: 
     - lineId: RIG.1
-      buildingCount: 3
+      buildingCount: 4
       queue: 
       - recipe: H2O.1
         count: 10
 
     - lineId: FRM.1
-      buildingCount: 3
+      buildingCount: 4
       queue: 
       - recipe: VEG.1
         count: 3
@@ -19,9 +19,9 @@
         count: 3
 
     - lineId: FP.1
-      buildingCount: 3
+      buildingCount: 4
       queue: 
       - recipe: RAT.1
-        count: 4
+        count: 5
       - recipe: DW.1
-        count: 1
+        count: 2

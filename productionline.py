@@ -50,6 +50,8 @@ class ProductionLine(object):
         efficency = self.worker_efficiency * self.linetype['condition'] * \
             (1.0 + self.linetype['experts']) * (1.0 + self.linetype['soil']) * \
                 (1.0 + self.linetype['cogc'])
+        if efficency < 0.33:
+            return 0.33
         return efficency
 
     def _init_workers(self):
