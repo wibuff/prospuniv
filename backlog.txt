@@ -1,4 +1,3 @@
-- Price out shopping list from all three exchanges
 - Generate recipe file from extract 
     - basic extract done
     - next refactor production lines to use new format - some recipes have multiple outputs

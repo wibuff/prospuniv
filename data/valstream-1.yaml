@@ -3,7 +3,7 @@
     current live configuration
   productionLines: 
     - lineId: RIG.1
-      buildingCount: 7
+      buildingCount: 8
       queue: 
       - recipe: H2O.1
         count: 10
@@ -19,7 +19,7 @@
         count: 5
 
     - lineId: FP.1
-      buildingCount: 3
+      buildingCount: 8
       queue: 
       - recipe: DW.2
         count: 4
