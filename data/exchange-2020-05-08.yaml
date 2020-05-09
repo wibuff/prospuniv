@@ -1,0 +1,4514 @@
+---
+CI1:
+  code: CI1
+  currency: CIS
+  name: Katoa Commodity Exchange
+  prices:
+    ABH:
+      ask: null
+      avg: 22000.0
+      bid: 22000.0
+      demand: 21
+      last: 22000.0
+      supply: null
+    ADE:
+      ask: null
+      avg: 10000.0
+      bid: 18000.0
+      demand: 11
+      last: 10000.0
+      supply: null
+    AEF:
+      ask: 3000.0
+      avg: 3000.0
+      bid: 2200.0
+      demand: 23
+      last: 3000.0
+      supply: 11
+    AIR:
+      ask: null
+      avg: 643222.16
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    AL:
+      ask: 550.0
+      avg: 467.94
+      bid: 417.92
+      demand: 834
+      last: 550.0
+      supply: 854
+    ALE:
+      ask: 899.99
+      avg: 758.63
+      bid: 600.0
+      demand: 10
+      last: 899.99
+      supply: 586
+    ALG:
+      ask: null
+      avg: 140.0
+      bid: 100.01
+      demand: 175
+      last: 140.0
+      supply: null
+    ALO:
+      ask: 100.0
+      avg: 97.62
+      bid: 93.0
+      demand: 1620
+      last: 100.0
+      supply: 5035
+    AMM:
+      ask: 66.0
+      avg: 63.61
+      bid: 61.05
+      demand: 3226
+      last: 66.0
+      supply: 3130
+    AR:
+      ask: 280.0
+      avg: 280.0
+      bid: 250.01
+      demand: 120
+      last: 280.0
+      supply: 420
+    ASE:
+      ask: 37500.0
+      avg: 33000.0
+      bid: 30000.0
+      demand: 21
+      last: 33000.0
+      supply: 1
+    AST:
+      ask: null
+      avg: 2358.55
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    ATA:
+      ask: null
+      avg: 14000.0
+      bid: 18000.0
+      demand: 24
+      last: 14000.0
+      supply: null
+    AU:
+      ask: null
+      avg: 2000.0
+      bid: 2000.0
+      demand: 5
+      last: 2000.0
+      supply: null
+    AUO:
+      ask: null
+      avg: 300.0
+      bid: 138.0
+      demand: 160
+      last: 300.0
+      supply: null
+    AWF:
+      ask: null
+      avg: 5000.0
+      bid: null
+      demand: null
+      last: 5000.0
+      supply: null
+    BAC:
+      ask: null
+      avg: 1500.0
+      bid: null
+      demand: null
+      last: 1500.0
+      supply: null
+    BBH:
+      ask: 1790.0
+      avg: 1504.96
+      bid: 1200.01
+      demand: 235
+      last: 1790.0
+      supply: 296
+    BCO:
+      ask: null
+      avg: 308.82
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    BDE:
+      ask: 1400.0
+      avg: 1449.13
+      bid: 1200.0
+      demand: 144
+      last: 1090.0
+      supply: 186
+    BE:
+      ask: 2000.0
+      avg: 2000.0
+      bid: null
+      demand: null
+      last: 2000.0
+      supply: 156
+    BEA:
+      ask: 194.0
+      avg: 170.04
+      bid: 150.0
+      demand: 187
+      last: 150.0
+      supply: 147
+    BER:
+      ask: 700.0
+      avg: 730.0
+      bid: null
+      demand: null
+      last: 730.0
+      supply: 8
+    BGC:
+      ask: null
+      avg: 334.12
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    BGO:
+      ask: null
+      avg: 813.74
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    BL:
+      ask: null
+      avg: 4678.37
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    BLE:
+      ask: null
+      avg: 1000.0
+      bid: null
+      demand: null
+      last: 1000.0
+      supply: null
+    BMF:
+      ask: 23000.0
+      avg: 23000.0
+      bid: null
+      demand: null
+      last: 23000.0
+      supply: 2
+    BRO:
+      ask: null
+      avg: 856.67
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    BSE:
+      ask: 1547.0
+      avg: 1432.88
+      bid: 1200.0
+      demand: 273
+      last: 1200.0
+      supply: 390
+    BTA:
+      ask: 920.0
+      avg: 920.0
+      bid: 800.02
+      demand: 268
+      last: 920.0
+      supply: 213
+    BTI:
+      ask: null
+      avg: 1514.68
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    BTS:
+      ask: null
+      avg: 137.14
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    BWS:
+      ask: null
+      avg: 9000.0
+      bid: 10000.0
+      demand: 26
+      last: 9000.0
+      supply: null
+    C:
+      ask: 350.0
+      avg: 332.97
+      bid: 308.0
+      demand: 1069
+      last: 308.0
+      supply: 1074
+    CA:
+      ask: 190.0
+      avg: 215.0
+      bid: null
+      demand: null
+      last: 215.0
+      supply: 46
+    CAF:
+      ask: 740.0
+      avg: 614.79
+      bid: 510.0
+      demand: 45
+      last: 740.0
+      supply: 28
+    CAP:
+      ask: null
+      avg: 163.82
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    CC:
+      ask: null
+      avg: 940515.09
+      bid: 2500000.0
+      demand: 100
+      last: null
+      supply: null
+    CD:
+      ask: null
+      avg: 10000.0
+      bid: null
+      demand: null
+      last: 10000.0
+      supply: null
+    CL:
+      ask: 1500.0
+      avg: 1079.26
+      bid: 999.0
+      demand: 28
+      last: 1200.0
+      supply: 87
+    CLI:
+      ask: 150.0
+      avg: 150.0
+      bid: 90.0
+      demand: 349
+      last: 150.0
+      supply: 231
+    CNN:
+      ask: null
+      avg: 63254.6
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    COF:
+      ask: 524.9
+      avg: 531.44
+      bid: 450.0
+      demand: 1140
+      last: 515.0
+      supply: 260
+    COT:
+      ask: 1499.0
+      avg: 1108.35
+      bid: 1010.0
+      demand: 42
+      last: 1001.0
+      supply: 15
+    CRU:
+      ask: null
+      avg: 691163.77
+      bid: 2000000.0
+      demand: 100
+      last: null
+      supply: null
+    CST:
+      ask: null
+      avg: 3000.0
+      bid: null
+      demand: null
+      last: 3000.0
+      supply: null
+    CU:
+      ask: 1300.0
+      avg: 900.0
+      bid: 900.0
+      demand: 2
+      last: 900.0
+      supply: 20
+    CUO:
+      ask: null
+      avg: 150.0
+      bid: 64.0
+      demand: 110
+      last: 150.0
+      supply: null
+    DA:
+      ask: null
+      avg: 345498.01
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    DCL:
+      ask: 3600.0
+      avg: 2500.0
+      bid: null
+      demand: null
+      last: 2500.0
+      supply: 4
+    DCM:
+      ask: 2998.0
+      avg: 2500.0
+      bid: null
+      demand: null
+      last: 2500.0
+      supply: 4
+    DCS:
+      ask: 2000.0
+      avg: 2000.0
+      bid: null
+      demand: null
+      last: 2000.0
+      supply: 2
+    DD:
+      ask: null
+      avg: 405267.26
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    DDT:
+      ask: 1650.0
+      avg: 1662.91
+      bid: 1400.0
+      demand: 21
+      last: 1650.0
+      supply: 55
+    DIS:
+      ask: null
+      avg: 6092.65
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    DV:
+      ask: null
+      avg: 47440.95
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    DW:
+      ask: 62.0
+      avg: 58.12
+      bid: 56.0
+      demand: 3617
+      last: 62.0
+      supply: 2735
+    EBS:
+      ask: null
+      avg: 6000.0
+      bid: null
+      demand: null
+      last: 6000.0
+      supply: null
+    EPO:
+      ask: 80.0
+      avg: 82.46
+      bid: 65.0
+      demand: 400
+      last: 70.0
+      supply: 595
+    ES:
+      ask: null
+      avg: 650.0
+      bid: null
+      demand: null
+      last: 650.0
+      supply: null
+    EXO:
+      ask: 147.0
+      avg: 144.06
+      bid: 130.0
+      demand: 605
+      last: 147.0
+      supply: 1258
+    F:
+      ask: null
+      avg: 400.0
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    FAN:
+      ask: null
+      avg: 456.84
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    FC:
+      ask: 4500.0
+      avg: 5000.0
+      bid: null
+      demand: null
+      last: 5000.0
+      supply: 4
+    FE:
+      ask: 489.0
+      avg: 462.73
+      bid: 441.01
+      demand: 47
+      last: 441.01
+      supply: 271
+    FEO:
+      ask: 174.32
+      avg: 78.3
+      bid: 65.0
+      demand: 538
+      last: 104.0
+      supply: 117
+    FET:
+      ask: null
+      avg: 2342.95
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    FF:
+      ask: 15.95
+      avg: 14.59
+      bid: 10.52
+      demand: 10060
+      last: 15.99
+      supply: 14509
+    FFC:
+      ask: null
+      avg: 1098900.86
+      bid: 3750000.0
+      demand: 100
+      last: null
+      supply: null
+    FIM:
+      ask: null
+      avg: 1893.37
+      bid: 1760.0
+      demand: 101
+      last: 2100.0
+      supply: null
+    FLP:
+      ask: null
+      avg: 913.0
+      bid: null
+      demand: null
+      last: 913.0
+      supply: null
+    FLX:
+      ask: null
+      avg: 132.55
+      bid: 120.0
+      demand: 776
+      last: 150.0
+      supply: null
+    FNN:
+      ask: null
+      avg: 63254.6
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    GAL:
+      ask: 99.99
+      avg: 102.82
+      bid: 80.0
+      demand: 3602
+      last: 159.0
+      supply: 104
+    GC:
+      ask: 250.0
+      avg: 350.0
+      bid: null
+      demand: null
+      last: 350.0
+      supply: 70
+    GIN:
+      ask: 1099.99
+      avg: 549.99
+      bid: null
+      demand: null
+      last: 549.99
+      supply: 72
+    GL:
+      ask: 224.0
+      avg: 209.02
+      bid: 150.0
+      demand: 100
+      last: 224.0
+      supply: 215
+    GRA:
+      ask: null
+      avg: 1706.59
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    GRN:
+      ask: 134.0
+      avg: 121.67
+      bid: 110.0
+      demand: 183
+      last: 130.0
+      supply: 364
+    GV:
+      ask: 2400.0
+      avg: 2000.0
+      bid: null
+      demand: null
+      last: 2000.0
+      supply: 10
+    H:
+      ask: 85.0
+      avg: 74.28
+      bid: 65.0
+      demand: 2155
+      last: 100.0
+      supply: 7039
+    H2O:
+      ask: 46.64
+      avg: 48.81
+      bid: 40.0
+      demand: 850
+      last: 46.64
+      supply: 1450
+    HAL:
+      ask: 214.1
+      avg: 255.43
+      bid: 160.0
+      demand: 668
+      last: 214.13
+      supply: 297
+    HCC:
+      ask: null
+      avg: 337.25
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    HCP:
+      ask: 166.0
+      avg: 172.23
+      bid: 89.5
+      demand: 300
+      last: 172.23
+      supply: 450
+    HD:
+      ask: null
+      avg: 1500.0
+      bid: 1500.0
+      demand: 5
+      last: 1500.0
+      supply: null
+    HE:
+      ask: 130.0
+      avg: 127.87
+      bid: 112.5
+      demand: 117
+      last: 130.0
+      supply: 119
+    HE3:
+      ask: 250.0
+      avg: 242.84
+      bid: 100.0
+      demand: 50
+      last: 250.0
+      supply: 186
+    HER:
+      ask: 2000.0
+      avg: 1300.0
+      bid: 1300.0
+      demand: 215
+      last: 1300.0
+      supply: 8
+    HMS:
+      ask: 1725.0
+      avg: 1715.94
+      bid: 1500.0
+      demand: 15
+      last: 1725.0
+      supply: 114
+    HOP:
+      ask: 900.0
+      avg: 400.0
+      bid: 400.0
+      demand: 20
+      last: 400.0
+      supply: 1
+    HPC:
+      ask: null
+      avg: 20000.0
+      bid: null
+      demand: null
+      last: 20000.0
+      supply: null
+    HSE:
+      ask: 14200.0
+      avg: 13952.11
+      bid: 11000.0
+      demand: 26
+      last: 14000.0
+      supply: 14
+    HSS:
+      ask: null
+      avg: 6000.0
+      bid: null
+      demand: null
+      last: 6000.0
+      supply: null
+    I:
+      ask: 744.0
+      avg: 674.67
+      bid: null
+      demand: null
+      last: 700.0
+      supply: 131
+    IND:
+      ask: null
+      avg: 1500.0
+      bid: 1600.0
+      demand: 32
+      last: 1500.0
+      supply: null
+    INF:
+      ask: 191.0
+      avg: 154.68
+      bid: 160.01
+      demand: 240
+      last: 130.0
+      supply: 3049
+    KOM:
+      ask: 750.0
+      avg: 651.34
+      bid: 514.5
+      demand: 70
+      last: 750.0
+      supply: 10
+    KV:
+      ask: 8000.0
+      avg: 6000.0
+      bid: null
+      demand: null
+      last: 6000.0
+      supply: 2
+    LBH:
+      ask: 2200.0
+      avg: 2270.78
+      bid: 2000.0
+      demand: 22
+      last: 2280.0
+      supply: 123
+    LC:
+      ask: 13500.0
+      avg: 10000.0
+      bid: 10000.0
+      demand: 1
+      last: 10000.0
+      supply: 2
+    LCR:
+      ask: 1800.0
+      avg: 2100.0
+      bid: null
+      demand: null
+      last: 2100.0
+      supply: 1
+    LD:
+      ask: null
+      avg: 47440.95
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    LDE:
+      ask: 4684.26
+      avg: 4684.26
+      bid: 3100.0
+      demand: 20
+      last: 3000.0
+      supply: 75
+    LDI:
+      ask: null
+      avg: 330.51
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    LES:
+      ask: null
+      avg: 200.0
+      bid: null
+      demand: null
+      last: 200.0
+      supply: null
+    LIS:
+      ask: null
+      avg: 2256388.51
+      bid: 7500000.0
+      demand: 100
+      last: null
+      supply: null
+    LSE:
+      ask: 4949.0
+      avg: 4741.84
+      bid: 4000.0
+      demand: 19
+      last: 4949.0
+      supply: 36
+    LST:
+      ask: 122.0
+      avg: 127.77
+      bid: 102.01
+      demand: 1359
+      last: 122.0
+      supply: 1977
+    LTA:
+      ask: 3250.0
+      avg: 3041.5
+      bid: 1450.0
+      demand: 2
+      last: 3264.0
+      supply: 32
+    MAG:
+      ask: null
+      avg: 120.0
+      bid: 87.0
+      demand: 100
+      last: 120.0
+      supply: null
+    MAI:
+      ask: 134.0
+      avg: 137.59
+      bid: 111.11
+      demand: 293
+      last: 139.0
+      supply: 443
+    MB:
+      ask: null
+      avg: 3828.36
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    MCG:
+      ask: 24.5
+      avg: 26.94
+      bid: 19.05
+      demand: 2423
+      last: 20.06
+      supply: 9653
+    MEA:
+      ask: null
+      avg: 4000.0
+      bid: 2500.0
+      demand: 50
+      last: 4000.0
+      supply: null
+    MED:
+      ask: 1800.0
+      avg: 1800.0
+      bid: 1500.0
+      demand: 25
+      last: 1800.0
+      supply: 367
+    MFK:
+      ask: null
+      avg: 140.0
+      bid: 100.0
+      demand: 100
+      last: 140.0
+      supply: null
+    MG:
+      ask: 60.0
+      avg: 58.25
+      bid: 50.0
+      demand: 400
+      last: 59.0
+      supply: 954
+    MGC:
+      ask: 7500.0
+      avg: 7500.0
+      bid: null
+      demand: null
+      last: 7500.0
+      supply: 1
+    MHL:
+      ask: 2450.0
+      avg: 2600.0
+      bid: 2000.0
+      demand: 30
+      last: 2600.0
+      supply: 31
+    MPC:
+      ask: null
+      avg: 752.94
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    MTC:
+      ask: 5000.0
+      avg: 2062.0
+      bid: null
+      demand: null
+      last: 2062.0
+      supply: 4
+    MTP:
+      ask: null
+      avg: 500.0
+      bid: 900.0
+      demand: 10
+      last: 500.0
+      supply: null
+    MUS:
+      ask: 150.0
+      avg: 145.0
+      bid: 100.01
+      demand: 105
+      last: 145.0
+      supply: 333
+    MWF:
+      ask: null
+      avg: 208.16
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    N:
+      ask: 180.0
+      avg: 89.32
+      bid: 60.0
+      demand: 600
+      last: 80.0
+      supply: 338
+    NA:
+      ask: 27.75
+      avg: 25.0
+      bid: 25.0
+      demand: 100
+      last: 25.0
+      supply: 273
+    NCS:
+      ask: 30.0
+      avg: 27.1
+      bid: 20.0
+      demand: 150
+      last: 30.0
+      supply: 1012
+    NE:
+      ask: null
+      avg: 450.0
+      bid: 420.0
+      demand: 137
+      last: 450.0
+      supply: null
+    NF:
+      ask: null
+      avg: 47440.95
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    NFI:
+      ask: null
+      avg: 6.67
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    NG:
+      ask: 380.0
+      avg: 400.0
+      bid: null
+      demand: null
+      last: 400.0
+      supply: 67
+    NL:
+      ask: 3000.0
+      avg: 2302.81
+      bid: 2150.0
+      demand: 20
+      last: 2150.0
+      supply: 19
+    NR:
+      ask: 250.0
+      avg: 200.0
+      bid: 200.0
+      demand: 250
+      last: 200.0
+      supply: 130
+    NS:
+      ask: 200.0
+      avg: 223.72
+      bid: 180.01
+      demand: 226
+      last: 200.0
+      supply: 120
+    NST:
+      ask: 1500.0
+      avg: 4693.61
+      bid: null
+      demand: null
+      last: null
+      supply: 4
+    NUT:
+      ask: null
+      avg: 125.08
+      bid: 95.0
+      demand: 195
+      last: 95.0
+      supply: null
+    NV1:
+      ask: null
+      avg: 1500000.0
+      bid: 1500000.0
+      demand: 100
+      last: 1500000.0
+      supply: null
+    NV2:
+      ask: null
+      avg: 2018377.26
+      bid: 6000000.0
+      demand: 100
+      last: null
+      supply: null
+    O:
+      ask: 99.0
+      avg: 56.72
+      bid: 50.0
+      demand: 1261
+      last: 99.0
+      supply: 286
+    OS:
+      ask: null
+      avg: 25000.0
+      bid: null
+      demand: null
+      last: 25000.0
+      supply: null
+    OVE:
+      ask: 63.4
+      avg: 59.81
+      bid: 50.0
+      demand: 387
+      last: 63.4
+      supply: 5769
+    PA:
+      ask: null
+      avg: 8778.49
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    PCB:
+      ask: null
+      avg: 771.31
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    PDA:
+      ask: 3000.0
+      avg: 1945.0
+      bid: null
+      demand: null
+      last: 1945.0
+      supply: 10
+    PE:
+      ask: 6.0
+      avg: 7.13
+      bid: 3.88
+      demand: 15426
+      last: 7.0
+      supply: 11329
+    PG:
+      ask: 22.0
+      avg: 20.61
+      bid: 18.3
+      demand: 10991
+      last: 22.0
+      supply: 11356
+    PPA:
+      ask: 145.0
+      avg: 70.0
+      bid: null
+      demand: null
+      last: 70.0
+      supply: 42
+    PSH:
+      ask: null
+      avg: 4697.4
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    PSL:
+      ask: 1790.0
+      avg: 1553.15
+      bid: 1500.0
+      demand: 56
+      last: 1800.0
+      supply: 172
+    PSM:
+      ask: 1679.0
+      avg: 1700.0
+      bid: null
+      demand: null
+      last: 1700.0
+      supply: 5
+    PSS:
+      ask: 1000.0
+      avg: 750.0
+      bid: null
+      demand: null
+      last: 750.0
+      supply: 2
+    PT:
+      ask: 275.0
+      avg: 286.5
+      bid: 250.0
+      demand: 275
+      last: 275.0
+      supply: 1588
+    PWO:
+      ask: 153.0
+      avg: 146.47
+      bid: 131.0
+      demand: 295
+      last: 150.0
+      supply: 1975
+    RA:
+      ask: null
+      avg: 31627.3
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    RAM:
+      ask: null
+      avg: 1402.73
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    RAT:
+      ask: 88.99
+      avg: 81.78
+      bid: 81.53
+      demand: 2472
+      last: 81.53
+      supply: 6262
+    RBH:
+      ask: 13000.0
+      avg: 9500.0
+      bid: 5000.0
+      demand: 2
+      last: 9500.0
+      supply: 3
+    RCO:
+      ask: 521.99
+      avg: 510.06
+      bid: 475.01
+      demand: 103
+      last: 521.99
+      supply: 217
+    RDE:
+      ask: 24900.0
+      avg: 10000.0
+      bid: 20000.0
+      demand: 3
+      last: 10000.0
+      supply: 4
+    REP:
+      ask: 736.0
+      avg: 738.22
+      bid: 621.0
+      demand: 38
+      last: 735.5
+      supply: 108
+    RG:
+      ask: 600.0
+      avg: 600.0
+      bid: 300.0
+      demand: 50
+      last: 600.0
+      supply: 84
+    RGO:
+      ask: null
+      avg: 845.01
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    RNN:
+      ask: null
+      avg: 63254.6
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    ROM:
+      ask: null
+      avg: 2013.44
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    RSE:
+      ask: 30000.0
+      avg: 27500.0
+      bid: 12000.0
+      demand: 2
+      last: 30000.0
+      supply: 1
+    RSH:
+      ask: null
+      avg: 33829.66
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    RSI:
+      ask: null
+      avg: 500.0
+      bid: null
+      demand: null
+      last: 500.0
+      supply: null
+    RTA:
+      ask: 10900.0
+      avg: 10483.73
+      bid: 8500.0
+      demand: 6
+      last: 10900.0
+      supply: 8
+    S:
+      ask: null
+      avg: 300.0
+      bid: 301.0
+      demand: 253
+      last: 300.0
+      supply: null
+    SA:
+      ask: null
+      avg: 31627.3
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    SAL:
+      ask: null
+      avg: 31627.3
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    SAR:
+      ask: null
+      avg: 3000.0
+      bid: null
+      demand: null
+      last: 3000.0
+      supply: null
+    SC:
+      ask: 1725.0
+      avg: 1725.0
+      bid: null
+      demand: null
+      last: 1725.0
+      supply: 375
+    SCN:
+      ask: 1725.0
+      avg: 1725.0
+      bid: 1000.0
+      demand: 5
+      last: 1725.0
+      supply: 390
+    SEA:
+      ask: 175.0
+      avg: 135.0
+      bid: 62.0
+      demand: 588
+      last: 135.0
+      supply: 1045
+    SEN:
+      ask: 750.0
+      avg: 450.0
+      bid: null
+      demand: null
+      last: 450.0
+      supply: 110
+    SF:
+      ask: 7.77
+      avg: 7.65
+      bid: 6.58
+      demand: 144347
+      last: 6.57
+      supply: 278511
+    SFK:
+      ask: null
+      avg: 52.0
+      bid: 52.0
+      demand: 147
+      last: 52.0
+      supply: null
+    SI:
+      ask: 999.0
+      avg: 929.44
+      bid: 800.0
+      demand: 34
+      last: 999.0
+      supply: 13
+    SIL:
+      ask: null
+      avg: 2795.03
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    SIO:
+      ask: 61.58
+      avg: 61.18
+      bid: 58.0
+      demand: 638
+      last: 61.58
+      supply: 2924
+    SNM:
+      ask: null
+      avg: 391467.05
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    SOC:
+      ask: null
+      avg: 450.0
+      bid: null
+      demand: null
+      last: 450.0
+      supply: null
+    SP:
+      ask: 4000.0
+      avg: 4000.0
+      bid: null
+      demand: null
+      last: 4000.0
+      supply: 100
+    STL:
+      ask: 1575.0
+      avg: 1068.32
+      bid: 999.0
+      demand: 54
+      last: 999.0
+      supply: 27
+    SWF:
+      ask: null
+      avg: 93.72
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    TA:
+      ask: null
+      avg: 14578.15
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    TAC:
+      ask: null
+      avg: 431293.43
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    TAI:
+      ask: null
+      avg: 25.0
+      bid: 62.5
+      demand: 120
+      last: 25.0
+      supply: null
+    TC:
+      ask: null
+      avg: 6283.03
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    TCL:
+      ask: null
+      avg: 800.0
+      bid: 500.0
+      demand: 10
+      last: 800.0
+      supply: null
+    TCO:
+      ask: null
+      avg: 1500.0
+      bid: null
+      demand: null
+      last: 1500.0
+      supply: null
+    TCS:
+      ask: 3000.0
+      avg: 2750.0
+      bid: null
+      demand: null
+      last: 2750.0
+      supply: 10
+    THF:
+      ask: null
+      avg: 650.0
+      bid: null
+      demand: null
+      last: 650.0
+      supply: null
+    TI:
+      ask: 1100.0
+      avg: 1000.0
+      bid: null
+      demand: null
+      last: 1000.0
+      supply: 10
+    TIO:
+      ask: 150.0
+      avg: 150.0
+      bid: 74.0
+      demand: 100
+      last: 150.0
+      supply: 69
+    TK:
+      ask: null
+      avg: 26615.81
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    TPU:
+      ask: null
+      avg: 1467.72
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    TRN:
+      ask: null
+      avg: 208.16
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    TRU:
+      ask: 268.0
+      avg: 265.22
+      bid: null
+      demand: null
+      last: 268.0
+      supply: 464
+    TS:
+      ask: null
+      avg: 160.0
+      bid: 140.0
+      demand: 495
+      last: 160.0
+      supply: null
+    TSH:
+      ask: null
+      avg: 22000.0
+      bid: 22000.0
+      demand: 7
+      last: 22000.0
+      supply: null
+    VEG:
+      ask: 157.99
+      avg: 149.09
+      bid: 125.01
+      demand: 239
+      last: 157.99
+      supply: 86
+    VG:
+      ask: null
+      avg: 2264.29
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    W:
+      ask: null
+      avg: 14594.29
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    WAI:
+      ask: null
+      avg: 579758.95
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    WIN:
+      ask: null
+      avg: 6722.79
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    WM:
+      ask: null
+      avg: 47440.95
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    WR:
+      ask: null
+      avg: 2100000.0
+      bid: 2100000.0
+      demand: 100
+      last: 2100000.0
+      supply: null
+    WS:
+      ask: null
+      avg: 25000.0
+      bid: null
+      demand: null
+      last: 25000.0
+      supply: null
+    ZIR:
+      ask: null
+      avg: 164.57
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    ZR:
+      ask: null
+      avg: 14621.72
+      bid: null
+      demand: null
+      last: null
+      supply: null
+  timestamp: '2020-05-08 21:49:26.426929'
+IC1:
+  code: IC1
+  currency: ICA
+  name: Promitor Commodity Exchange
+  prices:
+    ABH:
+      ask: 37500.0
+      avg: 15000.0
+      bid: 20000.0
+      demand: 10
+      last: 15000.0
+      supply: 1
+    ADE:
+      ask: 45000.0
+      avg: 18000.0
+      bid: 18000.0
+      demand: 9
+      last: 18000.0
+      supply: 1
+    AEF:
+      ask: 3900.0
+      avg: 4000.0
+      bid: null
+      demand: null
+      last: 4000.0
+      supply: 58
+    AIR:
+      ask: null
+      avg: 643222.16
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    AL:
+      ask: 520.0
+      avg: 516.79
+      bid: 500.0
+      demand: 508
+      last: 520.0
+      supply: 776
+    ALE:
+      ask: 890.0
+      avg: 794.05
+      bid: null
+      demand: null
+      last: 800.0
+      supply: 627
+    ALG:
+      ask: 149.0
+      avg: 94.02
+      bid: 81.0
+      demand: 120
+      last: 82.0
+      supply: 60
+    ALO:
+      ask: 96.89
+      avg: 91.18
+      bid: 69.0
+      demand: 200
+      last: 68.0
+      supply: 3046
+    AMM:
+      ask: 61.02
+      avg: 61.02
+      bid: 61.01
+      demand: 4100
+      last: 61.02
+      supply: 4113
+    AR:
+      ask: 269.0
+      avg: 250.0
+      bid: 250.0
+      demand: 100
+      last: 250.0
+      supply: 645
+    ASE:
+      ask: 70000.0
+      avg: 28000.0
+      bid: 18000.0
+      demand: 6
+      last: 28000.0
+      supply: 1
+    AST:
+      ask: null
+      avg: 2358.55
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    ATA:
+      ask: 37500.0
+      avg: 15000.0
+      bid: 14200.0
+      demand: 22
+      last: 15000.0
+      supply: 1
+    AU:
+      ask: 3125.0
+      avg: 1250.0
+      bid: 1250.0
+      demand: 20
+      last: 1250.0
+      supply: 5
+    AUO:
+      ask: null
+      avg: 300.0
+      bid: 137.0
+      demand: 100
+      last: 300.0
+      supply: null
+    AWF:
+      ask: null
+      avg: 4594.57
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    BAC:
+      ask: null
+      avg: 1.0
+      bid: null
+      demand: null
+      last: 1.0
+      supply: null
+    BBH:
+      ask: 1850.0
+      avg: 1874.72
+      bid: 1660.0
+      demand: 134
+      last: 1850.0
+      supply: 151
+    BCO:
+      ask: null
+      avg: 400.0
+      bid: null
+      demand: null
+      last: 400.0
+      supply: null
+    BDE:
+      ask: 1558.0
+      avg: 1412.21
+      bid: 1400.0
+      demand: 139
+      last: 1558.0
+      supply: 346
+    BE:
+      ask: null
+      avg: 1200.0
+      bid: 280.88
+      demand: 20
+      last: 1200.0
+      supply: null
+    BEA:
+      ask: 99.9
+      avg: 102.83
+      bid: 85.0
+      demand: 700
+      last: 100.0
+      supply: 2700
+    BER:
+      ask: null
+      avg: 90.0
+      bid: null
+      demand: null
+      last: 90.0
+      supply: null
+    BGC:
+      ask: null
+      avg: 334.12
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    BGO:
+      ask: null
+      avg: 3900.0
+      bid: null
+      demand: null
+      last: 3900.0
+      supply: null
+    BL:
+      ask: 5000.0
+      avg: 5000.0
+      bid: null
+      demand: null
+      last: 5000.0
+      supply: 2
+    BLE:
+      ask: null
+      avg: 800.0
+      bid: null
+      demand: null
+      last: 800.0
+      supply: null
+    BMF:
+      ask: null
+      avg: 14000.0
+      bid: null
+      demand: null
+      last: 14000.0
+      supply: null
+    BRO:
+      ask: 2390.0
+      avg: 1000.0
+      bid: null
+      demand: null
+      last: 1000.0
+      supply: 3
+    BSE:
+      ask: 1550.0
+      avg: 1409.89
+      bid: 1450.0
+      demand: 173
+      last: 1549.0
+      supply: 100
+    BTA:
+      ask: 1100.0
+      avg: 1135.28
+      bid: 1000.0
+      demand: 116
+      last: 1100.0
+      supply: 281
+    BTI:
+      ask: null
+      avg: 1514.68
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    BTS:
+      ask: null
+      avg: 137.14
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    BWS:
+      ask: null
+      avg: 9000.0
+      bid: 9000.0
+      demand: 52
+      last: 9000.0
+      supply: null
+    C:
+      ask: 300.0
+      avg: 285.22
+      bid: 277.0
+      demand: 3076
+      last: 300.0
+      supply: 1874
+    CA:
+      ask: 185.0
+      avg: 137.98
+      bid: null
+      demand: null
+      last: 137.98
+      supply: 65
+    CAF:
+      ask: 730.0
+      avg: 681.23
+      bid: 700.0
+      demand: 66
+      last: 730.0
+      supply: 1878
+    CAP:
+      ask: null
+      avg: 250.0
+      bid: null
+      demand: null
+      last: 250.0
+      supply: null
+    CC:
+      ask: null
+      avg: 940515.09
+      bid: 2500000.0
+      demand: 100
+      last: null
+      supply: null
+    CD:
+      ask: null
+      avg: 9671.69
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    CL:
+      ask: 870.0
+      avg: 870.0
+      bid: 850.0
+      demand: 113
+      last: 870.0
+      supply: 276
+    CLI:
+      ask: 100.0
+      avg: 100.0
+      bid: 55.0
+      demand: 132
+      last: 100.0
+      supply: 286
+    CNN:
+      ask: null
+      avg: 63254.6
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    COF:
+      ask: 450.0
+      avg: 417.36
+      bid: 409.0
+      demand: 1329
+      last: 450.0
+      supply: 318
+    COT:
+      ask: 1250.0
+      avg: 1200.07
+      bid: 1160.0
+      demand: 141
+      last: 1250.0
+      supply: 26
+    CRU:
+      ask: null
+      avg: 691163.77
+      bid: 2000000.0
+      demand: 100
+      last: null
+      supply: null
+    CST:
+      ask: 2000.0
+      avg: 4530.55
+      bid: null
+      demand: null
+      last: null
+      supply: 18
+    CU:
+      ask: 1000.0
+      avg: 800.0
+      bid: null
+      demand: null
+      last: 800.0
+      supply: 54
+    CUO:
+      ask: null
+      avg: 250.0
+      bid: 125.0
+      demand: 265
+      last: 250.0
+      supply: null
+    DA:
+      ask: null
+      avg: 345498.01
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    DCL:
+      ask: null
+      avg: 1.0
+      bid: null
+      demand: null
+      last: 1.0
+      supply: null
+    DCM:
+      ask: null
+      avg: 1500.0
+      bid: null
+      demand: null
+      last: 1500.0
+      supply: null
+    DCS:
+      ask: null
+      avg: 6.25
+      bid: null
+      demand: null
+      last: 6.25
+      supply: null
+    DD:
+      ask: null
+      avg: 405267.26
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    DDT:
+      ask: null
+      avg: 2993.21
+      bid: 2400.0
+      demand: 227
+      last: 2750.0
+      supply: null
+    DIS:
+      ask: null
+      avg: 1.0
+      bid: null
+      demand: null
+      last: 1.0
+      supply: null
+    DV:
+      ask: null
+      avg: 47440.95
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    DW:
+      ask: 50.0
+      avg: 51.21
+      bid: 47.51
+      demand: 28069
+      last: 50.0
+      supply: 6925
+    EBS:
+      ask: null
+      avg: 3159.02
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    EPO:
+      ask: 100.0
+      avg: 156.47
+      bid: 66.0
+      demand: 2500
+      last: 159.0
+      supply: 2687
+    ES:
+      ask: null
+      avg: 3866.97
+      bid: 400.0
+      demand: 10
+      last: null
+      supply: null
+    EXO:
+      ask: 203.0
+      avg: 203.23
+      bid: 176.0
+      demand: 299
+      last: 203.0
+      supply: 111
+    F:
+      ask: 1000.0
+      avg: 1000.0
+      bid: null
+      demand: null
+      last: 1000.0
+      supply: 3
+    FAN:
+      ask: null
+      avg: 250.0
+      bid: null
+      demand: null
+      last: 250.0
+      supply: null
+    FC:
+      ask: null
+      avg: 2000.0
+      bid: null
+      demand: null
+      last: 2000.0
+      supply: null
+    FE:
+      ask: 524.5
+      avg: 514.42
+      bid: 401.0
+      demand: 138
+      last: 524.5
+      supply: 327
+    FEO:
+      ask: 125.0
+      avg: 90.88
+      bid: 50.0
+      demand: 147
+      last: 99.0
+      supply: 79
+    FET:
+      ask: null
+      avg: 2342.95
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    FF:
+      ask: 17.25
+      avg: 17.76
+      bid: 15.0
+      demand: 13026
+      last: 17.25
+      supply: 19956
+    FFC:
+      ask: null
+      avg: 1098900.86
+      bid: 3750000.0
+      demand: 100
+      last: null
+      supply: null
+    FIM:
+      ask: 2100.0
+      avg: 2011.04
+      bid: 2000.0
+      demand: 975
+      last: 2000.0
+      supply: 49
+    FLP:
+      ask: null
+      avg: 350.0
+      bid: null
+      demand: null
+      last: 350.0
+      supply: null
+    FLX:
+      ask: 240.0
+      avg: 160.79
+      bid: 160.0
+      demand: 716
+      last: 250.0
+      supply: 303
+    FNN:
+      ask: null
+      avg: 63254.6
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    GAL:
+      ask: 150.0
+      avg: 77.46
+      bid: 67.0
+      demand: 700
+      last: 79.98
+      supply: 154
+    GC:
+      ask: 228.0
+      avg: 250.0
+      bid: null
+      demand: null
+      last: 250.0
+      supply: 54
+    GIN:
+      ask: 1350.0
+      avg: 1350.0
+      bid: 1200.0
+      demand: 6
+      last: 1350.0
+      supply: 24
+    GL:
+      ask: 199.99
+      avg: 198.24
+      bid: 180.2
+      demand: 101
+      last: 180.2
+      supply: 1000
+    GRA:
+      ask: null
+      avg: 1706.59
+      bid: 400.0
+      demand: 2
+      last: null
+      supply: null
+    GRN:
+      ask: 123.0
+      avg: 123.23
+      bid: 111.0
+      demand: 1843
+      last: 123.17
+      supply: 1346
+    GV:
+      ask: 1600.0
+      avg: 1000.0
+      bid: null
+      demand: null
+      last: 1000.0
+      supply: 1
+    H:
+      ask: 85.0
+      avg: 83.39
+      bid: 75.0
+      demand: 804
+      last: 85.0
+      supply: 2011
+    H2O:
+      ask: 24.0
+      avg: 25.11
+      bid: 22.75
+      demand: 14523
+      last: 24.0
+      supply: 13747
+    HAL:
+      ask: 129.0
+      avg: 112.18
+      bid: 101.0
+      demand: 738
+      last: 101.0
+      supply: 191
+    HCC:
+      ask: null
+      avg: 337.25
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    HCP:
+      ask: 140.0
+      avg: 129.17
+      bid: 112.0
+      demand: 602
+      last: 130.0
+      supply: 1210
+    HD:
+      ask: null
+      avg: 1.0
+      bid: null
+      demand: null
+      last: 1.0
+      supply: null
+    HE:
+      ask: 189.99
+      avg: 194.49
+      bid: 112.0
+      demand: 100
+      last: 194.0
+      supply: 852
+    HE3:
+      ask: 265.0
+      avg: 300.0
+      bid: null
+      demand: null
+      last: 300.0
+      supply: 685
+    HER:
+      ask: 1450.0
+      avg: 1326.76
+      bid: 1201.0
+      demand: 184
+      last: 1200.0
+      supply: 39
+    HMS:
+      ask: 1750.0
+      avg: 1474.47
+      bid: 1000.0
+      demand: 71
+      last: 1750.0
+      supply: 79
+    HOP:
+      ask: 1000.0
+      avg: 868.9
+      bid: 800.0
+      demand: 131
+      last: 800.0
+      supply: 11
+    HPC:
+      ask: null
+      avg: 5000.0
+      bid: 5000.0
+      demand: 3
+      last: 5000.0
+      supply: null
+    HSE:
+      ask: 11500.0
+      avg: 11586.69
+      bid: 9601.0
+      demand: 30
+      last: 11500.0
+      supply: 8
+    HSS:
+      ask: 5950.0
+      avg: 8104.86
+      bid: null
+      demand: null
+      last: 10000.0
+      supply: 23
+    I:
+      ask: 648.99
+      avg: 643.65
+      bid: 600.0
+      demand: 15
+      last: 600.0
+      supply: 632
+    IND:
+      ask: 2500.0
+      avg: 1038.12
+      bid: 1000.0
+      demand: 15
+      last: 1010.0
+      supply: 10
+    INF:
+      ask: 155.0
+      avg: 161.4
+      bid: 140.0
+      demand: 1980
+      last: 155.0
+      supply: 8704
+    KOM:
+      ask: 690.0
+      avg: 661.14
+      bid: 661.14
+      demand: 925
+      last: 690.0
+      supply: 681
+    KV:
+      ask: 9900.0
+      avg: 8000.0
+      bid: 8000.0
+      demand: 9
+      last: 8000.0
+      supply: 14
+    LBH:
+      ask: 1723.99
+      avg: 1721.55
+      bid: 1200.0
+      demand: 10
+      last: 1723.99
+      supply: 330
+    LC:
+      ask: 20000.0
+      avg: 20000.0
+      bid: 10000.0
+      demand: 10
+      last: 20000.0
+      supply: 5
+    LCR:
+      ask: 1800.0
+      avg: 1200.0
+      bid: null
+      demand: null
+      last: 1200.0
+      supply: 4
+    LD:
+      ask: null
+      avg: 10500.0
+      bid: null
+      demand: null
+      last: 10500.0
+      supply: null
+    LDE:
+      ask: 4999.0
+      avg: 4636.48
+      bid: 3750.0
+      demand: 49
+      last: 4999.0
+      supply: 103
+    LDI:
+      ask: null
+      avg: 400.0
+      bid: null
+      demand: null
+      last: 400.0
+      supply: null
+    LES:
+      ask: null
+      avg: 120.0
+      bid: null
+      demand: null
+      last: 120.0
+      supply: null
+    LIS:
+      ask: null
+      avg: 2256388.51
+      bid: 7500000.0
+      demand: 100
+      last: null
+      supply: null
+    LSE:
+      ask: 4700.0
+      avg: 4473.85
+      bid: 3100.0
+      demand: 74
+      last: 4700.0
+      supply: 288
+    LST:
+      ask: 130.0
+      avg: 115.59
+      bid: 115.0
+      demand: 2152
+      last: 130.0
+      supply: 1239
+    LTA:
+      ask: 2900.0
+      avg: 2282.78
+      bid: 2000.0
+      demand: 10
+      last: 2400.0
+      supply: 91
+    MAG:
+      ask: 120.0
+      avg: 103.5
+      bid: 87.0
+      demand: 100
+      last: 87.0
+      supply: 54
+    MAI:
+      ask: 137.97
+      avg: 119.87
+      bid: 110.0
+      demand: 302
+      last: 137.97
+      supply: 898
+    MB:
+      ask: null
+      avg: 2930.0
+      bid: null
+      demand: null
+      last: 2930.0
+      supply: null
+    MCG:
+      ask: 23.77
+      avg: 23.61
+      bid: 19.25
+      demand: 650
+      last: 23.77
+      supply: 10626
+    MEA:
+      ask: 8000.0
+      avg: 3300.0
+      bid: 3300.0
+      demand: 139
+      last: 3300.0
+      supply: 6
+    MED:
+      ask: 1700.0
+      avg: 1618.88
+      bid: 1000.0
+      demand: 10
+      last: 1700.0
+      supply: 96
+    MFK:
+      ask: null
+      avg: 110.0
+      bid: 100.0
+      demand: 366
+      last: 110.0
+      supply: null
+    MG:
+      ask: 85.0
+      avg: 75.45
+      bid: 41.0
+      demand: 100
+      last: 87.0
+      supply: 1335
+    MGC:
+      ask: 12000.0
+      avg: 9750.0
+      bid: null
+      demand: null
+      last: 9750.0
+      supply: 2
+    MHL:
+      ask: 2775.0
+      avg: 2560.67
+      bid: 2000.0
+      demand: 19
+      last: 2000.0
+      supply: 77
+    MPC:
+      ask: null
+      avg: 752.94
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    MTC:
+      ask: null
+      avg: 605.54
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    MTP:
+      ask: null
+      avg: 500.0
+      bid: 600.0
+      demand: 23
+      last: 500.0
+      supply: null
+    MUS:
+      ask: 120.0
+      avg: 110.51
+      bid: 90.0
+      demand: 20
+      last: 120.0
+      supply: 215
+    MWF:
+      ask: null
+      avg: 250.0
+      bid: null
+      demand: null
+      last: 250.0
+      supply: null
+    N:
+      ask: 53.73
+      avg: 53.57
+      bid: 49.02
+      demand: 1890
+      last: 53.73
+      supply: 3496
+    NA:
+      ask: 25.8
+      avg: 25.0
+      bid: 25.0
+      demand: 100
+      last: 25.0
+      supply: 1853
+    NCS:
+      ask: 23.0
+      avg: 22.0
+      bid: 15.0
+      demand: 650
+      last: 22.0
+      supply: 148
+    NE:
+      ask: 500.0
+      avg: 350.0
+      bid: 260.0
+      demand: 353
+      last: 350.0
+      supply: 43
+    NF:
+      ask: null
+      avg: 47440.95
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    NFI:
+      ask: null
+      avg: 6.67
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    NG:
+      ask: 400.0
+      avg: 420.0
+      bid: null
+      demand: null
+      last: 420.0
+      supply: 340
+    NL:
+      ask: 2500.0
+      avg: 2019.73
+      bid: 2200.0
+      demand: 9
+      last: 2000.0
+      supply: 22
+    NR:
+      ask: null
+      avg: 175.0
+      bid: null
+      demand: null
+      last: 175.0
+      supply: null
+    NS:
+      ask: 235.0
+      avg: 225.47
+      bid: 198.0
+      demand: 480
+      last: 220.0
+      supply: 1704
+    NST:
+      ask: 15000.0
+      avg: 6000.0
+      bid: null
+      demand: null
+      last: 6000.0
+      supply: 10
+    NUT:
+      ask: 139.0
+      avg: 124.08
+      bid: 105.0
+      demand: 465
+      last: 139.0
+      supply: 1029
+    NV1:
+      ask: null
+      avg: 1500000.0
+      bid: 1500000.0
+      demand: 100
+      last: 1500000.0
+      supply: null
+    NV2:
+      ask: null
+      avg: 6000000.0
+      bid: 6000000.0
+      demand: 100
+      last: 6000000.0
+      supply: null
+    O:
+      ask: 33.0
+      avg: 35.53
+      bid: 32.01
+      demand: 231
+      last: 32.01
+      supply: 2521
+    OS:
+      ask: null
+      avg: 174491.68
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    OVE:
+      ask: 71.0
+      avg: 69.83
+      bid: 60.01
+      demand: 1533
+      last: 66.66
+      supply: 1875
+    PA:
+      ask: null
+      avg: 8778.49
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    PCB:
+      ask: null
+      avg: 771.31
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    PDA:
+      ask: 2200.0
+      avg: 2000.0
+      bid: null
+      demand: null
+      last: 2000.0
+      supply: 35
+    PE:
+      ask: 5.0
+      avg: 5.85
+      bid: 4.41
+      demand: 7650
+      last: 4.41
+      supply: 20721
+    PG:
+      ask: 22.0
+      avg: 22.12
+      bid: 21.0
+      demand: 13753
+      last: 22.0
+      supply: 24466
+    PPA:
+      ask: 80.0
+      avg: 75.0
+      bid: 75.0
+      demand: 99
+      last: 75.0
+      supply: 140
+    PSH:
+      ask: 10000.0
+      avg: 4697.4
+      bid: null
+      demand: null
+      last: null
+      supply: 2
+    PSL:
+      ask: 2168.0
+      avg: 2130.36
+      bid: 1853.01
+      demand: 51
+      last: 2000.0
+      supply: 171
+    PSM:
+      ask: 1111.0
+      avg: 950.0
+      bid: null
+      demand: null
+      last: 950.0
+      supply: 1
+    PSS:
+      ask: null
+      avg: 300.0
+      bid: 185.0
+      demand: 46
+      last: 300.0
+      supply: null
+    PT:
+      ask: null
+      avg: 320.31
+      bid: 291.0
+      demand: 206
+      last: 343.0
+      supply: null
+    PWO:
+      ask: 188.0
+      avg: 198.73
+      bid: 140.0
+      demand: 332
+      last: 189.0
+      supply: 910
+    RA:
+      ask: null
+      avg: 31627.3
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    RAM:
+      ask: null
+      avg: 1402.73
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    RAT:
+      ask: 84.0
+      avg: 82.62
+      bid: 80.0
+      demand: 8249
+      last: 84.0
+      supply: 1490
+    RBH:
+      ask: 14500.0
+      avg: 11000.0
+      bid: 11000.0
+      demand: 8
+      last: 11000.0
+      supply: 18
+    RCO:
+      ask: 472.66
+      avg: 472.66
+      bid: 468.02
+      demand: 245
+      last: 469.0
+      supply: 208
+    RDE:
+      ask: 30000.0
+      avg: 20000.0
+      bid: 20000.0
+      demand: 1
+      last: 20000.0
+      supply: 1
+    REP:
+      ask: 700.0
+      avg: 680.87
+      bid: 520.0
+      demand: 140
+      last: 677.52
+      supply: 100
+    RG:
+      ask: 1000.0
+      avg: 420.0
+      bid: 420.0
+      demand: 32
+      last: 420.0
+      supply: 20
+    RGO:
+      ask: null
+      avg: 4500.0
+      bid: null
+      demand: null
+      last: 4500.0
+      supply: null
+    RNN:
+      ask: null
+      avg: 157028.97
+      bid: null
+      demand: null
+      last: 157028.97
+      supply: null
+    ROM:
+      ask: null
+      avg: 2013.44
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    RSE:
+      ask: null
+      avg: 22000.0
+      bid: 30000.0
+      demand: 13
+      last: 22000.0
+      supply: null
+    RSH:
+      ask: null
+      avg: 33829.66
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    RSI:
+      ask: null
+      avg: 800.0
+      bid: null
+      demand: null
+      last: 800.0
+      supply: null
+    RTA:
+      ask: 15000.0
+      avg: 10948.64
+      bid: null
+      demand: null
+      last: 10000.0
+      supply: 6
+    S:
+      ask: 348.95
+      avg: 348.96
+      bid: 253.0
+      demand: 283
+      last: 348.95
+      supply: 614
+    SA:
+      ask: null
+      avg: 31627.3
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    SAL:
+      ask: null
+      avg: 31627.3
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    SAR:
+      ask: null
+      avg: 11284.76
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    SC:
+      ask: null
+      avg: 2408.25
+      bid: 1600.0
+      demand: 25
+      last: 3000.0
+      supply: null
+    SCN:
+      ask: 1700.0
+      avg: 2000.0
+      bid: 1600.0
+      demand: 5
+      last: 2000.0
+      supply: 79
+    SEA:
+      ask: 174.0
+      avg: 157.96
+      bid: 110.0
+      demand: 1110
+      last: 110.0
+      supply: 2047
+    SEN:
+      ask: null
+      avg: 323.38
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    SF:
+      ask: 9.98
+      avg: 9.95
+      bid: 9.3
+      demand: 13600
+      last: 9.98
+      supply: 80694
+    SFK:
+      ask: null
+      avg: 75.0
+      bid: 60.0
+      demand: 663
+      last: 75.0
+      supply: null
+    SI:
+      ask: 1398.99
+      avg: 1071.91
+      bid: 850.0
+      demand: 40
+      last: 850.0
+      supply: 24
+    SIL:
+      ask: null
+      avg: 2795.03
+      bid: 2600.0
+      demand: 5
+      last: null
+      supply: null
+    SIO:
+      ask: 50.0
+      avg: 51.21
+      bid: 45.0
+      demand: 974
+      last: 41.0
+      supply: 1262
+    SNM:
+      ask: null
+      avg: 97213.0
+      bid: null
+      demand: null
+      last: 97213.0
+      supply: null
+    SOC:
+      ask: null
+      avg: 694.38
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    SP:
+      ask: 1950.0
+      avg: 1100.0
+      bid: null
+      demand: null
+      last: 1100.0
+      supply: 132
+    STL:
+      ask: 1200.0
+      avg: 1258.56
+      bid: 958.0
+      demand: 35
+      last: 1700.0
+      supply: 71
+    SWF:
+      ask: null
+      avg: 225.0
+      bid: null
+      demand: null
+      last: 225.0
+      supply: null
+    TA:
+      ask: null
+      avg: 14578.15
+      bid: 10000.0
+      demand: 2
+      last: null
+      supply: null
+    TAC:
+      ask: null
+      avg: 431293.43
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    TAI:
+      ask: 250.0
+      avg: 50.0
+      bid: null
+      demand: null
+      last: 50.0
+      supply: 10
+    TC:
+      ask: null
+      avg: 6283.03
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    TCL:
+      ask: 1000.0
+      avg: 800.0
+      bid: null
+      demand: null
+      last: 800.0
+      supply: 100
+    TCO:
+      ask: null
+      avg: 1000.0
+      bid: null
+      demand: null
+      last: 1000.0
+      supply: null
+    TCS:
+      ask: 2500.0
+      avg: 2500.0
+      bid: 2020.0
+      demand: 25
+      last: 2500.0
+      supply: 14
+    THF:
+      ask: null
+      avg: 500.0
+      bid: 310.0
+      demand: 43
+      last: 500.0
+      supply: null
+    TI:
+      ask: 1000.0
+      avg: 1000.0
+      bid: 800.0
+      demand: 3
+      last: 1000.0
+      supply: 107
+    TIO:
+      ask: 200.0
+      avg: 200.0
+      bid: 74.0
+      demand: 100
+      last: 200.0
+      supply: 8
+    TK:
+      ask: null
+      avg: 26615.81
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    TPU:
+      ask: null
+      avg: 1953.12
+      bid: null
+      demand: null
+      last: 1953.12
+      supply: null
+    TRN:
+      ask: null
+      avg: 250.0
+      bid: null
+      demand: null
+      last: 250.0
+      supply: null
+    TRU:
+      ask: 234.0
+      avg: 233.66
+      bid: 165.0
+      demand: 142
+      last: 234.0
+      supply: 816
+    TS:
+      ask: null
+      avg: 200.0
+      bid: null
+      demand: null
+      last: 200.0
+      supply: null
+    TSH:
+      ask: 72000.0
+      avg: 29000.0
+      bid: 25000.0
+      demand: 11
+      last: 29000.0
+      supply: 2
+    VEG:
+      ask: 123.0
+      avg: 113.79
+      bid: 89.0
+      demand: 170
+      last: 122.9
+      supply: 1082
+    VG:
+      ask: 5001.0
+      avg: 5001.0
+      bid: 4000.0
+      demand: 16
+      last: 5001.0
+      supply: 740
+    W:
+      ask: 5000.0
+      avg: 5000.0
+      bid: null
+      demand: null
+      last: 5000.0
+      supply: 1
+    WAI:
+      ask: null
+      avg: 114000.0
+      bid: null
+      demand: null
+      last: 114000.0
+      supply: null
+    WIN:
+      ask: 22500.0
+      avg: 16000.0
+      bid: 10000.0
+      demand: 1
+      last: 16000.0
+      supply: 10
+    WM:
+      ask: null
+      avg: 47440.95
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    WR:
+      ask: 2200000.0
+      avg: 2100000.0
+      bid: 2100000.0
+      demand: 100
+      last: 2100000.0
+      supply: 1
+    WS:
+      ask: 20000.0
+      avg: 20000.0
+      bid: null
+      demand: null
+      last: 20000.0
+      supply: 3
+    ZIR:
+      ask: 100.0
+      avg: 101.0
+      bid: null
+      demand: null
+      last: 101.0
+      supply: 35
+    ZR:
+      ask: 2000.0
+      avg: 2000.0
+      bid: null
+      demand: null
+      last: 2000.0
+      supply: 1
+  timestamp: '2020-05-08 21:49:26.424139'
+NC1:
+  code: NC1
+  currency: NCC
+  name: Montem Commodity Exchange
+  prices:
+    ABH:
+      ask: null
+      avg: 31500.0
+      bid: 25000.0
+      demand: 10
+      last: 31500.0
+      supply: null
+    ADE:
+      ask: null
+      avg: 18000.0
+      bid: 22000.0
+      demand: 20
+      last: 18000.0
+      supply: null
+    AEF:
+      ask: 3600.0
+      avg: 3500.0
+      bid: null
+      demand: null
+      last: 3500.0
+      supply: 17
+    AIR:
+      ask: null
+      avg: 643222.16
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    AL:
+      ask: 460.0
+      avg: 458.89
+      bid: 440.0
+      demand: 332
+      last: 460.0
+      supply: 1141
+    ALE:
+      ask: 1000.0
+      avg: 1000.0
+      bid: null
+      demand: null
+      last: 1000.0
+      supply: 67
+    ALG:
+      ask: 150.0
+      avg: 150.0
+      bid: 81.0
+      demand: 200
+      last: 150.0
+      supply: 68
+    ALO:
+      ask: 98.9
+      avg: 98.08
+      bid: 90.0
+      demand: 638
+      last: 99.0
+      supply: 2996
+    AMM:
+      ask: null
+      avg: 100.0
+      bid: 100.0
+      demand: 105
+      last: 100.0
+      supply: null
+    AR:
+      ask: 275.0
+      avg: 289.59
+      bid: 250.0
+      demand: 100
+      last: 275.0
+      supply: 457
+    ASE:
+      ask: null
+      avg: 32000.0
+      bid: 32000.0
+      demand: 28
+      last: 32000.0
+      supply: null
+    AST:
+      ask: null
+      avg: 2358.55
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    ATA:
+      ask: null
+      avg: 18000.0
+      bid: 18000.0
+      demand: 13
+      last: 18000.0
+      supply: null
+    AU:
+      ask: 5000.0
+      avg: 6666.66
+      bid: null
+      demand: null
+      last: 6666.66
+      supply: 11
+    AUO:
+      ask: null
+      avg: 300.0
+      bid: 137.0
+      demand: 106
+      last: 300.0
+      supply: null
+    AWF:
+      ask: null
+      avg: 4594.57
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    BAC:
+      ask: 3000.0
+      avg: 1986.05
+      bid: null
+      demand: null
+      last: null
+      supply: 10
+    BBH:
+      ask: 1490.0
+      avg: 1517.25
+      bid: 1400.0
+      demand: 398
+      last: 1490.0
+      supply: 401
+    BCO:
+      ask: null
+      avg: 250.0
+      bid: 250.0
+      demand: 30
+      last: 250.0
+      supply: null
+    BDE:
+      ask: 1536.0
+      avg: 1482.74
+      bid: 1450.0
+      demand: 303
+      last: 1536.0
+      supply: 277
+    BE:
+      ask: 2000.0
+      avg: 2828.27
+      bid: null
+      demand: null
+      last: null
+      supply: 50
+    BEA:
+      ask: null
+      avg: 136.76
+      bid: 91.0
+      demand: 236
+      last: 91.0
+      supply: null
+    BER:
+      ask: 280.0
+      avg: 250.0
+      bid: null
+      demand: null
+      last: 250.0
+      supply: 28
+    BGC:
+      ask: null
+      avg: 334.12
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    BGO:
+      ask: null
+      avg: 4000.0
+      bid: null
+      demand: null
+      last: 4000.0
+      supply: null
+    BL:
+      ask: null
+      avg: 4678.37
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    BLE:
+      ask: 1300.0
+      avg: 1000.0
+      bid: null
+      demand: null
+      last: 1000.0
+      supply: 16
+    BMF:
+      ask: null
+      avg: 12610.26
+      bid: 14000.0
+      demand: 1
+      last: null
+      supply: null
+    BRO:
+      ask: 1000.0
+      avg: 2825.0
+      bid: null
+      demand: null
+      last: 2825.0
+      supply: 15
+    BSE:
+      ask: 1128.99
+      avg: 1159.68
+      bid: 1000.0
+      demand: 1601
+      last: 1200.0
+      supply: 756
+    BTA:
+      ask: 974.0
+      avg: 917.91
+      bid: 750.0
+      demand: 144
+      last: 970.0
+      supply: 261
+    BTI:
+      ask: null
+      avg: 1514.68
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    BTS:
+      ask: null
+      avg: 137.14
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    BWS:
+      ask: null
+      avg: 10000.0
+      bid: 9000.0
+      demand: 16
+      last: 10000.0
+      supply: null
+    C:
+      ask: 365.0
+      avg: 372.46
+      bid: 342.0
+      demand: 637
+      last: 342.0
+      supply: 1288
+    CA:
+      ask: 145.0
+      avg: 130.0
+      bid: null
+      demand: null
+      last: 130.0
+      supply: 70
+    CAF:
+      ask: 849.0
+      avg: 757.0
+      bid: 102.0
+      demand: 10
+      last: 849.0
+      supply: 442
+    CAP:
+      ask: null
+      avg: 250.0
+      bid: 250.0
+      demand: 40
+      last: 250.0
+      supply: null
+    CC:
+      ask: null
+      avg: 940515.09
+      bid: 2500000.0
+      demand: 100
+      last: null
+      supply: null
+    CD:
+      ask: null
+      avg: 9671.69
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    CL:
+      ask: 1240.0
+      avg: 1000.0
+      bid: null
+      demand: null
+      last: 1000.0
+      supply: 30
+    CLI:
+      ask: 99.0
+      avg: 92.76
+      bid: 90.0
+      demand: 180
+      last: 99.0
+      supply: 1448
+    CNN:
+      ask: null
+      avg: 63254.6
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    COF:
+      ask: 415.0
+      avg: 407.32
+      bid: 380.0
+      demand: 487
+      last: 415.0
+      supply: 911
+    COT:
+      ask: 1740.0
+      avg: 1255.69
+      bid: 1000.0
+      demand: 50
+      last: 1740.0
+      supply: 23
+    CRU:
+      ask: null
+      avg: 691163.77
+      bid: 2000000.0
+      demand: 100
+      last: null
+      supply: null
+    CST:
+      ask: 500.0
+      avg: 4530.55
+      bid: null
+      demand: null
+      last: null
+      supply: 21
+    CU:
+      ask: 899.0
+      avg: 800.0
+      bid: 800.0
+      demand: 20
+      last: 800.0
+      supply: 275
+    CUO:
+      ask: 165.0
+      avg: 165.14
+      bid: 100.0
+      demand: 350
+      last: 175.0
+      supply: 240
+    DA:
+      ask: null
+      avg: 345498.01
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    DCL:
+      ask: null
+      avg: 2500.0
+      bid: null
+      demand: null
+      last: 2500.0
+      supply: null
+    DCM:
+      ask: null
+      avg: 2000.0
+      bid: null
+      demand: null
+      last: 2000.0
+      supply: null
+    DCS:
+      ask: null
+      avg: 700.0
+      bid: null
+      demand: null
+      last: 700.0
+      supply: null
+    DD:
+      ask: null
+      avg: 405267.26
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    DDT:
+      ask: null
+      avg: 1251.0
+      bid: 1600.0
+      demand: 125
+      last: 1251.0
+      supply: null
+    DIS:
+      ask: null
+      avg: 6092.65
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    DV:
+      ask: null
+      avg: 47440.95
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    DW:
+      ask: 52.0
+      avg: 52.32
+      bid: 50.0
+      demand: 2607
+      last: 52.0
+      supply: 15760
+    EBS:
+      ask: null
+      avg: 3159.02
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    EPO:
+      ask: 90.0
+      avg: 90.0
+      bid: 69.0
+      demand: 3875
+      last: 90.0
+      supply: 65
+    ES:
+      ask: null
+      avg: 3866.97
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    EXO:
+      ask: 180.0
+      avg: 162.08
+      bid: 120.0
+      demand: 80
+      last: 150.0
+      supply: 615
+    F:
+      ask: null
+      avg: 400.0
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    FAN:
+      ask: 300.0
+      avg: 456.84
+      bid: 90.0
+      demand: 10
+      last: null
+      supply: 6
+    FC:
+      ask: 2900.0
+      avg: 2999.0
+      bid: null
+      demand: null
+      last: 2999.0
+      supply: 1
+    FE:
+      ask: 415.0
+      avg: 417.2
+      bid: 382.0
+      demand: 134
+      last: 417.0
+      supply: 1488
+    FEO:
+      ask: 75.0
+      avg: 77.35
+      bid: 71.0
+      demand: 995
+      last: 70.5
+      supply: 2831
+    FET:
+      ask: null
+      avg: 2342.95
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    FF:
+      ask: 15.0
+      avg: 15.32
+      bid: 10.05
+      demand: 4700
+      last: 15.0
+      supply: 23808
+    FFC:
+      ask: null
+      avg: 1098900.86
+      bid: 3750000.0
+      demand: 100
+      last: null
+      supply: null
+    FIM:
+      ask: 2500.0
+      avg: 2050.64
+      bid: 2000.0
+      demand: 108
+      last: 2000.0
+      supply: 6
+    FLP:
+      ask: 300.0
+      avg: 359.0
+      bid: null
+      demand: null
+      last: 359.0
+      supply: 12
+    FLX:
+      ask: 200.0
+      avg: 196.9
+      bid: 149.0
+      demand: 457
+      last: 199.0
+      supply: 321
+    FNN:
+      ask: null
+      avg: 63254.6
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    GAL:
+      ask: 99.92
+      avg: 98.5
+      bid: 95.0
+      demand: 660
+      last: 99.92
+      supply: 717
+    GC:
+      ask: 195.0
+      avg: 174.49
+      bid: 146.0
+      demand: 53
+      last: 195.0
+      supply: 90
+    GIN:
+      ask: 1500.0
+      avg: 1500.0
+      bid: 1200.0
+      demand: 3
+      last: 1500.0
+      supply: 49
+    GL:
+      ask: 180.0
+      avg: 183.69
+      bid: 155.0
+      demand: 165
+      last: 180.0
+      supply: 1887
+    GRA:
+      ask: null
+      avg: 1706.59
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    GRN:
+      ask: 134.99
+      avg: 134.59
+      bid: 134.0
+      demand: 1051
+      last: 135.0
+      supply: 1270
+    GV:
+      ask: 785.0
+      avg: 1750.0
+      bid: null
+      demand: null
+      last: 1750.0
+      supply: 8
+    H:
+      ask: 65.0
+      avg: 69.44
+      bid: 52.0
+      demand: 2460
+      last: 65.0
+      supply: 5558
+    H2O:
+      ask: 57.0
+      avg: 46.49
+      bid: 47.0
+      demand: 5493
+      last: 58.0
+      supply: 2994
+    HAL:
+      ask: 234.56
+      avg: 234.56
+      bid: 200.0
+      demand: 162
+      last: 234.56
+      supply: 208
+    HCC:
+      ask: 550.0
+      avg: 800.0
+      bid: 250.0
+      demand: 4
+      last: 800.0
+      supply: 4
+    HCP:
+      ask: 135.0
+      avg: 120.44
+      bid: 90.0
+      demand: 332
+      last: 135.0
+      supply: 432
+    HD:
+      ask: 1000.0
+      avg: 1831.64
+      bid: 550.0
+      demand: 4
+      last: null
+      supply: 2
+    HE:
+      ask: 113.0
+      avg: 112.43
+      bid: 112.0
+      demand: 100
+      last: 113.0
+      supply: 439
+    HE3:
+      ask: 225.0
+      avg: 206.99
+      bid: null
+      demand: null
+      last: 225.0
+      supply: 171
+    HER:
+      ask: null
+      avg: 1650.0
+      bid: 1300.0
+      demand: 100
+      last: 1650.0
+      supply: null
+    HMS:
+      ask: 1985.0
+      avg: 1506.27
+      bid: 1100.0
+      demand: 19
+      last: 1250.0
+      supply: 214
+    HOP:
+      ask: null
+      avg: 1110.3
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    HPC:
+      ask: null
+      avg: 15983.6
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    HSE:
+      ask: 11500.0
+      avg: 11400.0
+      bid: 10500.0
+      demand: 35
+      last: 11400.0
+      supply: 115
+    HSS:
+      ask: 5950.0
+      avg: 2888.0
+      bid: 1500.0
+      demand: 1
+      last: 2888.0
+      supply: 36
+    I:
+      ask: 745.0
+      avg: 600.0
+      bid: 600.0
+      demand: 8
+      last: 600.0
+      supply: 140
+    IND:
+      ask: 2500.0
+      avg: 2500.0
+      bid: null
+      demand: null
+      last: 2500.0
+      supply: 9
+    INF:
+      ask: 170.0
+      avg: 155.23
+      bid: 140.0
+      demand: 414
+      last: 170.0
+      supply: 3272
+    KOM:
+      ask: 750.0
+      avg: 651.27
+      bid: 575.0
+      demand: 195
+      last: 750.0
+      supply: 92
+    KV:
+      ask: null
+      avg: 6000.0
+      bid: null
+      demand: null
+      last: 6000.0
+      supply: null
+    LBH:
+      ask: 2100.0
+      avg: 2117.03
+      bid: 1800.0
+      demand: 38
+      last: 2100.0
+      supply: 100
+    LC:
+      ask: null
+      avg: 8809.16
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    LCR:
+      ask: null
+      avg: 555.0
+      bid: null
+      demand: null
+      last: 555.0
+      supply: null
+    LD:
+      ask: null
+      avg: 47440.95
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    LDE:
+      ask: 5095.0
+      avg: 4945.23
+      bid: 4700.0
+      demand: 41
+      last: 5000.0
+      supply: 30
+    LDI:
+      ask: 250.0
+      avg: 500.0
+      bid: 100.0
+      demand: 10
+      last: 500.0
+      supply: 5
+    LES:
+      ask: null
+      avg: 685.71
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    LIS:
+      ask: null
+      avg: 2256388.51
+      bid: 7500000.0
+      demand: 100
+      last: null
+      supply: null
+    LSE:
+      ask: 4999.0
+      avg: 4561.17
+      bid: 4100.0
+      demand: 56
+      last: 4500.0
+      supply: 154
+    LST:
+      ask: 78.0
+      avg: 74.04
+      bid: 62.0
+      demand: 1301
+      last: 78.0
+      supply: 5814
+    LTA:
+      ask: 2200.0
+      avg: 2213.87
+      bid: 2030.0
+      demand: 57
+      last: 2200.0
+      supply: 31
+    MAG:
+      ask: null
+      avg: 400.0
+      bid: 150.0
+      demand: 120
+      last: 400.0
+      supply: null
+    MAI:
+      ask: null
+      avg: 120.0
+      bid: 88.0
+      demand: 202
+      last: 120.0
+      supply: null
+    MB:
+      ask: 3000.0
+      avg: 3828.36
+      bid: 1500.0
+      demand: 4
+      last: null
+      supply: 1
+    MCG:
+      ask: 20.37
+      avg: 20.65
+      bid: 13.0
+      demand: 13951
+      last: 20.38
+      supply: 35094
+    MEA:
+      ask: null
+      avg: 4097.99
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    MED:
+      ask: 1999.9
+      avg: 1915.57
+      bid: 1500.0
+      demand: 35
+      last: 1999.9
+      supply: 51
+    MFK:
+      ask: 118.0
+      avg: 118.0
+      bid: 101.0
+      demand: 124
+      last: 118.0
+      supply: 1384
+    MG:
+      ask: 100.0
+      avg: 95.59
+      bid: 45.0
+      demand: 585
+      last: 100.0
+      supply: 1429
+    MGC:
+      ask: 15000.0
+      avg: 9975.0
+      bid: null
+      demand: null
+      last: 9975.0
+      supply: 1
+    MHL:
+      ask: 2540.0
+      avg: 2445.77
+      bid: 2250.0
+      demand: 50
+      last: 2540.0
+      supply: 210
+    MPC:
+      ask: 600.0
+      avg: 752.94
+      bid: 450.0
+      demand: 10
+      last: null
+      supply: 4
+    MTC:
+      ask: 400.0
+      avg: 605.54
+      bid: null
+      demand: null
+      last: null
+      supply: 20
+    MTP:
+      ask: null
+      avg: 1613.71
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    MUS:
+      ask: 150.0
+      avg: 107.31
+      bid: null
+      demand: null
+      last: 100.0
+      supply: 320
+    MWF:
+      ask: 500.0
+      avg: 320.0
+      bid: 275.0
+      demand: 20
+      last: 320.0
+      supply: 20
+    N:
+      ask: 77.77
+      avg: 69.07
+      bid: 60.0
+      demand: 200
+      last: 77.77
+      supply: 5293
+    NA:
+      ask: 28.0
+      avg: 25.0
+      bid: 25.0
+      demand: 100
+      last: 25.0
+      supply: 434
+    NCS:
+      ask: 19.89
+      avg: 19.89
+      bid: 14.2
+      demand: 250
+      last: 19.89
+      supply: 225
+    NE:
+      ask: 550.0
+      avg: 551.72
+      bid: 260.0
+      demand: 186
+      last: 600.0
+      supply: 63
+    NF:
+      ask: null
+      avg: 47440.95
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    NFI:
+      ask: null
+      avg: 8.49
+      bid: null
+      demand: null
+      last: 8.49
+      supply: null
+    NG:
+      ask: 750.0
+      avg: 475.0
+      bid: 470.0
+      demand: 3
+      last: 475.0
+      supply: 80
+    NL:
+      ask: null
+      avg: 3627.7
+      bid: 2500.0
+      demand: 28
+      last: 3950.0
+      supply: null
+    NR:
+      ask: 200.0
+      avg: 200.0
+      bid: null
+      demand: null
+      last: 200.0
+      supply: 50
+    NS:
+      ask: 319.99
+      avg: 227.01
+      bid: 155.0
+      demand: 260
+      last: 319.99
+      supply: 110
+    NST:
+      ask: null
+      avg: 4000.0
+      bid: null
+      demand: null
+      last: 4000.0
+      supply: null
+    NUT:
+      ask: null
+      avg: 126.71
+      bid: 88.0
+      demand: 100
+      last: 135.0
+      supply: null
+    NV1:
+      ask: null
+      avg: 1500000.0
+      bid: 1500000.0
+      demand: 100
+      last: 1500000.0
+      supply: null
+    NV2:
+      ask: null
+      avg: 6000000.0
+      bid: 6000000.0
+      demand: 100
+      last: 6000000.0
+      supply: null
+    O:
+      ask: 53.7
+      avg: 53.8
+      bid: 46.0
+      demand: 1692
+      last: 53.7
+      supply: 2116
+    OS:
+      ask: null
+      avg: 174491.68
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    OVE:
+      ask: 70.0
+      avg: 74.26
+      bid: 63.0
+      demand: 304
+      last: 70.0
+      supply: 2240
+    PA:
+      ask: null
+      avg: 8778.49
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    PCB:
+      ask: null
+      avg: 771.31
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    PDA:
+      ask: 3000.0
+      avg: 2500.0
+      bid: 1500.0
+      demand: 1
+      last: 2500.0
+      supply: 10
+    PE:
+      ask: 5.45
+      avg: 4.97
+      bid: 4.7
+      demand: 32129
+      last: 5.45
+      supply: 44060
+    PG:
+      ask: 23.5
+      avg: 23.75
+      bid: 21.05
+      demand: 7150
+      last: 23.5
+      supply: 25161
+    PPA:
+      ask: 100.0
+      avg: 87.5
+      bid: null
+      demand: null
+      last: 87.5
+      supply: 28
+    PSH:
+      ask: 7500.0
+      avg: 4697.4
+      bid: null
+      demand: null
+      last: null
+      supply: 2
+    PSL:
+      ask: 1998.0
+      avg: 1937.75
+      bid: 1700.0
+      demand: 30
+      last: 1700.0
+      supply: 115
+    PSM:
+      ask: 1600.0
+      avg: 1300.0
+      bid: null
+      demand: null
+      last: 1300.0
+      supply: 4
+    PSS:
+      ask: 699.0
+      avg: 639.89
+      bid: null
+      demand: null
+      last: 600.0
+      supply: 38
+    PT:
+      ask: 288.98
+      avg: 274.55
+      bid: 275.0
+      demand: 389
+      last: 288.99
+      supply: 92
+    PWO:
+      ask: 183.99
+      avg: 177.52
+      bid: 160.0
+      demand: 136
+      last: 183.99
+      supply: 553
+    RA:
+      ask: null
+      avg: 31627.3
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    RAM:
+      ask: 900.0
+      avg: 1402.73
+      bid: 600.0
+      demand: 10
+      last: null
+      supply: 4
+    RAT:
+      ask: 93.0
+      avg: 89.94
+      bid: 85.0
+      demand: 5228
+      last: 93.0
+      supply: 6817
+    RBH:
+      ask: 11975.0
+      avg: 9000.0
+      bid: 9000.0
+      demand: 14
+      last: 9000.0
+      supply: 11
+    RCO:
+      ask: 575.0
+      avg: 529.72
+      bid: 469.0
+      demand: 200
+      last: 575.0
+      supply: 267
+    RDE:
+      ask: 29900.0
+      avg: 21000.0
+      bid: null
+      demand: null
+      last: 21000.0
+      supply: 10
+    REP:
+      ask: 700.0
+      avg: 571.94
+      bid: 500.0
+      demand: 120
+      last: 625.0
+      supply: 50
+    RG:
+      ask: 575.0
+      avg: 429.14
+      bid: 350.0
+      demand: 226
+      last: 575.0
+      supply: 1008
+    RGO:
+      ask: null
+      avg: 845.01
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    RNN:
+      ask: null
+      avg: 63254.6
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    ROM:
+      ask: null
+      avg: 2013.44
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    RSE:
+      ask: 30000.0
+      avg: 30638.8
+      bid: 20000.0
+      demand: 3
+      last: 32000.0
+      supply: 2
+    RSH:
+      ask: null
+      avg: 33829.66
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    RSI:
+      ask: null
+      avg: 1076.9
+      bid: 300.0
+      demand: 20
+      last: null
+      supply: null
+    RTA:
+      ask: 12345.67
+      avg: 12340.0
+      bid: null
+      demand: null
+      last: 12340.0
+      supply: 7
+    S:
+      ask: 375.0
+      avg: 395.73
+      bid: 120.0
+      demand: 244
+      last: 375.0
+      supply: 159
+    SA:
+      ask: null
+      avg: 31627.3
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    SAL:
+      ask: null
+      avg: 31627.3
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    SAR:
+      ask: null
+      avg: 11284.76
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    SC:
+      ask: 3000.0
+      avg: 2498.53
+      bid: 2000.01
+      demand: 12
+      last: 2200.0
+      supply: 4
+    SCN:
+      ask: 1850.0
+      avg: 2142.82
+      bid: 1000.0
+      demand: 5
+      last: 2200.0
+      supply: 10
+    SEA:
+      ask: 250.0
+      avg: 163.07
+      bid: 150.0
+      demand: 250
+      last: 250.0
+      supply: 44
+    SEN:
+      ask: null
+      avg: 323.38
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    SF:
+      ask: 9.98
+      avg: 9.82
+      bid: 8.62
+      demand: 112751
+      last: 9.98
+      supply: 54273
+    SFK:
+      ask: 75.0
+      avg: 74.57
+      bid: 50.0
+      demand: 200
+      last: 75.0
+      supply: 3
+    SI:
+      ask: 1200.0
+      avg: 1188.24
+      bid: null
+      demand: null
+      last: 1200.0
+      supply: 20
+    SIL:
+      ask: null
+      avg: 2795.03
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    SIO:
+      ask: 95.0
+      avg: 89.54
+      bid: 53.01
+      demand: 908
+      last: 95.0
+      supply: 2669
+    SNM:
+      ask: null
+      avg: 391467.05
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    SOC:
+      ask: null
+      avg: 694.38
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    SP:
+      ask: 2750.0
+      avg: 2750.0
+      bid: null
+      demand: null
+      last: 2750.0
+      supply: 101
+    STL:
+      ask: 1000.0
+      avg: 1042.11
+      bid: 800.0
+      demand: 46
+      last: 1000.0
+      supply: 142
+    SWF:
+      ask: 300.0
+      avg: 222.0
+      bid: 210.0
+      demand: 50
+      last: 222.0
+      supply: 20
+    TA:
+      ask: null
+      avg: 14578.15
+      bid: 2000.0
+      demand: 21
+      last: null
+      supply: null
+    TAC:
+      ask: null
+      avg: 431293.43
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    TAI:
+      ask: null
+      avg: 200.0
+      bid: null
+      demand: null
+      last: 200.0
+      supply: null
+    TC:
+      ask: null
+      avg: 6283.03
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    TCL:
+      ask: null
+      avg: 860.0
+      bid: 860.0
+      demand: 40
+      last: 860.0
+      supply: null
+    TCO:
+      ask: null
+      avg: 2216.67
+      bid: 1500.0
+      demand: 12
+      last: 2216.67
+      supply: null
+    TCS:
+      ask: 3000.0
+      avg: 3000.0
+      bid: null
+      demand: null
+      last: 3000.0
+      supply: 17
+    THF:
+      ask: 600.0
+      avg: 600.0
+      bid: null
+      demand: null
+      last: 600.0
+      supply: 183
+    TI:
+      ask: 2000.0
+      avg: 1100.0
+      bid: 1000.0
+      demand: 6
+      last: 1100.0
+      supply: 2
+    TIO:
+      ask: 800.0
+      avg: 100.0
+      bid: 74.0
+      demand: 100
+      last: 100.0
+      supply: 30
+    TK:
+      ask: null
+      avg: 26615.81
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    TPU:
+      ask: 950.0
+      avg: 1467.72
+      bid: 550.0
+      demand: 5
+      last: null
+      supply: 4
+    TRN:
+      ask: 250.0
+      avg: 250.0
+      bid: 75.0
+      demand: 10
+      last: 250.0
+      supply: 6
+    TRU:
+      ask: 319.0
+      avg: 314.85
+      bid: 250.0
+      demand: 110
+      last: 319.0
+      supply: 444
+    TS:
+      ask: null
+      avg: 200.0
+      bid: 100.0
+      demand: 35
+      last: 200.0
+      supply: null
+    TSH:
+      ask: null
+      avg: 25000.0
+      bid: 22000.0
+      demand: 1
+      last: 25000.0
+      supply: null
+    VEG:
+      ask: 200.0
+      avg: 175.71
+      bid: 112.0
+      demand: 218
+      last: 200.0
+      supply: 174
+    VG:
+      ask: 5660.0
+      avg: 2264.29
+      bid: null
+      demand: null
+      last: null
+      supply: 2
+    W:
+      ask: null
+      avg: 14594.29
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    WAI:
+      ask: null
+      avg: 579758.95
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    WIN:
+      ask: null
+      avg: 6722.79
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    WM:
+      ask: null
+      avg: 47440.95
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    WR:
+      ask: null
+      avg: 2100000.0
+      bid: 2100000.0
+      demand: 100
+      last: 2100000.0
+      supply: null
+    WS:
+      ask: 50000.0
+      avg: 20556.49
+      bid: null
+      demand: null
+      last: null
+      supply: 4
+    ZIR:
+      ask: null
+      avg: 164.57
+      bid: null
+      demand: null
+      last: null
+      supply: null
+    ZR:
+      ask: null
+      avg: 14621.72
+      bid: null
+      demand: null
+      last: null
+      supply: null
+  timestamp: '2020-05-08 21:49:26.426917'
+

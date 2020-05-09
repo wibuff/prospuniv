@@ -8,3 +8,6 @@
     - 138.0 CIS / t and 20 CIS / m^3
   * 4,200 CIS for 210 t / 100.00 m^3 
     - 20 CIS / t and 42 CIS / m^3
+
+## Promising LM Notes
+* from PTU discord --> Cx planets, etherwind, boucher, umbra, proxion, ironforge...

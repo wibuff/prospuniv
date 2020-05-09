@@ -15,10 +15,12 @@ def main(argv):
     try:
         args = extract_args(argv)
         dt_tag = args[0]
-        source = 'extracts/extract{}.json'.format(dt_tag)
-        exchange = 'data/exchange{}.yaml'.format(dt_tag)
-        inventory = 'data/inventory{}.yaml'.format(dt_tag)
-        sites = 'data/sites{}.yaml'.format(dt_tag)
+        source = 'extracts/extract-{}.json'.format(dt_tag)
+        exchange = 'data/exchange-{}.yaml'.format(dt_tag)
+        inventory = 'data/inventory-{}.yaml'.format(dt_tag)
+        sites = 'data/sites-{}.yaml'.format(dt_tag)
+        orders = 'data/orders-{}.yaml'.format(dt_tag)
+        orders_report = 'reports/orders-{}.yaml'.format(dt_tag)
 
         print('extracting all data for {}'.format(dt_tag))
         print('source file is {}'.format(source))
@@ -33,6 +35,12 @@ def main(argv):
 
         status = os.system('./extract-site-data.py {} > {}'.format(source, sites))
         print('extract site data, exit code={}'.format(status))
+
+        status = os.system('./extract-order-data.py {} > {}'.format(source, orders))
+        print('extract order data, exit code={}'.format(status))
+
+        status = os.system('./gen-order-report.py {} YAML > {}'.format(orders, orders_report))
+        print('generate order report, exit code={}'.format(status))
 
         return 0
 
