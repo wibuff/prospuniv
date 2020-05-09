@@ -1,3 +1,6 @@
+- Log key metrics from runs to a single location
+    - format should allow for easy comparison of key metrics between runs
+    - identify source value stream, inventory, market files
 - Generate recipe file from extract 
     - basic extract done
     - next refactor production lines to use new format - some recipes have multiple outputs
@@ -16,9 +19,6 @@
     - calc value of outputs
     - simple (single node) and complex (multi-node)
 - Take date YYYY-MM-DD as input and use to read standard files
-- Log key metrics from runs to a single location
-    - format should allow for easy comparison of key metrics between runs
-    - identify source value stream, inventory, market files
 - Log run details to run-specific logging instead of using stdout and routing to file
     - per production line files
     - single overall run file

@@ -28,6 +28,8 @@ class Ledger(object):
         self.buildingCount = buildingCount
         self.market = market
         self.entries = []
+        self.start_efficiency = None
+        self.end_efficiency = None
 
     def __str__(self):
         return json.dumps({ 'line_id': self.line_id, 'entries': self.entries })
@@ -42,7 +44,21 @@ class Ledger(object):
             entry[key] = value
         self.entries.append(entry)
 
+        if entry['type'] == Ledger.EFFICIENCY and self.start_efficiency is None:
+            self.start_efficiency = entry['value']
+        if entry['type'] == Ledger.EFFICIENCY:
+            self.end_efficiency = entry['value']
+
+
     def add_ledger(self, ledger):
+        if self.start_efficiency is None:
+            self.start_efficiency = ledger.start_efficiency
+        elif ledger.start_efficiency is not None:
+            self.start_efficiency = (self.start_efficiency + ledger.start_efficiency)/2
+        if self.end_efficiency is None:
+            self.end_efficiency = ledger.end_efficiency
+        elif ledger.end_efficiency is not None:
+            self.end_efficiency = (self.end_efficiency + ledger.end_efficiency)/2
         self.entries.extend(ledger.entries)
     
     def output_summary(self):
@@ -56,8 +72,8 @@ class Ledger(object):
         else: 
             line = "{}.{} ({})".format(self.stream_id, self.line_id, building)
 
-        uptime =      'Uptime: {active_cycles}/{total_cycles} cycles ({uptime_percent:.2%})'.format(**summary)
-        efficiency =  'Efficiency : {min:5.2%} / {mean:5.2%} / {max:5.2%} [min/mean/max]'.format(**summary['efficiencies'])
+        uptime =      'Uptime     : {active_cycles}/{total_cycles} cycles ({uptime_percent:.2%})'.format(**summary)
+        efficiency =  'Efficiency : \u03B1 {start:5.2%} \u03C9 {end:5.2%} \u0394 {delta:5.2%} '.format(**summary['efficiencies'])
         price_head =  '                   {}'.format(Price.HEADER_FMT)
         total_value = 'Production Value : {total_production_value}'.format(**summary)
         total_cost =  'Production Cost  : {total_production_cost}'.format(**summary)
@@ -180,7 +196,8 @@ class Ledger(object):
             result['mean'] = sum(efficiencies)/len(efficiencies)
             result['min'] = min(efficiencies)
             result['max'] = max(efficiencies)
-            result['start'] = efficiencies[0]
-            result['end'] = efficiencies[len(efficiencies)-1]
+            result['start'] = self.start_efficiency
+            result['end'] = self.end_efficiency
+            result['delta'] = self.end_efficiency - self.start_efficiency
         return result
             

@@ -5,12 +5,12 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Python: Current File",
+            "name": "Python: Model Valstream",
             "type": "python",
             "request": "launch",
             "program": "${file}",
             "console": "integratedTerminal",
-            "args": ["data/goals.yaml", "data/sites2020-04-13.yaml", "data/exchange2020-04-13.yaml", "IC1"]
+            "args": ["data/valstream-c.yaml", "data/inventory-whatif.yaml", "data/exchange-2020-05-08.yaml", "IC1", "30:0:0:0"]
         },
         {
             "name": "Python: Current File Extract Input",
