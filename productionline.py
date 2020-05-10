@@ -18,6 +18,7 @@ class ProductionLine(object):
         self.building = Buildings[self.linetype['building']]
         self.buildingCount = line_spec['buildingCount']
         self.production = self._init_production(self.buildingCount)
+        self.queue_identity = ''
         self.queue = self._init_production_queue(line_spec['queue'])
         self.ledger = Ledger(stream_id, self.line_id, self.buildingCount, market)
         self.inventory = inventory
@@ -45,6 +46,9 @@ class ProductionLine(object):
             'linetype': self.linetype, 
             'queue': self.queue 
             })
+
+    def line_identity(self):
+        return self.linetype['building'] + str(self.buildingCount) + "[" + self.queue_identity + "]"
 
     def _calc_line_efficiency(self):
         efficency = self.worker_efficiency * self.linetype['condition'] * \
@@ -108,6 +112,7 @@ class ProductionLine(object):
                 'recipe': Recipes[item['recipe']]
             }
             prodqueue.append(product)
+        self.queue_identity = '.'.join(map(lambda x: x['id'] + "x" + str(x['count']), prodqueue))
         return prodqueue
 
     def _init_production(self, buildCount):

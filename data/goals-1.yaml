@@ -6,57 +6,49 @@ summary: |
   secondary is surplus RIG -> H20
   tertiary is surplus FRM -> GRN/BEA/VEG
 goals: 
-  - description: step 2 (7-6-4)
+  - description: step 3 (7-5-7)
+    notes: |
+       next HB1
+       next FP
+       next FP
+    actions: 
+      - action: build
+        id: HB1
+        site: Promitor
+      - action: build
+        id: FP
+        site: Promitor
+      - action: build
+        id: FP
+        site: Promitor
+  - description: step 4 (7-5-8)
+    notes: |
+       next FP
+    actions: 
+      - action: build
+        id: FP
+        site: Promitor
+  - description: step 5 (7-6-8)
     notes: |
        next HB1
        next FRM
-       next FP
     actions: 
       - action: build
         id: HB1
-        site: Promitor
+        site: Promitor 
       - action: build
         id: FRM
-        site: Promitor
-      - action: build
-        id: FP
-        site: Promitor
-  - description: step 3 (7-7-5)
-    notes: |
-       next HB1
-       next FRM
-       next FP
-    actions: 
-      - action: build
-        id: HB1
-        site: Promitor
-      - action: build
-        id: FRM
-        site: Promitor
-      - action: build
-        id: FP
-        site: Promitor
-  - description: step 4 (7-7-7)
-    notes: |
-       next HB1
-       next FP
-       next FP
-    actions: 
-      - action: build
-        id: HB1
-        site: Promitor
-      - action: build
-        id: FP
-        site: Promitor
-      - action: build
-        id: FP
-        site: Promitor
-  - description: step 5 (7-7-8)
+        site: Promitor 
+  - description: step 6 (8-6-9)
     notes: |
        next FP
+       next RIG
     actions: 
       - action: build
         id: FP
+        site: Promitor 
+      - action: build
+        id: RIG
         site: Promitor 
 
 future-goals: 

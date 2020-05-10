@@ -49,7 +49,12 @@ class ValueStream(object):
         end_inv = Inventory(json.loads(str(self.inventory)))
         self.summarize_run(lines, start_inv, end_inv)
         
+    def log_run(self, summary):
+        with open('logs/runlog.txt', mode='a') as logfile: 
+            print(summary, file=logfile)
+
     def summarize_run(self, lines, start_inv, end_inv):
+
         print('')
         print('*** RUN SUMMARY {} ***'.format(self.stream_id))
         print('')
@@ -58,12 +63,14 @@ class ValueStream(object):
         stream_ledger = Ledger(self.stream_id, 'RUN.TOTALS', None, self.market)
         for line in lines:
             stream_ledger.add_ledger(line.ledger)
-        stream_ledger.output_summary()
+        stream_summary = stream_ledger.output_summary()
 
         print('')
         print('Production Line Summaries:')
+        line_summary = [] 
         for line in lines:
             line.ledger.output_summary()
+            line_summary.append(line.line_identity())
             print("")
 
         print('Inventory Summaries:')
@@ -71,6 +78,15 @@ class ValueStream(object):
         end_inv.output_summary('Ending Assets', self.market)
         net_inv = end_inv.diff(start_inv)
         net_inv.output_summary('Asset Changes', self.market)
+
+        self.log_run({
+            'id': self.stream_id,
+            'fp': '-'.join(line_summary),
+            'net': stream_summary['net'],
+            'uptime': stream_summary['uptime'],
+            'e-start': stream_summary['e-start'],
+            'e-delta': stream_summary['e-delta']
+        })
         
     def calc_output(self, starting, ending):
         net = {}

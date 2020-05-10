@@ -19,7 +19,7 @@
         count: 5
 
     - lineId: FP.1
-      buildingCount: 8
+      buildingCount: 4
       queue: 
       - recipe: DW.2
         count: 4

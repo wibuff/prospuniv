@@ -1,16 +1,20 @@
-- Log key metrics from runs to a single location
-    - format should allow for easy comparison of key metrics between runs
-    - identify source value stream, inventory, market files
+- Log run details to run-specific logging instead of using stdout and routing to file
+    - per production line files
+    - single overall run file
+    - probably in new sub directory
+- Drive efficiencies based on expert configuration
+    - add expert configuration to run fingerprint (run logging)
+- Acquire resources from the market
+    - simple scheduled buys
+    - conditional buys (e.g. purchase when below threshold)
+- Track cash liquid assets
+- Sell resources to the market 
+- Auto generate, validate, and run multiple valstream files for comparison
 - Generate recipe file from extract 
     - basic extract done
     - next refactor production lines to use new format - some recipes have multiple outputs
 - Generate product lines from extract
-- Track cash liquid assets
 - Provide Net Gain/Loss in multiple currencies
-- Acquire resources from the market
-    - simple scheduled buys
-    - conditional buys (e.g. purchase when below threshold)
-- Sell resources to the market 
 - Track sales as revenue
 - Track resource consumption as expense
 - Value flow analysis / resource valuation
@@ -19,10 +23,8 @@
     - calc value of outputs
     - simple (single node) and complex (multi-node)
 - Take date YYYY-MM-DD as input and use to read standard files
-- Log run details to run-specific logging instead of using stdout and routing to file
-    - per production line files
-    - single overall run file
-    - probably in new sub directory
+- Log key metrics from runs to a single location
+    - identify source value stream, inventory, market files
 - Set input files in a single config file
 - Add Income Statement - overall  
 - Add Income Statement - for each production line

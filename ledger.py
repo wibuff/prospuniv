@@ -104,6 +104,12 @@ class Ledger(object):
                 report.output_general(missing)
 
         report.end()
+        return {
+            'net': summary['total_gain_loss'].avg,
+            'uptime': summary['uptime_percent'],
+            'e-start': summary['efficiencies']['start'],
+            'e-delta': summary['efficiencies']['delta']
+        }
 
     def summarize_ledger(self):
         total_cycles = 0
