@@ -1,0 +1,665 @@
+---
+AML:
+  area: 55
+  materials:
+    ABH: 12
+    ADE: 6
+    ASE: 6
+    MCG: 220
+  name: advancedMaterialLab
+  ticker: AML
+  type: PRODUCTION
+  workers:
+  - count: 20
+    type: TECHNICIAN
+  - count: 30
+    type: ENGINEER
+APF:
+  area: 60
+  materials:
+    ABH: 6
+    ADE: 12
+    ASE: 12
+    MCG: 240
+  name: appliancesFactory
+  ticker: APF
+  type: PRODUCTION
+  workers:
+  - count: 60
+    type: TECHNICIAN
+  - count: 20
+    type: ENGINEER
+ASM:
+  area: 50
+  materials:
+    LBH: 4
+    LDE: 2
+    LSE: 6
+    LTA: 2
+    MCG: 200
+  name: advancedSmelter
+  ticker: ASM
+  type: PRODUCTION
+  workers:
+  - count: 50
+    type: TECHNICIAN
+  - count: 20
+    type: ENGINEER
+BMP:
+  area: 12
+  materials:
+    BBH: 4
+    BDE: 2
+    BSE: 6
+    MCG: 48
+  name: basicMaterialsPlant
+  ticker: BMP
+  type: PRODUCTION
+  workers:
+  - count: 100
+    type: PIONEER
+CHP:
+  area: 18
+  materials:
+    BBH: 3
+    BDE: 3
+    BSE: 3
+    MCG: 72
+    TRU: 4
+  name: chemPlant
+  ticker: CHP
+  type: PRODUCTION
+  workers:
+  - count: 20
+    type: PIONEER
+  - count: 60
+    type: SETTLER
+CLF:
+  area: 37
+  materials:
+    BSE: 2
+    LDE: 4
+    LSE: 2
+    MCG: 148
+    TRU: 8
+  name: clothingFactory
+  ticker: CLF
+  type: PRODUCTION
+  workers:
+  - count: 40
+    type: SETTLER
+CLR:
+  area: 27
+  materials:
+    LBH: 8
+    LDE: 6
+    LSE: 4
+    LTA: 4
+    MCG: 108
+  name: cleanRoom
+  ticker: CLR
+  type: PRODUCTION
+  workers:
+  - count: 25
+    type: SETTLER
+  - count: 15
+    type: TECHNICIAN
+COL:
+  area: 15
+  materials:
+    BSE: 16
+    MCG: 60
+  name: collector
+  ticker: COL
+  type: RESOURCES
+  workers:
+  - count: 50
+    type: PIONEER
+EEP:
+  area: 200
+  materials:
+    MCG: 800
+    RBH: 6
+    RDE: 6
+    RSE: 12
+    RTA: 2
+  name: einsteiniumEnrichmentPlant
+  ticker: EEP
+  type: PRODUCTION
+  workers:
+  - count: 60
+    type: ENGINEER
+  - count: 40
+    type: SCIENTIST
+ELP:
+  area: 35
+  materials:
+    MCG: 140
+    RBH: 6
+    RDE: 3
+    RSE: 6
+  name: electronicsPlant
+  ticker: ELP
+  type: PRODUCTION
+  workers:
+  - count: 40
+    type: TECHNICIAN
+EXT:
+  area: 25
+  materials:
+    BSE: 16
+    MCG: 100
+  name: extractor
+  ticker: EXT
+  type: RESOURCES
+  workers:
+  - count: 60
+    type: PIONEER
+FF:
+  area: 25
+  materials:
+    LBH: 2
+    LDE: 2
+    LSE: 2
+    MCG: 100
+    TRU: 5
+  name: fermentationFacility
+  ticker: FF
+  type: PRODUCTION
+  workers:
+  - count: 60
+    type: SETTLER
+FP:
+  area: 12
+  materials:
+    BBH: 3
+    BDE: 3
+    BSE: 3
+    MCG: 48
+  name: foodProcessor
+  ticker: FP
+  type: PRODUCTION
+  workers:
+  - count: 40
+    type: PIONEER
+FRM:
+  area: 30
+  materials:
+    BBH: 4
+    BSE: 4
+    MCG: 120
+  name: farm
+  ticker: FRM
+  type: PRODUCTION
+  workers:
+  - count: 50
+    type: PIONEER
+FS:
+  area: 25
+  materials:
+    BBH: 2
+    LBH: 2
+    LDE: 2
+    MCG: 100
+    TRU: 4
+  name: fineSmithy
+  ticker: FS
+  type: PRODUCTION
+  workers:
+  - count: 50
+    type: SETTLER
+GF:
+  area: 27
+  materials:
+    LBH: 4
+    LSE: 6
+    MCG: 108
+    TRU: 5
+  name: glassFurnace
+  ticker: GF
+  type: PRODUCTION
+  workers:
+  - count: 80
+    type: SETTLER
+HB1:
+  area: 10
+  materials:
+    BBH: 4
+    BDE: 2
+    BSE: 2
+    BTA: 1
+    MCG: 40
+  name: habitationPioneer
+  ticker: HB1
+  type: HABITATION
+  workers:
+  - count: 100
+    type: PIONEER
+HB2:
+  area: 12
+  materials:
+    BBH: 2
+    BDE: 2
+    BSE: 2
+    BTA: 2
+    MCG: 48
+    TRU: 2
+  name: habitationSettler
+  ticker: HB2
+  type: HABITATION
+  workers:
+  - count: 100
+    type: SETTLER
+HB3:
+  area: 20
+  materials:
+    MCG: 80
+    RBH: 4
+    RDE: 4
+    RSE: 4
+    RTA: 12
+  name: habitationTechnician
+  ticker: HB3
+  type: HABITATION
+  workers:
+  - count: 100
+    type: TECHNICIAN
+HB4:
+  area: 30
+  materials:
+    ABH: 6
+    ADE: 8
+    ASE: 4
+    ATA: 12
+    MCG: 120
+  name: habitationEngineer
+  ticker: HB4
+  type: HABITATION
+  workers:
+  - count: 100
+    type: ENGINEER
+HB5:
+  area: 16
+  materials:
+    ABH: 8
+    ADE: 8
+    ASE: 6
+    ATA: 12
+    MCG: 64
+  name: habitationScientist
+  ticker: HB5
+  type: HABITATION
+  workers:
+  - count: 100
+    type: SCIENTIST
+HBB:
+  area: 15
+  materials:
+    BBH: 4
+    BDE: 4
+    LSE: 2
+    LTA: 2
+    MCG: 60
+  name: habitationBarracks
+  ticker: HBB
+  type: HABITATION
+  workers:
+  - count: 75
+    type: PIONEER
+  - count: 75
+    type: SETTLER
+HBC:
+  area: 22
+  materials:
+    LBH: 3
+    LDE: 2
+    MCG: 88
+    RSE: 2
+    RTA: 2
+    TRU: 2
+  name: habitationCommune
+  ticker: HBC
+  type: HABITATION
+  workers:
+  - count: 75
+    type: SETTLER
+  - count: 75
+    type: TECHNICIAN
+HBL:
+  area: 12
+  materials:
+    ABH: 16
+    ADE: 16
+    ASE: 12
+    ATA: 32
+    MCG: 48
+  name: habitationLuxury
+  ticker: HBL
+  type: HABITATION
+  workers:
+  - count: 75
+    type: ENGINEER
+  - count: 75
+    type: SCIENTIST
+HBM:
+  area: 25
+  materials:
+    ASE: 6
+    ATA: 6
+    MCG: 100
+    RBH: 3
+    RDE: 3
+  name: habitationManagers
+  ticker: HBM
+  type: HABITATION
+  workers:
+  - count: 75
+    type: TECHNICIAN
+  - count: 75
+    type: ENGINEER
+HYF:
+  area: 15
+  materials:
+    BSE: 2
+    LBH: 4
+    MCG: 60
+    MHL: 16
+    TRU: 4
+  name: hydroponicsFarm
+  ticker: HYF
+  type: PRODUCTION
+  workers:
+  - count: 40
+    type: PIONEER
+  - count: 20
+    type: SETTLER
+INC:
+  area: 10
+  materials:
+    BBH: 3
+    BDE: 2
+    BSE: 4
+    BTA: 1
+    MCG: 40
+  name: incinerator
+  ticker: INC
+  type: PRODUCTION
+  workers:
+  - count: 40
+    type: PIONEER
+IVP:
+  area: 32
+  materials:
+    MCG: 128
+    RBH: 6
+    RDE: 4
+    RSE: 4
+    RTA: 3
+  name: inVitroPlant
+  ticker: IVP
+  type: PRODUCTION
+  workers:
+  - count: 70
+    type: TECHNICIAN
+LAB:
+  area: 25
+  materials:
+    LDE: 12
+    LSE: 6
+    MCG: 100
+  name: laboratory
+  ticker: LAB
+  type: PRODUCTION
+  workers:
+  - count: 20
+    type: SETTLER
+  - count: 70
+    type: TECHNICIAN
+MCA:
+  area: 35
+  materials:
+    MCG: 140
+    RBH: 4
+    RDE: 8
+    RSE: 4
+  name: mediumComponentsAssembly
+  ticker: MCA
+  type: PRODUCTION
+  workers:
+  - count: 20
+    type: SETTLER
+  - count: 20
+    type: TECHNICIAN
+ORC:
+  area: 120
+  materials:
+    ASE: 8
+    ATA: 4
+    MCG: 480
+  name: orchard
+  ticker: ORC
+  type: PRODUCTION
+  workers:
+  - count: 70
+    type: SETTLER
+  - count: 10
+    type: TECHNICIAN
+POL:
+  area: 15
+  materials:
+    BDE: 4
+    BSE: 4
+    LBH: 8
+    MCG: 60
+    TRU: 2
+  name: polymerPlant
+  ticker: POL
+  type: PRODUCTION
+  workers:
+  - count: 10
+    type: PIONEER
+  - count: 25
+    type: SETTLER
+PP1:
+  area: 19
+  materials:
+    BBH: 3
+    BDE: 3
+    BSE: 4
+    MCG: 76
+  name: prefabPlant1
+  ticker: PP1
+  type: PRODUCTION
+  workers:
+  - count: 80
+    type: PIONEER
+PP2:
+  area: 25
+  materials:
+    BBH: 6
+    BDE: 6
+    BSE: 3
+    MCG: 100
+    TRU: 4
+  name: prefabPlant2
+  ticker: PP2
+  type: PRODUCTION
+  workers:
+  - count: 25
+    type: PIONEER
+  - count: 25
+    type: SETTLER
+PP3:
+  area: 32
+  materials:
+    LDE: 8
+    LSE: 4
+    MCG: 128
+  name: prefabPlant3
+  ticker: PP3
+  type: PRODUCTION
+  workers:
+  - count: 20
+    type: SETTLER
+  - count: 40
+    type: TECHNICIAN
+PP4:
+  area: 40
+  materials:
+    MCG: 160
+    RBH: 6
+    RDE: 6
+    RSE: 8
+  name: prefabPlant4
+  ticker: PP4
+  type: PRODUCTION
+  workers:
+  - count: 40
+    type: TECHNICIAN
+  - count: 30
+    type: ENGINEER
+PPF:
+  area: 16
+  materials:
+    BSE: 2
+    LBH: 4
+    LDE: 2
+    MCG: 64
+    TRU: 2
+  name: plasticsPrinterFacility
+  ticker: PPF
+  type: PRODUCTION
+  workers:
+  - count: 50
+    type: SETTLER
+REF:
+  area: 25
+  materials:
+    BBH: 6
+    BDE: 6
+    BSE: 6
+    MCG: 100
+  name: refinery
+  ticker: REF
+  type: PRODUCTION
+  workers:
+  - count: 60
+    type: PIONEER
+  - count: 20
+    type: SETTLER
+RIG:
+  area: 10
+  materials:
+    BSE: 12
+    MCG: 40
+  name: rig
+  ticker: RIG
+  type: RESOURCES
+  workers:
+  - count: 30
+    type: PIONEER
+SCA:
+  area: 35
+  materials:
+    MCG: 140
+    RBH: 3
+    RDE: 6
+    RSE: 2
+  name: smallComponentsAssembly
+  ticker: SCA
+  type: PRODUCTION
+  workers:
+  - count: 30
+    type: TECHNICIAN
+SD:
+  area: 100
+  materials:
+    ABH: 7
+    ADE: 7
+    ASE: 14
+    ATA: 14
+    MCG: 400
+  name: softwareDevelopment
+  ticker: SD
+  type: PRODUCTION
+  workers:
+  - count: 60
+    type: ENGINEER
+SL:
+  area: 200
+  materials:
+    LDE: 32
+    LTA: 16
+    MCG: 800
+    RBH: 16
+    RSE: 16
+  name: softwareLabs
+  ticker: SL
+  type: PRODUCTION
+  workers:
+  - count: 70
+    type: SCIENTIST
+SME:
+  area: 17
+  materials:
+    BBH: 4
+    BDE: 4
+    BSE: 6
+    MCG: 68
+  name: smelter
+  ticker: SME
+  type: PRODUCTION
+  workers:
+  - count: 50
+    type: PIONEER
+STO:
+  area: 15
+  materials:
+    BBH: 6
+    BDE: 6
+    BSE: 2
+    MCG: 60
+  name: storageFacility
+  ticker: STO
+  type: STORAGE
+  workers: []
+TNP:
+  area: 60
+  materials:
+    LBH: 6
+    LDE: 8
+    LSE: 16
+    MCG: 240
+  name: technetiumProcessing
+  ticker: TNP
+  type: PRODUCTION
+  workers:
+  - count: 80
+    type: TECHNICIAN
+WEL:
+  area: 19
+  materials:
+    BBH: 8
+    BSE: 6
+    MCG: 76
+  name: weldingPlant
+  ticker: WEL
+  type: PRODUCTION
+  workers:
+  - count: 70
+    type: PIONEER
+WPL:
+  area: 40
+  materials:
+    BDE: 2
+    LBH: 6
+    LSE: 3
+    MCG: 160
+    TRU: 6
+  name: weavingPlant
+  ticker: WPL
+  type: PRODUCTION
+  workers:
+  - count: 70
+    type: SETTLER
+

@@ -1,0 +1,67 @@
+---
+summary: |
+  Food Processing Focus (DW/RATs)
+  RIG/FRM/FP = 8/6/9
+  primary is FP -> RAT/DW
+  secondary is surplus RIG -> H20
+  tertiary is surplus FRM -> GRN/BEA/NUT
+goals: 
+  - description: step 3 (7-5-7)
+    notes: |
+       next HB1
+       next FP
+       next FP
+    actions: 
+      - action: build
+        id: HB1
+        site: Promitor
+      - action: build
+        id: FP
+        site: Promitor
+      - action: build
+        id: FP
+        site: Promitor
+  - description: step 4 (7-5-8)
+    notes: |
+       next FP
+    actions: 
+      - action: build
+        id: FP
+        site: Promitor
+  - description: step 5 (7-6-8)
+    notes: |
+       next HB1
+       next FRM
+    actions: 
+      - action: build
+        id: HB1
+        site: Promitor 
+      - action: build
+        id: FRM
+        site: Promitor 
+  - description: step 6 (8-6-9)
+    notes: |
+       next FP
+       next RIG
+    actions: 
+      - action: build
+        id: FP
+        site: Promitor 
+      - action: build
+        id: RIG
+        site: Promitor 
+
+future-goals: 
+  notes: |
+    Build out Promitor into an FP focus to generate cash flow
+    Figure out where to expand next and what to provide
+      - LST (limestone)
+      - A colony where PTU is trying to gain influence
+    Other ideas...
+    Investigating setup needed for CAF / COF production
+    NS Nutrient Solution production
+    CAF Caffeinated Beans production
+    COF Caffeinated Infusion production
+    CHP (Chemical Plant) to enable NS production
+    HYF (Hydroponics Farm) to enable CAF production
+    FP (Additional Food Processor) to enable COF production
