@@ -43,6 +43,7 @@ def main(argv):
         stores = state_file['storage']['stores']
 
         inventory = {}
+        # TODO update to handle multiples sites/bases
         for store_id in stores: 
             store = stores[store_id]
             if store['type'] == 'STORE':
