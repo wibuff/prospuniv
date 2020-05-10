@@ -112,7 +112,7 @@ class ProductionLine(object):
                 'recipe': Recipes[item['recipe']]
             }
             prodqueue.append(product)
-        self.queue_identity = '.'.join(map(lambda x: x['id'] + "x" + str(x['count']), prodqueue))
+        self.queue_identity = '.'.join(map(lambda x: x['id'].replace('.', '') + "x" + str(x['count']), prodqueue))
         return prodqueue
 
     def _init_production(self, buildCount):
