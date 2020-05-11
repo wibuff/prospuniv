@@ -218,7 +218,7 @@ def main(argv):
 
         return 0
 
-    except Exception as err:
+    except Exception:
         traceback.print_exc()
         return 100
 

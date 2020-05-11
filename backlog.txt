@@ -1,4 +1,3 @@
-- Report on average consumption/production per day for each MAT
 - Log run details to run-specific logging instead of using stdout and routing to file
     - per production line files
     - single overall run file

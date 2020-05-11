@@ -44,6 +44,7 @@ class Ledger(object):
             entry[key] = value
         self.entries.append(entry)
 
+        # update efficiency summary
         if entry['type'] == Ledger.EFFICIENCY and self.start_efficiency is None:
             self.start_efficiency = entry['value']
         if entry['type'] == Ledger.EFFICIENCY:
@@ -51,6 +52,7 @@ class Ledger(object):
 
 
     def add_ledger(self, ledger):
+        # merge efficiency numbers between the ledgers
         if self.start_efficiency is None:
             self.start_efficiency = ledger.start_efficiency
         elif ledger.start_efficiency is not None:
@@ -59,9 +61,10 @@ class Ledger(object):
             self.end_efficiency = ledger.end_efficiency
         elif ledger.end_efficiency is not None:
             self.end_efficiency = (self.end_efficiency + ledger.end_efficiency)/2
+        # add the passed ledger to self
         self.entries.extend(ledger.entries)
     
-    def output_summary(self):
+    def output_summary(self, duration):
         summary = self.summarize_ledger()
         building = 'Summarization'
         if self.line_id in ProductionLines:
@@ -90,11 +93,11 @@ class Ledger(object):
         report.output_general(total_cost)
         report.output_general(gain_loss)
         report.major_break() 
-        report.output_value_table(summary['production'], "Produced Materials")
+        report.output_value_table_w_perday(summary['production'], "Produced Materials", duration)
         report.major_break() 
-        report.output_value_table(summary['consumption'], "Consumed Materials")
+        report.output_value_table_w_perday(summary['consumption'], "Consumed Materials", duration)
         report.major_break() 
-        report.output_value_table(summary['net_production'], "Net Materials")
+        report.output_value_table_w_perday(summary['net_production'], "Net Materials", duration)
 
         if len(summary['missing']) > 0:
             report.major_break() 
@@ -155,9 +158,9 @@ class Ledger(object):
 
             elif entry['type'] == Ledger.INPUT:
                 product = entry['product']
-                count = entry['count']
+                count = -entry['count']
                 price = self.market.price(product)
-                value = price.multiply(-count)
+                value = price.multiply(count)
                 total_production_cost = total_production_cost.add(value)
 
                 if product in consumption:
@@ -169,7 +172,7 @@ class Ledger(object):
                     consumption[product]['value'] = value
 
                 if product in net_production:
-                    net_production[product]['count'] = net_production[product]['count'] - count
+                    net_production[product]['count'] = net_production[product]['count'] + count
                     net_production[product]['value'] = net_production[product]['value'].add(value)
                 else:
                     net_production[product] = {}

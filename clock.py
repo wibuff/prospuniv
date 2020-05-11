@@ -1,8 +1,6 @@
 """ Clock Utilities
 """
 
-import sys
-
 DAYS = 0
 HOURS = 1
 MINUTES = 2
@@ -48,6 +46,9 @@ class Duration(object):
             hrs = self.vals[HOURS] % 24
             self.vals[DAYS] = self.vals[DAYS] + days
             self.vals[HOURS] = hrs
+
+    def to_days(self):
+        return float(self.vals[DAYS]) + self.vals[HOURS]/24.0 + self.vals[MINUTES]/1440.0
 
     def to_minutes(self):
         return self.vals[DAYS] * 24 * 60 + self.vals[HOURS] * 60 + self.vals[MINUTES]

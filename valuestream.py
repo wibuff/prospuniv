@@ -63,13 +63,13 @@ class ValueStream(object):
         stream_ledger = Ledger(self.stream_id, 'RUN.TOTALS', None, self.market)
         for line in lines:
             stream_ledger.add_ledger(line.ledger)
-        stream_summary = stream_ledger.output_summary()
+        stream_summary = stream_ledger.output_summary(self.duration)
 
         print('')
         print('Production Line Summaries:')
         line_summary = [] 
         for line in lines:
-            line.ledger.output_summary()
+            line.ledger.output_summary(self.duration)
             line_summary.append(line.line_identity())
             print("")
 

@@ -5,6 +5,13 @@
 import sys
 from clock import Duration, IncrClock, DecrClock
 
+print('days {} = {}'.format('0:12:0:0', Duration('0:12:0:0').to_days()))
+print('days {} = {}'.format('0:24:0:0', Duration('0:24:0:0').to_days()))
+print('days {} = {}'.format('1:00:0:0', Duration('1:00:0:0').to_days()))
+print('days {} = {}'.format('2:12:0:0', Duration('2:12:0:0').to_days()))
+print('days {} = {}'.format('3:12:260:0', Duration('3:12:360:0').to_days()))
+print('days {} = {}'.format('0:23:0:0', Duration('0:23:0:0').to_days()))
+"""
 print('{} = {}'.format('30', Duration('30')))
 print('{} = {}'.format('60', Duration('60')))
 print('{} = {}'.format('30:30', Duration('30:30')))
@@ -31,3 +38,4 @@ print('DecrClock {}'.format(dclock))
 while dclock.step():
     print('          {}'.format(dclock))
 print('          {}'.format(dclock))
+"""
