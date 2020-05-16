@@ -15,7 +15,7 @@ def main(argv):
     try:
         args = extract_args(argv)
         dt_tag = args[0]
-        source = 'extracts/extract-{}.json'.format(dt_tag)
+        source = 'data/extract-{}.json'.format(dt_tag)
         exchange = 'data/exchange-{}.yaml'.format(dt_tag)
         inventory = 'data/inventory-{}.yaml'.format(dt_tag)
         sites = 'data/sites-{}.yaml'.format(dt_tag)
@@ -27,19 +27,19 @@ def main(argv):
         if not os.path.isfile(source):
             raise Exception('ERROR {} not found'.format(source))
 
-        status = os.system('./extract-broker-data.py {} > {}'.format(source, exchange))
+        status = os.system('src/extract-broker-data.py {} > {}'.format(source, exchange))
         print('extract exchange data, exit code={}'.format(status))
 
-        status = os.system('./extract-inventory-data.py {} > {}'.format(source, inventory))
+        status = os.system('src/extract-inventory-data.py {} > {}'.format(source, inventory))
         print('extract inventory data, exit code={}'.format(status))
 
-        status = os.system('./extract-site-data.py {} > {}'.format(source, sites))
+        status = os.system('src/extract-site-data.py {} > {}'.format(source, sites))
         print('extract site data, exit code={}'.format(status))
 
-        status = os.system('./extract-order-data.py {} > {}'.format(source, orders))
+        status = os.system('src/extract-order-data.py {} > {}'.format(source, orders))
         print('extract order data, exit code={}'.format(status))
 
-        status = os.system('./gen-order-report.py {} YAML > {}'.format(orders, orders_report))
+        status = os.system('src/gen-order-report.py {} YAML > {}'.format(orders, orders_report))
         print('generate order report, exit code={}'.format(status))
 
         return 0

@@ -14,15 +14,15 @@ from ledger import Ledger
 class ValueStream(object):
     """ ValueStream class
     """
-    def __init__(self, streamconfig, inventory, market, duration):
+    def __init__(self, config):
         self.stream_id = '{:%Y%m%d.%H%M%S.%f}'.format(datetime.now())
         print("")
         print('value stream {} initializing'.format(self.stream_id))
-        self.inventory = inventory
-        self.market = market
-        self.duration = duration
-        self.clock = IncrClock(duration)
-        self.streamconfig = streamconfig
+        self.inventory = config['inventory']
+        self.market = config['market']
+        self.duration = config['duration']
+        self.clock = IncrClock(config['duration'])
+        self.streamconfig = config['valstream']
         
     def _init_lines(self, streamconfig):
         lines = []
@@ -54,7 +54,6 @@ class ValueStream(object):
             print(summary, file=logfile)
 
     def summarize_run(self, lines, start_inv, end_inv):
-
         print('')
         print('*** RUN SUMMARY {} ***'.format(self.stream_id))
         print('')
