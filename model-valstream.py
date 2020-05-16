@@ -26,6 +26,7 @@ def load_config(args, timestamp):
     inventory_file = config_file['inventory']
     exchange_file = config_file['exchange']
     currency = config_file['currency']
+    sourcing_strategy = config_file['sourcing-strategy']
     duration_config = config_file['duration']
     output_file = config_file['output']
 
@@ -50,6 +51,8 @@ def load_config(args, timestamp):
     print('  exchange    : {}'.format(exchange_file), file=outfile)
     print('  currency    : {}'.format(currency))
     print('  currency    : {}'.format(currency), file=outfile)
+    print('  sourcing    : {}'.format(sourcing_strategy))
+    print('  sourcing    : {}'.format(sourcing_strategy), file=outfile)
     print('  duration    : {}'.format(duration_config))
     print('  duration    : {}'.format(duration_config), file=outfile)
     print('  output      : {}'.format(output_file), file=outfile)
@@ -65,6 +68,7 @@ def load_config(args, timestamp):
         'valstream': valstream,
         'inventory': inventory,
         'market': market,
+        'sourcing-strategy': sourcing_strategy,
         'duration': duration,
         'outfile': outfile
     }

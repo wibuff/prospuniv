@@ -1,9 +1,5 @@
-- Acquire resources from the market
-    - buy inventory as needed
-    - simple scheduled buys
-    - conditional buys (e.g. purchase when below threshold)
-- Add purchase strategy option to cmd line
-- Update reporting to show purchased MATs
+- Log running out of consumables
+- Check validity of site configuration (space and workers)
 - Drive efficiencies based on expert configuration
     - add expert configuration to run fingerprint (run logging)
 - Track cash liquid assets
@@ -12,6 +8,10 @@
     - per production line files
     - probably in new sub directory
 - Auto generate, validate, and run multiple valstream files for comparison
+- Acquire worker resources from the market
+    - as needed
+    - simple scheduled buys
+    - conditional buys (e.g. purchase when below threshold)
 - Generate recipe file from extract 
     - basic extract done
     - next refactor production lines to use new format - some recipes have multiple outputs
