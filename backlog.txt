@@ -1,18 +1,16 @@
-- Set input files in a single config file
 - Acquire resources from the market
     - buy inventory as needed
     - simple scheduled buys
     - conditional buys (e.g. purchase when below threshold)
 - Add purchase strategy option to cmd line
 - Update reporting to show purchased MATs
-- Log run details to run-specific logging instead of using stdout and routing to file
-    - per production line files
-    - single overall run file
-    - probably in new sub directory
 - Drive efficiencies based on expert configuration
     - add expert configuration to run fingerprint (run logging)
 - Track cash liquid assets
 - Sell resources to the market 
+- Log run details to run-specific logging instead of using stdout and routing to file
+    - per production line files
+    - probably in new sub directory
 - Auto generate, validate, and run multiple valstream files for comparison
 - Generate recipe file from extract 
     - basic extract done

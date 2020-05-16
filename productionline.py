@@ -12,7 +12,7 @@ class ProductionLine(object):
     """ ProductionLine class
     """
 
-    def __init__(self, stream_id, line_spec, inventory, market, master_clock):
+    def __init__(self, stream_id, line_spec, config, master_clock):
         self.line_id = line_spec['lineId']
         self.linetype = ProductionLines[self.line_id]
         self.building = Buildings[self.linetype['building']]
@@ -20,8 +20,8 @@ class ProductionLine(object):
         self.production = self._init_production(self.buildingCount)
         self.queue_identity = ''
         self.queue = self._init_production_queue(line_spec['queue'])
-        self.ledger = Ledger(stream_id, self.line_id, self.buildingCount, market)
-        self.inventory = inventory
+        self.ledger = Ledger(stream_id, self.line_id, self.buildingCount, config['market'])
+        self.inventory = config['inventory']
         
         # initialize workers and efficiency before initializing production
         self.worker_efficiency = 0.0
@@ -35,7 +35,8 @@ class ProductionLine(object):
             self.production[bnum]['producing'] = \
                 self._start_next_recipe(master_clock, bnum, last_round_producing=False)
 
-        print('{} {} initialized - {} buildings'.format(master_clock, self.line_id, self.buildingCount))
+        print('{} {} initialized - {} buildings'.format(master_clock, self.line_id, self.buildingCount),
+            file=config['outfile'])
 
     def __str__(self):
         return json.dumps({ 

@@ -51,10 +51,10 @@ class Inventory(object):
         for key in materials.keys():
             self.add(key, materials[key])
 
-    def output_summary(self, label, market):
+    def output_summary(self, label, market, outfile):
         summary = self.summarize_inventory(market)
 
-        report = Report()
+        report = Report(outfile)
         report.start()
         report.output_value_table(summary['inventory'], label) 
         report.end()

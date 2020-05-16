@@ -26,17 +26,20 @@ class Report(object):
     MINBREAK = u'\u255F' + u'\u2500' * (TABLE_WIDTH-2)  + u'\u2562'
     FOOTBREAK = u'\u255A' + u'\u2550' * (TABLE_WIDTH-2) + u'\u255D'
 
+    def __init__(self, outfile): 
+        self.outfile = outfile
+
     def start(self):
-        print(self.HEADBREAK)
+        print(self.HEADBREAK, file=self.outfile)
 
     def output_general(self, output):
-        print(self.GENERAL.format(output))
+        print(self.GENERAL.format(output), file=self.outfile)
 
     def major_break(self): 
-        print(self.MAJBREAK)
+        print(self.MAJBREAK, file=self.outfile)
 
     def minor_break(self): 
-        print(self.MINBREAK)
+        print(self.MINBREAK, file=self.outfile)
 
     def output_value_table(self, inventory, name=None):
         total_count = 0
@@ -89,4 +92,4 @@ class Report(object):
         self.output_general(total_line)
 
     def end(self):
-        print(self.FOOTBREAK)
+        print(self.FOOTBREAK, file=self.outfile)

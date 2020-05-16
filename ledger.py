@@ -64,7 +64,7 @@ class Ledger(object):
         # add the passed ledger to self
         self.entries.extend(ledger.entries)
     
-    def output_summary(self, duration):
+    def output_summary(self, duration, outfile):
         summary = self.summarize_ledger()
         building = 'Summarization'
         if self.line_id in ProductionLines:
@@ -82,7 +82,7 @@ class Ledger(object):
         total_cost =  'Production Cost  : {total_production_cost}'.format(**summary)
         gain_loss =   'Net Gain/Loss    : {total_gain_loss}'.format(**summary)
 
-        report = Report()
+        report = Report(outfile)
         report.start()
         report.output_general(line)
         report.output_general(uptime)

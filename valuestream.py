@@ -16,8 +16,12 @@ class ValueStream(object):
     """
     def __init__(self, config):
         self.stream_id = '{:%Y%m%d.%H%M%S.%f}'.format(datetime.now())
-        print("")
-        print('value stream {} initializing'.format(self.stream_id))
+        self.config = config
+        self.outfile = config['outfile']
+        self.config_date = config['config-date']
+
+        print("", file=self.outfile)
+        print('value stream {} initializing'.format(self.stream_id), file=self.outfile)
         self.inventory = config['inventory']
         self.market = config['market']
         self.duration = config['duration']
@@ -27,7 +31,7 @@ class ValueStream(object):
     def _init_lines(self, streamconfig):
         lines = []
         for line_spec in streamconfig['productionLines']:
-            pline = ProductionLine(self.stream_id, line_spec, self.inventory, self.market, self.clock)
+            pline = ProductionLine(self.stream_id, line_spec, self.config, self.clock)
             lines.append(pline)
         return lines
 
@@ -35,9 +39,9 @@ class ValueStream(object):
         start_inv = Inventory(json.loads(str(self.inventory)))
         lines = self._init_lines(self.streamconfig)
 
-        print("")
-        print('{} value stream {} run started'.format(self.clock, self.stream_id))
-        print('{} description "{}"'.format(self.clock, self.streamconfig['description']))
+        print("", file=self.outfile)
+        print('{} value stream {} run started'.format(self.clock, self.stream_id), file=self.outfile)
+        print('{} description "{}"'.format(self.clock, self.streamconfig['description']), file=self.outfile)
 
         while self.clock.step():
             for line in lines:
@@ -45,7 +49,7 @@ class ValueStream(object):
         for line in lines:
             line.step(self.clock)
 
-        print('{} value stream {} run complete'.format(self.clock, self.stream_id))
+        print('{} value stream {} run complete'.format(self.clock, self.stream_id), file=self.outfile)
         end_inv = Inventory(json.loads(str(self.inventory)))
         self.summarize_run(lines, start_inv, end_inv)
         
@@ -54,32 +58,33 @@ class ValueStream(object):
             print(summary, file=logfile)
 
     def summarize_run(self, lines, start_inv, end_inv):
-        print('')
-        print('*** RUN SUMMARY {} ***'.format(self.stream_id))
-        print('')
+        print('', file=self.outfile)
+        print('*** RUN SUMMARY {} ***'.format(self.stream_id), file=self.outfile)
+        print('', file=self.outfile)
 
-        print('Value Stream Summary:')
+        print('Value Stream Summary:', file=self.outfile)
         stream_ledger = Ledger(self.stream_id, 'RUN.TOTALS', None, self.market)
         for line in lines:
             stream_ledger.add_ledger(line.ledger)
-        stream_summary = stream_ledger.output_summary(self.duration)
+        stream_summary = stream_ledger.output_summary(self.duration, self.outfile)
 
-        print('')
-        print('Production Line Summaries:')
+        print('', file=self.outfile)
+        print('Production Line Summaries:', file=self.outfile)
         line_summary = [] 
         for line in lines:
-            line.ledger.output_summary(self.duration)
+            line.ledger.output_summary(self.duration, self.outfile)
             line_summary.append(line.line_identity())
-            print("")
+            print("", file=self.outfile)
 
-        print('Inventory Summaries:')
-        start_inv.output_summary('Starting Assets', self.market)
-        end_inv.output_summary('Ending Assets', self.market)
+        print('Inventory Summaries:', file=self.outfile)
+        start_inv.output_summary('Starting Assets', self.market, self.outfile)
+        end_inv.output_summary('Ending Assets', self.market, self.outfile)
         net_inv = end_inv.diff(start_inv)
-        net_inv.output_summary('Asset Changes', self.market)
+        net_inv.output_summary('Asset Changes', self.market, self.outfile)
 
         self.log_run({
             'id': self.stream_id,
+            'cdate': self.config_date,
             'fp': '-'.join(line_summary),
             'net': stream_summary['net'],
             'uptime': stream_summary['uptime'],
