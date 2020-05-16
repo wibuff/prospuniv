@@ -93,3 +93,7 @@ class Report(object):
 
     def end(self):
         print(self.FOOTBREAK, file=self.outfile)
+
+    def newline(self):
+        print("", file=self.outfile)
+

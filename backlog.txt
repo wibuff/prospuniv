@@ -3,7 +3,6 @@
 - Drive efficiencies based on expert configuration
     - add expert configuration to run fingerprint (run logging)
 - Track cash liquid assets
-- Sell resources to the market 
 - Log run details to run-specific logging instead of using stdout and routing to file
     - per production line files
     - probably in new sub directory
@@ -24,7 +23,6 @@
     - value inputs
     - calc value of outputs
     - simple (single node) and complex (multi-node)
-- Take date YYYY-MM-DD as input and use to read standard files
 - Log key metrics from runs to a single location
     - identify source value stream, inventory, market files
 - Add Income Statement - overall  
@@ -45,5 +43,6 @@
 - Addition of building depreciation... 
     - dropped 1/26 of value after period 1 (1 week?)
     - appears to depreciate over a 26 week period 
+- Sell resources to the market 
 - Worker efficiency edge cases (running below 100% of required essential supply)
 - model worker barracks and pool of available workers

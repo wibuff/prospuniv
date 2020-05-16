@@ -2,7 +2,7 @@
 
 import sys
 import json
-from reportgen import Report
+from report import Report
 
 class Inventory(object):
     """ Inventory Class 

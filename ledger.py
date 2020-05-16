@@ -3,7 +3,7 @@
 
 import json
 from market import Price
-from reportgen import Report
+from report import Report
 from configuration import Buildings, ProductionLines
 
 class Ledger(object):

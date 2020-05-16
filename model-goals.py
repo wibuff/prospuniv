@@ -3,6 +3,7 @@
 """
 import sys
 import traceback
+import io
 from datetime import datetime, date
 import yaml
 try:
@@ -13,14 +14,15 @@ from environment import DATA_DIR
 from configuration import Buildings, Workers
 from market import Market, Price
 from inventory import Inventory
-from reportgen import Report
+from report import Report
 
-report = Report()
+output = io.StringIO()
+report = Report(output)
 
 def extract_args(argv):
     if len(argv) < 5:
         print('usage: {} <goal-file> <site-file> <exchange-file> <base-exchange>'.format(argv[0]))
-        raise Exception("missing parms")
+        sys.exit(1)
     return argv[1:]
     
 def load_yaml(filename):
@@ -209,13 +211,13 @@ def main(argv):
         report.end()
 
         consumption = execute_goals(goals, sites, exchange)
-        print("")
+        report.newline()
         report.start()
         summary = consumption.summarize_inventory(exchange)
         report.output_value_table(summary['inventory'], "Consumption for all Goals") 
         report.end()
-        print("")
-
+        report.newline()
+        print(output.getvalue())
         return 0
 
     except Exception:
