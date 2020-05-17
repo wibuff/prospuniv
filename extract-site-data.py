@@ -103,7 +103,7 @@ def main(argv):
         print(output)
         return 0
 
-    except Exception as err:
+    except Exception:
         traceback.print_exc()
         return 100
 

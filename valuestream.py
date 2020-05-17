@@ -1,11 +1,9 @@
 """ Value Stream Class
 """
 
-import sys
 import json
 from datetime import datetime
-from clock import IncrClock, Duration
-from configuration import Buildings, ProductionLines, Workers, Recipes
+from clock import IncrClock
 from inventory import Inventory
 from productionline import ProductionLine
 from market import Price
@@ -27,7 +25,7 @@ class ValueStream(object):
         self.duration = config['duration']
         self.clock = IncrClock(config['duration'])
         self.streamconfig = config['valstream']
-        
+
     def _init_lines(self, streamconfig):
         lines = []
         for line_spec in streamconfig['productionLines']:
@@ -36,12 +34,15 @@ class ValueStream(object):
         return lines
 
     def run(self):
+        """ runs the value stream simulation """
         start_inv = Inventory(json.loads(str(self.inventory)))
         lines = self._init_lines(self.streamconfig)
 
         print("", file=self.outfile)
-        print('{} value stream {} run started'.format(self.clock, self.stream_id), file=self.outfile)
-        print('{} description "{}"'.format(self.clock, self.streamconfig['description']), file=self.outfile)
+        print('{} value stream {} run started'
+              .format(self.clock, self.stream_id), file=self.outfile)
+        print('{} description "{}"'
+              .format(self.clock, self.streamconfig['description']), file=self.outfile)
 
         while self.clock.step():
             for line in lines:
@@ -49,15 +50,18 @@ class ValueStream(object):
         for line in lines:
             line.step(self.clock)
 
-        print('{} value stream {} run complete'.format(self.clock, self.stream_id), file=self.outfile)
+        print('{} value stream {} run complete'
+              .format(self.clock, self.stream_id), file=self.outfile)
         end_inv = Inventory(json.loads(str(self.inventory)))
         self.summarize_run(lines, start_inv, end_inv)
-        
+
     def log_run(self, summary):
-        with open('logs/runlog.txt', mode='a') as logfile: 
+        """ log the run to the run logs file """
+        with open('logs/runlog.txt', mode='a') as logfile:
             print(summary, file=logfile)
 
     def summarize_run(self, lines, start_inv, end_inv):
+        """ summarize and report on the summary """
         print('', file=self.outfile)
         print('*** RUN SUMMARY {} ***'.format(self.stream_id), file=self.outfile)
         print('', file=self.outfile)
@@ -70,7 +74,7 @@ class ValueStream(object):
 
         print('', file=self.outfile)
         print('Production Line Summaries:', file=self.outfile)
-        line_summary = [] 
+        line_summary = []
         for line in lines:
             line.ledger.output_summary(self.duration, self.outfile)
             line_summary.append(line.line_identity())
@@ -83,18 +87,19 @@ class ValueStream(object):
         net_inv.output_summary('Asset Changes', self.market, self.outfile)
 
         self.log_run({
-            'id': self.stream_id,
-            'cdate': self.config_date,
+            'net': '{:5.2f}'.format(stream_summary['net']),
             'fp': '-'.join(line_summary),
-            'net': stream_summary['net'],
             'uptime': stream_summary['uptime'],
-            'e-start': stream_summary['e-start'],
-            'e-delta': stream_summary['e-delta']
+            'e-start': '{:5.2%}'.format(stream_summary['e-start']),
+            'e-delta': '{:5.2%}'.format(stream_summary['e-delta']),
+            'cdate': self.config_date,
+            'id': self.stream_id
         })
-        
+
     def calc_output(self, starting, ending):
+        """ calculate valuestream outputs """
         net = {}
-        for key in ending.keys(): 
+        for key in ending.keys():
             start_val = 0
             if key in starting:
                 start_val = starting[key]
@@ -102,14 +107,15 @@ class ValueStream(object):
         return net
 
     def calc_mkt_values(self, net_prod):
+        """ calculate the market values of the produced outputs """
         total = Price()
         subtotals = {}
-        for product in net_prod: 
-            num_produced = net_prod[product]            
+        for product in net_prod:
+            num_produced = net_prod[product]
             if num_produced > 0:
                 price = self.market.price(product)
                 subtotal = price.multiply(num_produced)
                 subtotals[product] = subtotal
                 total = total.add(subtotal)
-        return { "totals": total, "subtotals": subtotals }
+        return {"totals": total, "subtotals": subtotals}
    

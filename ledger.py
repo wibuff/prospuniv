@@ -14,7 +14,9 @@ class Ledger(object):
     STATUS = "status"
     EFFICIENCY = "efficiency"
     MISSING_INPUT = "missing_input"
-    PURCHASE_INPUT = "purchase"
+    MISSING_SUPPLY = "missing_supply"
+    PURCHASE_INPUT = "purchase_input"
+    PURCHASE_SUPPLY = "purchase_supply"
 
     ACTIVE = 1
     INACTIVE = 0
@@ -107,11 +109,18 @@ class Ledger(object):
         report.major_break()
         report.output_value_table_w_perday(summary['net_production'], "Net Materials", duration)
 
-        if len(summary['missing']) > 0:
+        if len(summary['missing_inputs']) > 0:
             report.major_break()
             report.output_general('Missing Inputs:')
             report.major_break()
-            for missing in summary['missing']:
+            for missing in summary['missing_inputs']:
+                report.output_general(missing)
+
+        if len(summary['missing_supplies']) > 0:
+            report.major_break()
+            report.output_general('Missing Supplies:')
+            report.major_break()
+            for missing in summary['missing_supplies']:
                 report.output_general(missing)
 
         report.end()
@@ -134,7 +143,8 @@ class Ledger(object):
         total_production_value = Price()
         total_production_cost = Price()
         total_purchases = Price()
-        missing = []
+        missing_inputs = []
+        missing_supplies = []
 
         for entry in self.entries:
             if entry['type'] == Ledger.STATUS:
@@ -197,9 +207,28 @@ class Ledger(object):
                 value = price.multiply(count)
                 total_purchases = total_purchases.add(value)
 
-                fmt = '{0[clock]} {0[line]} purchased {0[count]} {0[product]} ' +\
-                      '({0[available]} available)'
-                missing.append(fmt.format(entry))
+                fmt = '{0[clock]} {0[line]}.{0[bnum]} purchased {0[count]:4.2f} {0[product]} ' +\
+                      '(need {0[need]:4.2f} have {0[available]:4.2f})'
+                missing_inputs.append(fmt.format(entry))
+
+                if product in purchases:
+                    purchases[product]['count'] = purchases[product]['count'] + count
+                    purchases[product]['value'] = purchases[product]['value'].add(value)
+                else:
+                    purchases[product] = {}
+                    purchases[product]['count'] = count
+                    purchases[product]['value'] = value
+
+            elif entry['type'] == Ledger.PURCHASE_SUPPLY:
+                product = entry['product']
+                count = entry['count']
+                price = self.market.price(product)
+                value = price.multiply(count)
+                total_purchases = total_purchases.add(value)
+
+                fmt = '{0[clock]} {0[line]} purchased {0[count]:4.2f} {0[product]} ' +\
+                      '(need {0[need]:4.2f} have {0[available]:4.2f})'
+                missing_supplies.append(fmt.format(entry))
 
                 if product in purchases:
                     purchases[product]['count'] = purchases[product]['count'] + count
@@ -210,10 +239,14 @@ class Ledger(object):
                     purchases[product]['value'] = value
 
             elif entry['type'] == Ledger.MISSING_INPUT:
-                fmt = '{0[clock]} {0[line]} missing {0[count]} {0[ticker]} ' +\
-                      '({0[available]} available)'
-                missing.append(fmt.format(entry))
+                fmt = '{0[clock]} {0[line]}.{0[bnum]} missing {0[count]:4.2f} {0[ticker]} ' +\
+                      '(need {0[need]:4.2f} have {0[available]:4.2f})'
+                missing_inputs.append(fmt.format(entry))
 
+            elif entry['type'] == Ledger.MISSING_SUPPLY:
+                fmt = '{0[clock]} {0[line]} missing {0[count]:4.2f} {0[ticker]} ' +\
+                      '(need {0[need]:4.2f} have {0[available]:4.2f})'
+                missing_supplies.append(fmt.format(entry))
 
         total_gain_loss = total_production_value.add(total_production_cost)
         return {
@@ -229,7 +262,8 @@ class Ledger(object):
             'total_production_cost': total_production_cost,
             'total_gain_loss': total_gain_loss,
             'total_purchases': total_purchases,
-            'missing': missing
+            'missing_inputs': missing_inputs,
+            'missing_supplies': missing_supplies
         }
 
     def _summarize_efficiencies(self, efficiencies):

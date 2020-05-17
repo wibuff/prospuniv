@@ -1,7 +1,9 @@
-- Log running out of consumables
 - Check validity of site configuration (space and workers)
 - Drive efficiencies based on expert configuration
     - add expert configuration to run fingerprint (run logging)
+- Include Planet COGC efficiencies
+    - model different scenarios, e.g. Pioneers vs. Agriculture
+- Calculate remaining days of worker supply for each MAT at each base
 - Track cash liquid assets
 - Log run details to run-specific logging instead of using stdout and routing to file
     - per production line files

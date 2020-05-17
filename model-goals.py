@@ -39,14 +39,15 @@ def format_building_workers(workers):
         workforce[i] = workforce[i] + worker['count']
     return workforce 
 
-def get_worker_consumption(demand):
+def get_worker_consumption(site, demand):
+    site_name = site['address']['planet-name']
     inventory = Inventory({})
     i = 0
     for worker_count in demand: 
         if worker_count > 0:
             worker_type = WORKFORCE[i]
-            worker_spec = Workers[worker_type]
-            for product in worker_spec['essentials'] + worker_spec['non-essentials']:
+            worker_spec = Workers[site_name][worker_type]
+            for product in worker_spec['needs']:
                 ticker = product['id']
                 amount = float(worker_count)/product['basis'] * product['rate']
                 inventory.add(ticker, amount)
@@ -69,7 +70,7 @@ def identify_worker_state(site):
             else:
                 workforce['demand'] = list(map(lambda x,y: x+y, workforce['demand'], workers))
     workforce['surplus'] = list(map(lambda x,y: x-y, workforce['capacity'], workforce['demand']))
-    workforce['consumption'] = get_worker_consumption(workforce['demand'])
+    workforce['consumption'] = get_worker_consumption(site, workforce['demand'])
     return workforce
 
 def calc_area(site):

@@ -27,6 +27,8 @@ def load_config(args, timestamp):
     exchange_file = config_file['exchange']
     currency = config_file['currency']
     sourcing_strategy = config_file['sourcing-strategy']
+    essentials_strategy = config_file['essentials-strategy']
+    non_essentials_strategy = config_file['non-essentials-strategy']
     duration_config = config_file['duration']
     output_file = config_file['output']
 
@@ -39,24 +41,28 @@ def load_config(args, timestamp):
 
     print('model value stream started {}'.format(timestamp))
     print('model value stream started {}'.format(timestamp), file=outfile)
-    print('  description : {}'.format(description))
-    print('  description : {}'.format(description), file=outfile)
-    print('  config date : {}'.format(config_date))
-    print('  config date : {}'.format(config_date), file=outfile)
-    print('  valstream   : {}'.format(valstream_file))
-    print('  valstream   : {}'.format(valstream_file), file=outfile)
-    print('  inventory   : {}'.format(inventory_file))
-    print('  inventory   : {}'.format(inventory_file), file=outfile)
-    print('  exchange    : {}'.format(exchange_file))
-    print('  exchange    : {}'.format(exchange_file), file=outfile)
-    print('  currency    : {}'.format(currency))
-    print('  currency    : {}'.format(currency), file=outfile)
-    print('  sourcing    : {}'.format(sourcing_strategy))
-    print('  sourcing    : {}'.format(sourcing_strategy), file=outfile)
-    print('  duration    : {}'.format(duration_config))
-    print('  duration    : {}'.format(duration_config), file=outfile)
-    print('  output      : {}'.format(output_file), file=outfile)
-    print('  output      : {}'.format(output_file))
+    print('  description    : {}'.format(description))
+    print('  description    : {}'.format(description), file=outfile)
+    print('  config date    : {}'.format(config_date))
+    print('  config date    : {}'.format(config_date), file=outfile)
+    print('  valstream      : {}'.format(valstream_file))
+    print('  valstream      : {}'.format(valstream_file), file=outfile)
+    print('  inventory      : {}'.format(inventory_file))
+    print('  inventory      : {}'.format(inventory_file), file=outfile)
+    print('  exchange       : {}'.format(exchange_file))
+    print('  exchange       : {}'.format(exchange_file), file=outfile)
+    print('  currency       : {}'.format(currency))
+    print('  currency       : {}'.format(currency), file=outfile)
+    print('  sourcing       : {}'.format(sourcing_strategy))
+    print('  sourcing       : {}'.format(sourcing_strategy), file=outfile)
+    print('  essentials     : {}'.format(essentials_strategy))
+    print('  essentials     : {}'.format(essentials_strategy), file=outfile)
+    print('  non-essentials : {}'.format(non_essentials_strategy))
+    print('  non-essentials : {}'.format(non_essentials_strategy), file=outfile)
+    print('  duration       : {}'.format(duration_config))
+    print('  duration       : {}'.format(duration_config), file=outfile)
+    print('  output         : {}'.format(output_file), file=outfile)
+    print('  output         : {}'.format(output_file))
 
     valstream = load_yamlfile(valstream_file)
     inventory = Inventory(load_yamlfile(inventory_file))
@@ -69,6 +75,8 @@ def load_config(args, timestamp):
         'inventory': inventory,
         'market': market,
         'sourcing-strategy': sourcing_strategy,
+        'essentials-strategy': essentials_strategy,
+        'non-essentials-strategy': non_essentials_strategy,
         'duration': duration,
         'outfile': outfile
     }
