@@ -30,6 +30,11 @@ def load_config(args, timestamp):
     config_file = load_yamlfile(args[0])
     config_date = args[1]
 
+    for key in config_file.keys():
+        field = config_file[key]
+        if '{date}' in field:
+            config_file[key] = field.replace('{date}', config_date)
+
     description = config_file['description']
     template_file = config_file['templates']
     building_file = config_file['buildings']
@@ -40,8 +45,10 @@ def load_config(args, timestamp):
     yaml_out_file = config_file['output-yaml']
     logfile = config_file['logfile']
 
+    """
     if '{date}' in exchange_file:
         exchange_file = exchange_file.replace('{date}', config_date)
+    """
 
     jsonout = open(json_out_file, 'w')
     yamlout = open(yaml_out_file, 'w')
@@ -171,7 +178,7 @@ def build_prod_tree(config, key):
             for source in sources[input['id']]:
                 source_chain = build_prod_tree(config, source)
                 input_trees.extend(source_chain)
-            input_options.append(input_chains)
+            input_options.append(input_trees)
         input_combos = combine_options(input_options) 
 
         # create a production tree root for each variation
