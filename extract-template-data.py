@@ -21,10 +21,11 @@ def load_yaml(filename):
     with open(filename, 'r') as infile:
         return yaml.load(infile, Loader=Loader)    
 
-def build_template(linetype, recipe):
+def build_template(linetype, lineticker, recipe):
     template = {
         'name': recipe['name'],
-        'linetype': linetype,
+        'line': lineticker,
+        'line-name': linetype,
         'outputs': [],
         'inputs': []
     }
@@ -40,28 +41,38 @@ def build_template(linetype, recipe):
         template['inputs'].append({ 'id': ticker, 'count': count })
 
     efficiency = recipe['efficiency']
-    effort_factor = recipe['effortFactor']
 
     seconds = int(recipe['duration']['millis']/1000 * efficiency)
     template['time'] = str(Duration(str(seconds)))
 
     return template
 
+def lookup_ticker(site, name):
+    for platform in site['platforms']:
+        if platform['module']['reactorName'] == name:
+            return platform['module']['reactorTicker']
+    return None
+
 def main(argv):
     """ runtime entrypoint """
     try:
         args = extract_args(argv)
-        timestamp = datetime.now()
         state_file = load_yaml(args[0])
         lines = state_file['production']['lines']['data']
+        sites = state_file['sites']['sites']['index']['data']
+
         collection = {}
 
         for line_id in lines: 
             line = lines[line_id]
+            siteId = line['siteId']
+            site = sites[siteId]
+
             linetype = line['type']
+            lineTicker = lookup_ticker(site, linetype)
             recipes = line['productionTemplates']
             for recipe in recipes:
-                template = build_template(linetype, recipe)
+                template = build_template(linetype, lineTicker, recipe)
                 if template['ticker'] in collection:
                     collection[template['ticker']].append(template)
                 else:

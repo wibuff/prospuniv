@@ -1,8 +1,12 @@
-- Check validity of site configuration (space and workers)
 - Drive efficiencies based on expert configuration
     - add expert configuration to run fingerprint (run logging)
 - Include Planet COGC efficiencies
     - model different scenarios, e.g. Pioneers vs. Agriculture
+- Update market lookup to take exchange specific ticker, e.g., H2O.IC1, H2O.NCC, etc. 
+    - perhaps leave current init and default to the init currency when just provided a ticker
+- Refactor prod lines to use new format recipe file
+- Check validity of site configuration (space and workers)
+- Report on building conditions
 - Calculate remaining days of worker supply for each MAT at each base
 - Track cash liquid assets
 - Log run details to run-specific logging instead of using stdout and routing to file
@@ -13,9 +17,6 @@
     - as needed
     - simple scheduled buys
     - conditional buys (e.g. purchase when below threshold)
-- Generate recipe file from extract 
-    - basic extract done
-    - next refactor production lines to use new format - some recipes have multiple outputs
 - Generate product lines from extract
 - Provide Net Gain/Loss in multiple currencies
 - Track sales as revenue
