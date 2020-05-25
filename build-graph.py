@@ -14,6 +14,7 @@ from market import Market
 from clock import Duration
 from valuestream import ValueStream
 from configuration import load_datafile, load_yamlfile
+from graphnode import GraphNode
 import yaml
 try:
     from yaml import CLoader as Loader, CDumper as Dumper
@@ -26,10 +27,13 @@ def extract_args(argv):
         sys.exit(1)
     return argv[1:]
 
+"""  Load update the configuration object from the file
+"""
 def load_config(args, timestamp):
     config_file = load_yamlfile(args[0])
     config_date = args[1]
 
+    # update config-date specific fields
     for key in config_file.keys():
         field = config_file[key]
         if '{date}' in field:
@@ -44,11 +48,6 @@ def load_config(args, timestamp):
     json_out_file = config_file['output-json']
     yaml_out_file = config_file['output-yaml']
     logfile = config_file['logfile']
-
-    """
-    if '{date}' in exchange_file:
-        exchange_file = exchange_file.replace('{date}', config_date)
-    """
 
     jsonout = open(json_out_file, 'w')
     yamlout = open(yaml_out_file, 'w')
@@ -148,28 +147,19 @@ def combine_options(options):
             combos.append(combo)
     return combos
 
-""" Builds a graph node, representing a template variant and market value and costs
-"""
-def build_node(key, variant, inputs):
-    return { 
-        'template': key,
-        'variant': variant,
-        'inputs': inputs
-    }
-
 """ Builds production trees for the provided key (aka template id)
     Returns all variants of possible production treess for a given template
 """
 def build_prod_tree(config, key):
     if '.MKT' in key:
-        return [ build_node(key, 0, []) ]
+        return [ GraphNode(config, key, 0, []) ]
 
     trees = []
     sources = config['sources']
     template = config['templates'][key]
 
     if len(template['inputs']) == 0:
-        trees.append(build_node(key, 0, []))
+        trees.append(GraphNode(config, key, 0, []))
     else:
         # identify all input combinations and production trees
         input_options = []
@@ -184,7 +174,7 @@ def build_prod_tree(config, key):
         # create a production tree root for each variation
         variant = 0
         for combo in input_combos:
-            combo_node = build_node(key, variant, combo)
+            combo_node = GraphNode(config, key, variant, combo)
             trees.append(combo_node)
             variant = variant + 1
 
@@ -199,31 +189,42 @@ def main(argv):
         config = load_config(args, timestamp)
         config['supply'] = create_supply_map(config)
         config['sources'] = create_source_map(config)
-        config['supply_chains'] = {}
     
-        print('sources:\n{}'.format(config['sources']), file=config['log'])
+        supply_out = json.dumps(config['supply'], indent=2)
+        print('supply:\n{}'.format(supply_out), file=config['log'])
+        print("", file=config['log'])
+        sources_out = json.dumps(config['sources'], indent=2)
+        print('sources:\n{}'.format(sources_out), file=config['log'])
 
         # process input files to produce the graph
-        print('start processing: {}'.format(datetime.utcnow().timestamp()))
+        start = datetime.utcnow().timestamp()
+        print('start processing: {}'.format(start))
         nodes = {}
         templates = config['templates']
         for key in templates.keys():
             """
-            if key not in ['H2O.1', 'BEA.1', 'RAT.10']:
+            if key not in ['H2O.1', 'BEA.1']:
                 continue
             """
             nodes[key] = build_prod_tree(config, key)
             
-        print('end processing: {}'.format(datetime.utcnow().timestamp()))
+        end = datetime.utcnow().timestamp()
+        delta = end - start
+        print('end processing: {} \u0394 {:8.6f}'.format(end, delta))
 
         # output graph to output files (JSON and YAML)
+        """
         my_dumper = Dumper
         my_dumper.ignore_aliases = lambda self, data: True
         yaml.dump(nodes, config['yaml-out'], Dumper=my_dumper, explicit_start=True)
-        #print(yamlout, file=config['yaml-outfile'])
-        #print(json.dumps(nodes, indent=2), file=config['json-outfile'])
+        """
         json.dump(nodes, config['json-out'], indent=2)
-        print('outputs written: {}'.format(datetime.utcnow().timestamp()))
+        done = datetime.utcnow().timestamp()
+        delta = done - end
+        print('outputs done: {} \u0394 {:8.6f}'.format(done, delta))
+
+        tree_count = sum(map(lambda x: len(nodes[x]), nodes.keys()))
+        print('{} production trees identified'.format(tree_count))
 
         print("done")
 

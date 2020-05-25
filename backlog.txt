@@ -1,3 +1,5 @@
+- Value flow analysis / resource valuation
+    - add supply costs to nodes
 - Drive efficiencies based on expert configuration
     - add expert configuration to run fingerprint (run logging)
 - Include Planet COGC efficiencies
@@ -21,11 +23,6 @@
 - Provide Net Gain/Loss in multiple currencies
 - Track sales as revenue
 - Track resource consumption as expense
-- Value flow analysis / resource valuation
-    - model recipes
-    - value inputs
-    - calc value of outputs
-    - simple (single node) and complex (multi-node)
 - Log key metrics from runs to a single location
     - identify source value stream, inventory, market files
 - Add Income Statement - overall  
