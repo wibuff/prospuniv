@@ -61,6 +61,7 @@ def create_building(option):
         'type': option['type'],
         'name': option['name'],
         'area': option['area'],
+        'expertise': option['expertiseCategory'],
         'workers': workers,
         'materials': materials
     }

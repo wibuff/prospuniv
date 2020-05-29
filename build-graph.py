@@ -42,15 +42,18 @@ def load_config(args, timestamp):
     description = config_file['description']
     template_file = config_file['templates']
     building_file = config_file['buildings']
+    efficiency_file = config_file['efficiency']
     worker_file = config_file['workers']
     exchange_file = config_file['exchange']
     currency = config_file['currency']
     json_out_file = config_file['output-json']
     yaml_out_file = config_file['output-yaml']
+    csv_out_file = config_file['output-csv']
     logfile = config_file['logfile']
 
     jsonout = open(json_out_file, 'w')
     yamlout = open(yaml_out_file, 'w')
+    csvout = open(csv_out_file, 'w')
     logout = open(logfile, 'w')
 
     print('model value stream started {}'.format(timestamp))
@@ -58,15 +61,18 @@ def load_config(args, timestamp):
     print('  config date    : {}'.format(config_date))
     print('  templates      : {}'.format(template_file))
     print('  buildings      : {}'.format(building_file))
+    print('  efficiency     : {}'.format(efficiency_file))
     print('  workers        : {}'.format(worker_file))
     print('  exchange       : {}'.format(exchange_file))
     print('  currency       : {}'.format(currency))
     print('  json outfile   : {}'.format(json_out_file))
     print('  yaml outfile   : {}'.format(yaml_out_file))
+    print('  csv outfile   : {}'.format(csv_out_file))
     print('  log outfile   : {}'.format(logfile))
 
     templates = load_yamlfile(template_file)
     buildings = load_yamlfile(building_file)
+    efficiency = load_yamlfile(efficiency_file)
     workers = load_yamlfile(worker_file)
     market = Market(load_yamlfile(exchange_file), currency)
 
@@ -74,10 +80,12 @@ def load_config(args, timestamp):
         'config-date': config_date,
         'templates': templates,
         'buildings': buildings,
+        'efficiency': efficiency,
         'workers': workers,
         'market': market,
         'json-out': jsonout,
         'yaml-out': yamlout,
+        'csv-out': csvout,
         'log': logout
     }
 
@@ -180,8 +188,36 @@ def build_prod_tree(config, key):
 
     return trees
 
+""" creates a new instance of supply based on calculated values from nodes
+"""
+def update_supply(config, nodes):
+    orig_supply = config['supply']
+    new_supply = copy.copy(orig_supply)
+    # iterate through each production tree, finding the minimum value of each produced material 
+    for template in nodes:
+        primary_output = template.split(".")[0]
+        if primary_output in orig_supply: 
+            for variant in nodes[template]:
+                if variant["total_cost_per_unit"] < new_supply[primary_output]:
+                    new_supply[primary_output] = variant["total_cost_per_unit"]
+    return new_supply
+
+""" write the production trees out as a cvs file
+"""
+def write_csv(config, nodes):
+    csvout = config['csv-out']
+    header_written = False
+    for template in nodes.keys():
+        node_set = nodes[template]
+        for node in node_set:
+            if not header_written:
+                print(node.to_csv_header(), file=csvout)
+                header_written = True
+            print(node.to_csv_record(), file=csvout)
+
+""" runtime entrypoint 
+"""
 def main(argv):
-    """ runtime entrypoint """
     try:
         # initialize the app
         args = extract_args(argv)
@@ -190,24 +226,34 @@ def main(argv):
         config['supply'] = create_supply_map(config)
         config['sources'] = create_source_map(config)
     
-        supply_out = json.dumps(config['supply'], indent=2)
-        print('supply:\n{}'.format(supply_out), file=config['log'])
-        print("", file=config['log'])
         sources_out = json.dumps(config['sources'], indent=2)
         print('sources:\n{}'.format(sources_out), file=config['log'])
+        print("", file=config['log'])
+        supply_out = json.dumps(config['supply'], indent=2)
+        print('starting supply:\n{}'.format(supply_out), file=config['log'])
 
         # process input files to produce the graph
+        # make multiple passes until supply costs stabilize
+        processing = True
+        templates = config['templates']
         start = datetime.utcnow().timestamp()
         print('start processing: {}'.format(start))
         nodes = {}
-        templates = config['templates']
-        for key in templates.keys():
-            """
-            if key not in ['H2O.1', 'BEA.1']:
-                continue
-            """
-            nodes[key] = build_prod_tree(config, key)
+        cnt = 0
+        while (processing):
+            cnt = cnt + 1
+            # supply_out = json.dumps(config['supply'])
+            # print('pass {} supply:\n{}'.format(cnt, supply_out), file=config['log'])
+            for key in templates.keys():
+                nodes[key] = build_prod_tree(config, key)
+            new_supply = update_supply(config, nodes)
+            config['supply'] = new_supply
+            if cnt >= 5:
+                processing = False
             
+        supply_out = json.dumps(config['supply'], indent=2)
+        print('ending supply:\n{}'.format(supply_out), file=config['log'])
+
         end = datetime.utcnow().timestamp()
         delta = end - start
         print('end processing: {} \u0394 {:8.6f}'.format(end, delta))
@@ -219,6 +265,8 @@ def main(argv):
         yaml.dump(nodes, config['yaml-out'], Dumper=my_dumper, explicit_start=True)
         """
         json.dump(nodes, config['json-out'], indent=2)
+        write_csv(config, nodes)
+
         done = datetime.utcnow().timestamp()
         delta = done - end
         print('outputs done: {} \u0394 {:8.6f}'.format(done, delta))
