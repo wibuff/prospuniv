@@ -13,8 +13,8 @@ from inventory import Inventory
 from market import Market
 
 def extract_args(argv):
-    if len(argv) < 3:
-        print('usage: {} <list-file> <exchange-file>',format(argv[0]))
+    if len(argv) < 4:
+        print('usage: {} <list-file> <exchange-file> <outfile>'.format(argv[0]))
         raise Exception("missing parms")
     return argv[1:]
     
@@ -26,16 +26,17 @@ def main(argv):
     """ runtime entrypoint """
     try:
         args = extract_args(argv)
-        timestamp = datetime.now()
         inventory = Inventory(load_yaml(args[0]))
         exchanges = load_yaml(args[1])
+        outfile = open(args[2], "w")
+
         ica_market = Market(exchanges, "IC1")
         ncc_market = Market(exchanges, "NC1")
         cis_market = Market(exchanges, "CI1")
 
-        inventory.output_summary("List Cost (ICA)", ica_market)
-        inventory.output_summary("List Cost (NCC)", ncc_market)
-        inventory.output_summary("List Cost (CIS)", cis_market)
+        inventory.output_summary("List Cost (ICA)", ica_market, outfile)
+        inventory.output_summary("List Cost (NCC)", ncc_market, outfile)
+        inventory.output_summary("List Cost (CIS)", cis_market, outfile)
 
     except Exception as err:
         print(err)

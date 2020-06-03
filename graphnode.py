@@ -149,7 +149,7 @@ class GraphNode(dict):
         cost = 0.0
         for ticker in self['inputs']:
             input = self['inputs'][ticker]
-            cost = cost + input['count'] * input['node']['total_cost']
+            cost = cost + input['count'] * input['node']['total_cost_per_unit']
         return cost
 
     def _calc_input_cost_per_unit(self):
@@ -171,6 +171,13 @@ class GraphNode(dict):
         prodline = template['line']
         building = buildings[prodline]
         workertypes = building['workers']
+
+        # identify time factor
+        duration = Duration(template['time'])
+        efficiency = self['efficiency']
+        num_mins = duration.to_minutes() / efficiency
+        time_factor = num_mins / (24 * 60)
+
         # sum up supply costs for all supplies for all workers for 24 hours
         for workertype in workertypes:
             wtype = workertype['type']
@@ -184,13 +191,10 @@ class GraphNode(dict):
                 basis = need['basis']
                 ticker = need['id']
                 price = supply[ticker]
-                cost = cost + price * rate * wcount / basis 
+                supply_cost = price * rate * float(wcount) / float(basis) * time_factor
+                cost = cost + supply_cost 
         
-        # adjust cost for production duration 
-        duration = Duration(template['time'])
-        num_mins = duration.to_minutes()
-        ratio = num_mins / (24 * 60)
-        return cost * ratio
+        return cost
 
     def _calc_supply_cost_per_unit(self):
         value = self['supply_cost']

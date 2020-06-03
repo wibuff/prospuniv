@@ -248,7 +248,7 @@ def main(argv):
                 nodes[key] = build_prod_tree(config, key)
             new_supply = update_supply(config, nodes)
             config['supply'] = new_supply
-            if cnt >= 5:
+            if cnt >= 1:
                 processing = False
             
         supply_out = json.dumps(config['supply'], indent=2)

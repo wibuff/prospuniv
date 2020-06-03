@@ -16,6 +16,7 @@ class ProductionLine(object):
     def __init__(self, stream_id, line_spec, config, master_clock):
         self.line_id = line_spec['lineId'] #TODO change camel case to kebab case
         self.site_name = line_spec['site-name']
+        self.site_efficiency = config['efficiency'][self.site_name]
         self.linetype = ProductionLines[self.line_id]
         self.building = Buildings[self.linetype['building']]
         self.building_count = line_spec['buildingCount'] #TODO change camel to kebab case
@@ -56,12 +57,34 @@ class ProductionLine(object):
         return self.linetype['building'] + str(self.building_count) + "[" + self.queue_identity + "]"
 
     def _calc_line_efficiency(self):
-        efficency = self.worker_efficiency * self.linetype['condition'] * \
-            (1.0 + self.linetype['experts']) * (1.0 + self.linetype['soil']) * \
-                (1.0 + self.linetype['cogc'])
-        if efficency < 0.33:
+        value = 1.0
+        building = self.building
+        expertise = building['expertise']
+        site_efficiency = self.site_efficiency
+
+        # COGC Worker Efficiencies
+        for worker in building['workers']:
+            factor = 1.0 + site_efficiency['cogc-worker-bonus'][worker['type']]
+            value = value * factor
+            
+        # COGC Industry Efficiencies
+        factor = 1.0 + site_efficiency['cogc-industry-bonus'][expertise]
+        value = value * factor
+
+        # Expert Efficiencies
+        experts = site_efficiency['experts'][expertise]
+        factor = 1.0 + site_efficiency['expert-factors'][experts]
+        value = value * factor
+
+        # Soil Fertility Efficiencies
+        if expertise == 'AGRICULTURE':
+            factor = 1.0 + site_efficiency['soil-fertility']
+            value = value * factor
+
+        value = value * self.worker_efficiency
+        if value < 0.33:
             return 0.33
-        return efficency
+        return value
 
     def _init_production_queue(self, queue):
         prodqueue = []

@@ -23,6 +23,7 @@ def load_config(args, timestamp):
 
     description = config_file['description']
     valstream_file = config_file['valstream']
+    efficiency_file = config_file['efficiency']
     inventory_file = config_file['inventory']
     exchange_file = config_file['exchange']
     currency = config_file['currency']
@@ -47,6 +48,8 @@ def load_config(args, timestamp):
     print('  config date    : {}'.format(config_date), file=outfile)
     print('  valstream      : {}'.format(valstream_file))
     print('  valstream      : {}'.format(valstream_file), file=outfile)
+    print('  efficiency     : {}'.format(efficiency_file))
+    print('  efficiency     : {}'.format(efficiency_file), file=outfile)
     print('  inventory      : {}'.format(inventory_file))
     print('  inventory      : {}'.format(inventory_file), file=outfile)
     print('  exchange       : {}'.format(exchange_file))
@@ -65,6 +68,7 @@ def load_config(args, timestamp):
     print('  output         : {}'.format(output_file))
 
     valstream = load_yamlfile(valstream_file)
+    efficiency = load_yamlfile(efficiency_file)
     inventory = Inventory(load_yamlfile(inventory_file))
     market = Market(load_yamlfile(exchange_file), currency)
     duration = Duration(duration_config)
@@ -72,6 +76,7 @@ def load_config(args, timestamp):
     return {
         'config-date': config_date,
         'valstream': valstream,
+        'efficiency': efficiency,
         'inventory': inventory,
         'market': market,
         'sourcing-strategy': sourcing_strategy,
