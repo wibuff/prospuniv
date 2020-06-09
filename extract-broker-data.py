@@ -14,7 +14,7 @@ from environment import DATA_DIR
 def extract_args(argv):
     if len(argv) < 2:
         print('usage: {} <state-file>'.format(argv[0]))
-        raise Exception("missing parms")
+        sys.exit(1)
     return argv[1:]
     
 def load_yaml(filename):
@@ -83,7 +83,6 @@ def main(argv):
     """ runtime entrypoint """
     try:
         args = extract_args(argv)
-        timestamp = datetime.now()
         state_file = load_yaml(args[0])
         exchanges = load_exchanges(state_file)
 
@@ -97,7 +96,7 @@ def main(argv):
         print(output)
         return 0
 
-    except Exception as err:
+    except Exception:
         traceback.print_exc()
         return 100
 

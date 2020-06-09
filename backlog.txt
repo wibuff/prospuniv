@@ -1,13 +1,17 @@
-- Value flow analysis / resource valuation
-    - add supply costs to nodes
-- Drive efficiencies based on expert configuration
-    - add expert configuration to run fingerprint (run logging)
-- Include Planet COGC efficiencies
-    - model different scenarios, e.g. Pioneers vs. Agriculture
+- Merge templates into recipes file
+- Model ValStream not handling multiple inventories correctly
+    - single merged inventory between prom and monty... need to draw only from local
+- Add units sold on the market per day to the graph file
+    - will need to add sales volumes to market data
+- Figure net value factor based on total units sold per day
+    - net potential value per day? unitsperday * netvalueperitem? (repeat for gross, costs, etc.)
+- Add expert configuration to run fingerprint (run logging)
 - Update market lookup to take exchange specific ticker, e.g., H2O.IC1, H2O.NCC, etc. 
     - perhaps leave current init and default to the init currency when just provided a ticker
+- Update inventory file to include all inventories
 - Refactor prod lines to use new format recipe file
 - Check validity of site configuration (space and workers)
+- Handle transfer/shipping between sites (time lag, estimated fuel cost
 - Report on building conditions
 - Calculate remaining days of worker supply for each MAT at each base
 - Track cash liquid assets

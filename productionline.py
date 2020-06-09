@@ -5,7 +5,7 @@ import sys
 import json
 import math
 from clock import DecrClock, Duration
-from configuration import Buildings, ProductionLines, Workers, Recipes
+from configuration import Buildings, Workers, Recipes
 from inventory import Inventory
 from ledger import Ledger
 
@@ -14,16 +14,16 @@ class ProductionLine(object):
     """
 
     def __init__(self, stream_id, line_spec, config, master_clock):
-        self.line_id = line_spec['lineId'] #TODO change camel case to kebab case
+        self.line_id = line_spec['line-id']
+        self.linetype = line_spec['line-type']
         self.site_name = line_spec['site-name']
         self.site_efficiency = config['efficiency'][self.site_name]
-        self.linetype = ProductionLines[self.line_id]
-        self.building = Buildings[self.linetype['building']]
+        self.building = Buildings[self.linetype]
         self.building_count = line_spec['buildingCount'] #TODO change camel to kebab case
         self.production = self._init_production(self.building_count)
         self.queue_identity = ''
         self.queue = self._init_production_queue(line_spec['queue'])
-        self.ledger = Ledger(stream_id, self.line_id, self.building_count, config['market'])
+        self.ledger = Ledger(stream_id, self.line_id, self.linetype, self.building_count, config['market'])
         self.inventory = config['inventory']
         self.sourcing_strategy = config['sourcing-strategy']
         self.essentials_strategy = config['essentials-strategy']
@@ -54,7 +54,7 @@ class ProductionLine(object):
             })
 
     def line_identity(self):
-        return self.linetype['building'] + str(self.building_count) + "[" + self.queue_identity + "]"
+        return self.linetype + str(self.building_count) + "[" + self.queue_identity + "]"
 
     def _calc_line_efficiency(self):
         value = 1.0
@@ -148,11 +148,12 @@ class ProductionLine(object):
     def _produce(self, master_clock, buildingNum):
         active = self.production[buildingNum]
         recipe = active['recipe']
-        product = recipe['output']
-        count = active['count'] * recipe['count']
-
-        self.inventory.add(product, count)
-        self.ledger.add(master_clock, Ledger.OUTPUT, 'output produced', count=count, product=product)
+        outputs = recipe['outputs']
+        for output in outputs:
+            product = output['id']
+            count = active['count'] * output['count']
+            self.inventory.add(product, count)
+            self.ledger.add(master_clock, Ledger.OUTPUT, 'output produced', count=count, product=product)
     
     def _consume_inputs(self, master_clock, inputs, num_runs):
         for input in inputs: 

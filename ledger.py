@@ -4,7 +4,7 @@
 import json
 from market import Price
 from report import Report
-from configuration import Buildings, ProductionLines
+from configuration import Buildings
 
 class Ledger(object):
     """ Ledger Class
@@ -21,9 +21,10 @@ class Ledger(object):
     ACTIVE = 1
     INACTIVE = 0
 
-    def __init__(self, stream_id, line_id, building_count, market):
+    def __init__(self, stream_id, line_id, line_type, building_count, market):
         self.stream_id = stream_id
         self.line_id = line_id
+        self.line_type = line_type
         self.building_count = building_count
         self.market = market
         self.entries = []
@@ -69,8 +70,8 @@ class Ledger(object):
         """ outputs a summary of the ledger to the provided outfile """
         summary = self.summarize_ledger()
         building = 'Summarization'
-        if self.line_id in ProductionLines:
-            building = Buildings[ProductionLines[self.line_id]['building']]['name']
+        if self.line_type:
+            building = self.line_type
 
         if self.building_count:
             line = "{}.{} ({} x {})"\

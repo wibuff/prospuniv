@@ -46,13 +46,9 @@ def load_config(args, timestamp):
     worker_file = config_file['workers']
     exchange_file = config_file['exchange']
     currency = config_file['currency']
-    json_out_file = config_file['output-json']
-    yaml_out_file = config_file['output-yaml']
     csv_out_file = config_file['output-csv']
     logfile = config_file['logfile']
 
-    jsonout = open(json_out_file, 'w')
-    yamlout = open(yaml_out_file, 'w')
     csvout = open(csv_out_file, 'w')
     logout = open(logfile, 'w')
 
@@ -65,8 +61,6 @@ def load_config(args, timestamp):
     print('  workers        : {}'.format(worker_file))
     print('  exchange       : {}'.format(exchange_file))
     print('  currency       : {}'.format(currency))
-    print('  json outfile   : {}'.format(json_out_file))
-    print('  yaml outfile   : {}'.format(yaml_out_file))
     print('  csv outfile   : {}'.format(csv_out_file))
     print('  log outfile   : {}'.format(logfile))
 
@@ -83,8 +77,6 @@ def load_config(args, timestamp):
         'efficiency': efficiency,
         'workers': workers,
         'market': market,
-        'json-out': jsonout,
-        'yaml-out': yamlout,
         'csv-out': csvout,
         'log': logout
     }
@@ -155,12 +147,16 @@ def combine_options(options):
             combos.append(combo)
     return combos
 
+TREE_CACHE = {}
+
 """ Builds production trees for the provided key (aka template id)
     Returns all variants of possible production treess for a given template
 """
 def build_prod_tree(config, key):
     if '.MKT' in key:
         return [ GraphNode(config, key, 0, []) ]
+    if key in TREE_CACHE:
+        return TREE_CACHE[key]
 
     trees = []
     sources = config['sources']
@@ -186,6 +182,7 @@ def build_prod_tree(config, key):
             trees.append(combo_node)
             variant = variant + 1
 
+    TREE_CACHE[key] = trees
     return trees
 
 """ creates a new instance of supply based on calculated values from nodes
@@ -248,7 +245,7 @@ def main(argv):
                 nodes[key] = build_prod_tree(config, key)
             new_supply = update_supply(config, nodes)
             config['supply'] = new_supply
-            if cnt >= 1:
+            if cnt >= 5:
                 processing = False
             
         supply_out = json.dumps(config['supply'], indent=2)
@@ -258,13 +255,6 @@ def main(argv):
         delta = end - start
         print('end processing: {} \u0394 {:8.6f}'.format(end, delta))
 
-        # output graph to output files (JSON and YAML)
-        """
-        my_dumper = Dumper
-        my_dumper.ignore_aliases = lambda self, data: True
-        yaml.dump(nodes, config['yaml-out'], Dumper=my_dumper, explicit_start=True)
-        """
-        json.dump(nodes, config['json-out'], indent=2)
         write_csv(config, nodes)
 
         done = datetime.utcnow().timestamp()

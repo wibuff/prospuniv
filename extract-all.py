@@ -19,6 +19,7 @@ def main(argv):
         exchange = 'data/exchange-{}.yaml'.format(dt_tag)
         inventory = 'data/inventory-{}.yaml'.format(dt_tag)
         sites = 'data/sites-{}.yaml'.format(dt_tag)
+        templates = 'data/templates-{}.yaml'.format(dt_tag)
         orders = 'data/orders-{}.yaml'.format(dt_tag)
         orders_report = 'reports/orders-{}.yaml'.format(dt_tag)
 
@@ -35,6 +36,9 @@ def main(argv):
 
         status = os.system('src/extract-site-data.py {} > {}'.format(source, sites))
         print('extract site data, exit code={}'.format(status))
+
+        status = os.system('src/extract-template-data.py {} > {}'.format(source, templates))
+        print('extract template data, exit code={}'.format(status))
 
         status = os.system('src/extract-order-data.py {} > {}'.format(source, orders))
         print('extract order data, exit code={}'.format(status))

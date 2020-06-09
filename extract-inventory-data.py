@@ -14,7 +14,7 @@ from environment import DATA_DIR
 def extract_args(argv):
     if len(argv) < 2:
         print('usage: {} <state-file>'.format(argv[0]))
-        raise Exception("missing parms")
+        sys.exit(1)
     return argv[1:]
     
 def load_yaml(filename):
@@ -38,7 +38,6 @@ def main(argv):
     """ runtime entrypoint """
     try:
         args = extract_args(argv)
-        timestamp = datetime.now()
         state_file = load_yaml(args[0])
         stores = state_file['storage']['stores']
 
@@ -50,13 +49,16 @@ def main(argv):
                 for item in store['items']:
                     ticker = item['quantity']['material']['ticker']
                     amount = item['quantity']['amount']
-                    inventory[ticker] = amount
+                    if ticker in inventory: 
+                        inventory[ticker] = inventory[ticker] + amount
+                    else: 
+                        inventory[ticker] = amount
 
         output = yaml.dump(inventory, Dumper=Dumper, explicit_start=True)
         print(output)
         return 0
 
-    except Exception as err:
+    except Exception:
         traceback.print_exc()
         return 100
 
